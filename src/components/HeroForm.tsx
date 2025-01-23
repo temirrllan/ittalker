@@ -3,7 +3,6 @@
 import { useState } from 'react';
 import { IMaskInput } from 'react-imask';
 import { formSchema, formatPhoneInput } from '@/utils/validationSchema';
-import SuccessPopup from './SuccessPopup';
 import type { ValidationError, ApiResponse } from '@/types/form';
 
 interface FormData {
@@ -18,9 +17,10 @@ interface FormErrors {
 
 interface HeroFormProps {
   className?: string;
+  onSubmitSuccess?: () => void;
 }
 
-function HeroForm({ className = '' }: HeroFormProps) {
+function HeroForm({ className = '', onSubmitSuccess }: HeroFormProps) {
   const [formData, setFormData] = useState<FormData>({
     name: '',
     phone: '',
@@ -28,7 +28,6 @@ function HeroForm({ className = '' }: HeroFormProps) {
   });
   const [errors, setErrors] = useState<FormErrors>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [showSuccess, setShowSuccess] = useState(false);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -78,8 +77,10 @@ function HeroForm({ className = '' }: HeroFormProps) {
       const result = await response.json() as ApiResponse;
       
       if (result.success) {
-        setShowSuccess(true);
         setFormData({ name: '', phone: '', email: '' });
+        if (onSubmitSuccess) {
+          onSubmitSuccess(); // Call the parent's success handler
+        }
       } else {
         throw new Error(result.error || 'Failed to submit form');
       }
@@ -100,7 +101,7 @@ function HeroForm({ className = '' }: HeroFormProps) {
   };
 
   return (
-    <>
+    <div className="relative">
       <form onSubmit={handleSubmit} className={`flex flex-col md:flex-row gap-2 md:gap-5 ${className}`}>
         <div className="flex-1">
           <input
@@ -158,12 +159,7 @@ function HeroForm({ className = '' }: HeroFormProps) {
           {isSubmitting ? 'Отправка...' : 'Записаться'}
         </button>
       </form>
-
-      <SuccessPopup 
-        isOpen={showSuccess} 
-        onClose={() => setShowSuccess(false)} 
-      />
-    </>
+    </div>
   );
 }
 

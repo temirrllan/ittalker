@@ -1,7 +1,13 @@
+'use client'
+
+import { useState } from 'react';
 import HeroForm from '@/components/HeroForm';
 import Badge from '@/components/Badge';
+import SuccessPopup from '@/components/SuccessPopup';
 
 function Hero() {
+  const [showSuccess, setShowSuccess] = useState(false);
+
   const features = [
     'Группы по 15 человек',
     'Только польза без воды',
@@ -74,7 +80,10 @@ function Hero() {
                 <h3 className="text-[25px] leading-[129%] font-[550] text-white mb-8">
                   Запишись на бесплатный вебинар!
                 </h3>
-                <HeroForm className="" />
+                <HeroForm 
+                  className="mt-8"
+                  onSubmitSuccess={() => setShowSuccess(true)} 
+                />
               </div>
             </div>
           </div>
@@ -145,11 +154,18 @@ function Hero() {
               <p className='text-start text-white text-xl lg:text-2xl font-[550] mb-6 lg:mb-8'>
                 Запишись на тестовое собеседование!
               </p>
-              <HeroForm />
+              <HeroForm 
+                onSubmitSuccess={() => setShowSuccess(true)} 
+              />
             </div>
           </div>
         </div>
       </div>
+
+      <SuccessPopup 
+        isOpen={showSuccess} 
+        onClose={() => setShowSuccess(false)} 
+      />
     </section>
   );
 }

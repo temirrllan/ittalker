@@ -58,18 +58,18 @@ function Footer() {
               >
                 <img src="/assets/instagram.svg" alt="Instagram" className="w-6 lg:w-8 h-6 lg:h-8" />
                 <span className="text-base lg:text-lg opacity-80 hover:opacity-100">
-                  ittalker.academy
+                  it.talker.academy
                 </span>
               </a>
               <a 
-                href="https://wa.me/77777777777" 
+                href="https://wa.me/+77074045753" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="flex items-center gap-3"
               >
                 <img src="/assets/whatsapp.svg" alt="WhatsApp" className="w-6 h-6" />
                 <span className="text-base lg:text-lg opacity-80 hover:opacity-100">
-                  +7 777 777 7777
+                  +7(707) 404 57 53
                 </span>
               </a>
             </div>
