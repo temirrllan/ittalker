@@ -2,6 +2,7 @@ import { google } from 'googleapis';
 import { JWT } from 'google-auth-library';
 import { NextResponse } from 'next/server';
 import { v4 as uuidv4 } from 'uuid';
+import { ValidationError } from '@/types/form';
 
 interface FormData {
     name: string;
@@ -63,13 +64,10 @@ async function verifyServiceAccountAccess() {
         console.log('Available sheets:', sheetsList);
 
         return true;
-    } catch (error: any) {
+    } catch (err) {
+        const error = err as ValidationError;
         console.error('Service account access error:', {
-            message: error.message,
-            code: error.code,
-            status: error.response?.status,
-            statusText: error.response?.statusText,
-            details: error.response?.data
+            message: error.message
         });
         throw new Error(`Service account access failed: ${error.message}`);
     }
@@ -113,13 +111,10 @@ export async function POST(request: Request) {
         console.log('=== Submission completed successfully ===');
 
         return NextResponse.json({ success: true, id: uniqueId });
-    } catch (error: any) {
+    } catch (err) {
+        const error = err as ValidationError;
         console.error('=== Submission failed ===', {
             message: error.message,
-            code: error.code,
-            status: error.response?.status,
-            statusText: error.response?.statusText,
-            details: error.response?.data
         });
 
         return NextResponse.json(
