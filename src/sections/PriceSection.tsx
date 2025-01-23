@@ -2,16 +2,29 @@
 
 import { useState } from 'react';
 import { IMaskInput } from 'react-imask';
-import { formSchema } from '../utils/validationSchema';
-import * as yup from 'yup';
+import { formSchema, formatPhoneInput } from '../utils/validationSchema';
+import SuccessPopup from '@/components/SuccessPopup';
+import type { ValidationError, ApiResponse } from '@/types/form';
+
+interface FormData {
+  name: string;
+  phone: string;
+  email: string;
+}
+
+interface FormErrors {
+  [key: string]: string;
+}
 
 function PriceSection() {
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState<FormData>({
     name: '',
     phone: '',
     email: ''
   });
-  const [errors, setErrors] = useState<{[key: string]: string}>({});
+  const [errors, setErrors] = useState<FormErrors>({});
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [showSuccess, setShowSuccess] = useState(false);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -28,9 +41,10 @@ function PriceSection() {
   };
 
   const handlePhoneChange = (value: string) => {
+    const formattedValue = formatPhoneInput(value);
     setFormData(prev => ({
       ...prev,
-      phone: value
+      phone: formattedValue
     }));
     if (errors.phone) {
       setErrors(prev => ({
@@ -42,21 +56,41 @@ function PriceSection() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setErrors({});
+    
     try {
+      setIsSubmitting(true);
       await formSchema.validate(formData, { abortEarly: false });
-      console.log('Form submitted:', formData);
-      setFormData({ name: '', phone: '', email: '' });
-      setErrors({});
+      
+      const response = await fetch('/api/submit-form', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const result = await response.json() as ApiResponse;
+
+      if (result.success) {
+        setShowSuccess(true);
+        setFormData({ name: '', phone: '', email: '' });
+      } else {
+        throw new Error(result.error || 'Failed to submit form');
+      }
     } catch (err) {
-      if (err instanceof yup.ValidationError) {
-        const newErrors: {[key: string]: string} = {};
-        err.inner.forEach((error) => {
-          if (error.path) {
-            newErrors[error.path] = error.message;
+      const error = err as ValidationError;
+      if (error.inner) {
+        const newErrors: FormErrors = {};
+        error.inner.forEach((err) => {
+          if (err.path) {
+            newErrors[err.path] = err.message;
           }
         });
         setErrors(newErrors);
       }
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -78,7 +112,7 @@ function PriceSection() {
                 value={formData.name}
                 onChange={handleChange}
                 placeholder="Имя"
-                className={`w-full bg-white rounded-xl px-6 py-3 text-black ${
+                className={`w-full bg-white rounded-xl px-6 py-4 text-black ${
                   errors.name ? 'border-2 border-red-500' : ''
                 }`}
               />
@@ -91,7 +125,7 @@ function PriceSection() {
                 mask="+7(000) 000 00 00"
                 value={formData.phone}
                 onAccept={handlePhoneChange}
-                placeholder="Телефон"
+                placeholder="+7(777) 777 77 77"
                 className={`w-full bg-white rounded-xl px-6 py-4 text-black ${
                   errors.phone ? 'border-2 border-red-500' : ''
                 }`}
@@ -117,16 +151,17 @@ function PriceSection() {
             </div>
             <button
               type="submit"
-              className="bg-[var(--button-primary)] text-white px-6 py-2 md:py-4 rounded-xl hover:opacity-90 transition-opacity"
+              disabled={isSubmitting}
+              className="bg-[var(--button-primary)] font-semibold text-white px-6 py-2 md:py-4 rounded-xl hover:opacity-90 transition-opacity disabled:opacity-50"
             >
-              Записаться на курс
+              {isSubmitting ? 'Отправка...' : 'Записаться на курс'}
             </button>
 
             <span className="text-sm block md:hidden opacity-80 mt-4">*С 21.02.2025 стоимость курсов вырастет на 50% и составит 600 000 тенге</span>
           </form>
 
           <div className="flex items-start w-full gap-8">
-            <h2 className="text-xl md:text-5xl mb-4 md:mb-0 max-w-7xl">
+            <h2 className="text-2xl md:text-5xl font-[550] mb-4 md:mb-0 max-w-7xl">
               Запишись на курсы сейчас, <br />
               пока действует низкая цена!
             </h2>
@@ -138,6 +173,11 @@ function PriceSection() {
           </div>
         </div>
       </div>
+
+      <SuccessPopup 
+        isOpen={showSuccess} 
+        onClose={() => setShowSuccess(false)} 
+      />
     </section>
   );
 }

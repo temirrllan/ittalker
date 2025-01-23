@@ -2,17 +2,30 @@
 
 import { useState } from 'react';
 import { IMaskInput } from 'react-imask';
-import * as yup from 'yup';
-import { formSchema } from '../utils/validationSchema';
+import { formSchema, formatPhoneInput } from '../utils/validationSchema';
 import Badge from "../components/Badge";
+import SuccessPopup from '@/components/SuccessPopup';
+import type { ValidationError, ApiResponse } from '@/types/form';
+
+interface FormData {
+  name: string;
+  phone: string;
+  email: string;
+}
+
+interface FormErrors {
+  [key: string]: string;
+}
 
 function RecordForm() {
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState<FormData>({
     name: '',
     phone: '',
     email: ''
   });
-  const [errors, setErrors] = useState<{[key: string]: string}>({});
+  const [errors, setErrors] = useState<FormErrors>({});
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [showSuccess, setShowSuccess] = useState(false);
 
   const specializations = [
     'разработчик',
@@ -39,9 +52,10 @@ function RecordForm() {
   };
 
   const handlePhoneChange = (value: string) => {
+    const formattedValue = formatPhoneInput(value);
     setFormData(prev => ({
       ...prev,
-      phone: value
+      phone: formattedValue
     }));
     if (errors.phone) {
       setErrors(prev => ({
@@ -53,21 +67,41 @@ function RecordForm() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setErrors({});
+    
     try {
+      setIsSubmitting(true);
       await formSchema.validate(formData, { abortEarly: false });
-      console.log('Form submitted:', formData);
-      setFormData({ name: '', phone: '', email: '' });
-      setErrors({});
+      
+      const response = await fetch('/api/submit-form', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const result = await response.json() as ApiResponse;
+
+      if (result.success) {
+        setShowSuccess(true);
+        setFormData({ name: '', phone: '', email: '' });
+      } else {
+        throw new Error(result.error || 'Failed to submit form');
+      }
     } catch (err) {
-      if (err instanceof yup.ValidationError) {
-        const newErrors: {[key: string]: string} = {};
-        err.inner.forEach((error) => {
-          if (error.path) {
-            newErrors[error.path] = error.message;
+      const error = err as ValidationError;
+      if (error.inner) {
+        const newErrors: FormErrors = {};
+        error.inner.forEach((err) => {
+          if (err.path) {
+            newErrors[err.path] = err.message;
           }
         });
         setErrors(newErrors);
       }
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -118,7 +152,7 @@ function RecordForm() {
                   mask="+7(000) 000 00 00"
                   value={formData.phone}
                   onAccept={handlePhoneChange}
-                  placeholder="Телефон"
+                  placeholder="+7(777) 777 77 77"
                   className={`w-full bg-white rounded-lg px-4 py-3 text-black ${
                     errors.phone ? 'border-2 border-red-500' : ''
                   }`}
@@ -145,9 +179,10 @@ function RecordForm() {
             </div>
             <button
               type="submit"
-              className="w-full bg-[var(--button-primary)] text-white py-3 rounded-lg hover:opacity-90 transition-opacity"
+              disabled={isSubmitting}
+              className="w-full bg-[var(--button-primary)] text-white py-3 rounded-lg hover:opacity-90 transition-opacity disabled:opacity-50"
             >
-              Пройти тестовый собес
+              {isSubmitting ? 'Отправка...' : 'Записаться'}
             </button>
           </form>
 
@@ -187,6 +222,11 @@ function RecordForm() {
           </div>
         </div>
       </div>
+
+      <SuccessPopup 
+        isOpen={showSuccess} 
+        onClose={() => setShowSuccess(false)} 
+      />
     </section>
   );
 }

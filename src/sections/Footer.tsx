@@ -51,14 +51,14 @@ function Footer() {
             <h3 className="font-semibold mb-4 text-xl">Контакты</h3>
             <div className="space-y-3">
               <a 
-                href="https://instagram.com/it.talker" 
+                href="https://www.instagram.com/ittalker.academy?igsh=MTNrbGh0b3k5NTlmbg==" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="flex items-center gap-3"
               >
                 <img src="/assets/instagram.svg" alt="Instagram" className="w-6 lg:w-8 h-6 lg:h-8" />
                 <span className="text-base lg:text-lg opacity-80 hover:opacity-100">
-                  it.talker
+                  ittalker.academy
                 </span>
               </a>
               <a 
