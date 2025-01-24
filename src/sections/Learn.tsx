@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react';
+import AnimatedSection from '@/components/AnimatedSection';
 
 interface Module {
   id: number;
@@ -134,45 +135,49 @@ function Learn() {
   return (
     <section className="py-16 bg-[var(--bg-section)] text-white rounded-t-3xl">
       <div className="container">
-        <h2 className="text-3xl font-[550] mb-8">Программа курса</h2>
+        <AnimatedSection>
+          <h2 className="text-3xl font-[550] mb-8">Программа курса</h2>
+        </AnimatedSection>
         
         <div className="space-y-2 md:space-y-4">
-          {modules.map((module) => (
-            <div key={module.id} className="bg-white text-black rounded-lg overflow-hidden">
-              <button
-                className="w-full px-6 py-4 gap-4 text-left flex items-start justify-between hover:bg-opacity-90"
-                onClick={() => setOpenModule(openModule === module.id ? 0 : module.id)}
-              >
-                <span className="text-sm md:text-lg font-medium">{module.title}</span>
-                <svg
-                  className={`w-6 h-6 transform transition-transform ${
-                    openModule === module.id ? 'rotate-180' : ''
-                  }`}
-                  fill="none"
-                  stroke="#7497C4"
-                  viewBox="0 0 24 24"
+          {modules.map((module, index) => (
+            <AnimatedSection key={module.id} delay={index * 0.1}>
+              <div className="bg-white text-black rounded-lg overflow-hidden">
+                <button
+                  className="w-full px-6 py-4 gap-4 text-left flex items-start justify-between hover:bg-opacity-90"
+                  onClick={() => setOpenModule(openModule === module.id ? 0 : module.id)}
                 >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M19 9l-7 7-7-7"
-                  />
-                </svg>
-              </button>
-              
-              {openModule === module.id && (
-                <div className="px-6 py-4 bg-[#18529D]">
-                  <ul className="list-disc list-inside space-y-2 text-[var(--white)]">
-                    {module.content.map((item, index) => (
-                      <li key={index} className="leading-relaxed">
-                        {item}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              )}
-            </div>
+                  <span className="text-sm md:text-lg font-medium">{module.title}</span>
+                  <svg
+                    className={`w-6 h-6 transform transition-transform ${
+                      openModule === module.id ? 'rotate-180' : ''
+                    }`}
+                    fill="none"
+                    stroke="#7497C4"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M19 9l-7 7-7-7"
+                    />
+                  </svg>
+                </button>
+                
+                {openModule === module.id && (
+                  <div className="px-6 py-4 bg-[#18529D]">
+                    <ul className="list-disc list-inside space-y-2 text-[var(--white)]">
+                      {module.content.map((item, index) => (
+                        <li key={index} className="leading-relaxed">
+                          {item}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+              </div>
+            </AnimatedSection>
           ))}
         </div>
       </div>

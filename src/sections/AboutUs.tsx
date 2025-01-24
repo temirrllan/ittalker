@@ -1,4 +1,6 @@
 import Card from '../components/Card';
+import AnimatedSection from '@/components/AnimatedSection';
+
 
 function AboutUs() {
   const advantages = [
@@ -36,22 +38,27 @@ function AboutUs() {
       <div className="container">
         {/* Advantages Cards */}
         <div className="grid md:grid-cols-4 gap-6 mb-16">
-          {advantages.map((advantage) => (
-            <Card key={advantage.title} className="h-full ">
-              <h3 className="text-md break-words mb-4 text-black">{advantage.title}</h3>
-              <p className="text-[#2D2F32]">{advantage.description}</p>
-            </Card>
+          {advantages.map((advantage, index) => (
+            <AnimatedSection key={advantage.title} delay={index * 0.1}>
+              <Card className="h-full">
+                <h3 className="text-md break-words mb-4 text-black">{advantage.title}</h3>
+                <p className="text-[#2D2F32]">{advantage.description}</p>
+              </Card>
+            </AnimatedSection>
           ))}
         </div>
 
+
         {/* About Content */}
         <div className="grid md:grid-cols-2 gap-12 items-center">
-          <img 
-            src="/assets/about.png" 
-            alt="About us" 
-            className="rounded-lg"
-          />
-          <div>
+          <AnimatedSection>
+            <img 
+              src="/assets/about.png" 
+              alt="About us" 
+              className="rounded-lg"
+            />
+          </AnimatedSection>
+          <AnimatedSection delay={0.2}>
             <h2 className="text-3xl md:text-4xl md:font-[550] mb-6">О нас</h2>
             <div className="space-y-4 mb-20">
               <p>
@@ -73,16 +80,18 @@ function AboutUs() {
             
             {/* Stats */}
             <div className="grid grid-cols-2 gap-8">
-              {stats.map((stat) => (
-                <div key={stat.count}>
-                  <div className="bg-gradient-to-t from-[#3075CE] to-[#9ABBE6] bg-clip-text text-transparent text-3xl md:text-5xl mb-2">
-                    {stat.count}
+              {stats.map((stat, index) => (
+                <AnimatedSection key={stat.count} delay={0.3 + index * 0.1}>
+                  <div>
+                    <div className="bg-gradient-to-t from-[#3075CE] to-[#9ABBE6] bg-clip-text text-transparent text-3xl md:text-5xl mb-2">
+                      {stat.count}
+                    </div>
+                    <p className="text-sm md:text-base">{stat.description}</p>
                   </div>
-                  <p className="text-sm md:text-base">{stat.description}</p>
-                </div>
+                </AnimatedSection>
               ))}
             </div>
-          </div>
+          </AnimatedSection>
         </div>
       </div>
     </section>

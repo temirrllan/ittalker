@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { IMaskInput } from 'react-imask';
 import { formSchema, formatPhoneInput } from '@/utils/validationSchema';
 import type { ValidationError, ApiResponse } from '@/types/form';
+import PrivacyNotice from './PrivacyNotice';
 
 interface FormData {
   name: string;
@@ -159,6 +160,7 @@ function HeroForm({ className = '', onSubmitSuccess }: HeroFormProps) {
           {isSubmitting ? 'Отправка...' : 'Записаться'}
         </button>
       </form>
+      <PrivacyNotice />
     </div>
   );
 }

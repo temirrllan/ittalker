@@ -5,6 +5,8 @@ import { IMaskInput } from 'react-imask';
 import { formSchema, formatPhoneInput } from '../utils/validationSchema';
 import SuccessPopup from '@/components/SuccessPopup';
 import type { ValidationError, ApiResponse } from '@/types/form';
+import PrivacyNotice from '@/components/PrivacyNotice';
+import AnimatedSection from '@/components/AnimatedSection';
 
 interface FormData {
   name: string;
@@ -97,80 +99,89 @@ function PriceSection() {
   return (
     <section className="bg-[var(--bg-section)] text-white py-16 rounded-t-3xl">
       <div className="container">
-        <div className="w-60 md:w-fit grid md:flex items-center gap-4 mb-12 bg-[var(--bg-medium-card)] rounded-3xl px-6 py-4">
-          <h3 className="text-2xl opacity-80 hidden md:block">Второй поток:</h3>
-          <h3 className="text-sm opacity-80 block md:hidden">Стоимость обучения для второго потока:</h3>
-          <span className="text-xl md:text-4xl font-semibold">400 000 тенге</span>
-        </div>
+        <AnimatedSection>
+          <div className="w-60 md:w-fit grid md:flex items-center gap-4 mb-12 bg-[var(--bg-medium-card)] rounded-3xl px-6 py-4">
+            <h3 className="text-2xl opacity-80 hidden md:block">Второй поток:</h3>
+            <h3 className="text-sm opacity-80 block md:hidden">Стоимость обучения для второго потока:</h3>
+            <span className="text-xl md:text-4xl font-semibold">400 000 тенге</span>
+          </div>
+        </AnimatedSection>
 
         <div className="max-w-5xl flex flex-col-reverse md:flex-col">
-          <form onSubmit={handleSubmit} className="grid md:grid-cols-4 gap-4 mb-8">
-            <div>
-              <input
-                type="text"
-                name="name"
-                value={formData.name}
-                onChange={handleChange}
-                placeholder="Имя"
-                className={`w-full bg-white rounded-xl px-6 py-4 text-black ${
-                  errors.name ? 'border-2 border-red-500' : ''
-                }`}
-              />
-              {errors.name && (
-                <span className="text-red-400 text-sm mt-1">{errors.name}</span>
-              )}
-            </div>
-            <div>
-              <IMaskInput
-                mask="+7(000) 000 00 00"
-                value={formData.phone}
-                onAccept={handlePhoneChange}
-                placeholder="+7(777) 777 77 77"
-                className={`w-full bg-white rounded-xl px-6 py-4 text-black ${
-                  errors.phone ? 'border-2 border-red-500' : ''
-                }`}
-              />
-              {errors.phone && (
-                <span className="text-red-400 text-sm mt-1">{errors.phone}</span>
-              )}
-            </div>
-            <div>
-              <input
-                type="email"
-                name="email"
-                value={formData.email}
-                onChange={handleChange}
-                placeholder="Email"
-                className={`w-full bg-white rounded-xl px-6 py-4 text-black ${
-                  errors.email ? 'border-2 border-red-500' : ''
-                }`}
-              />
-              {errors.email && (
-                <span className="text-red-400 text-sm mt-1">{errors.email}</span>
-              )}
-            </div>
-            <button
-              type="submit"
-              disabled={isSubmitting}
-              className="bg-[var(--button-primary)] font-semibold text-white px-6 py-2 md:py-4 rounded-xl hover:opacity-90 transition-opacity disabled:opacity-50"
-            >
-              {isSubmitting ? 'Отправка...' : 'Записаться на курс'}
-            </button>
+          <AnimatedSection delay={0.2}>
+            <form onSubmit={handleSubmit} className="grid md:grid-cols-4 gap-4 mb-8">
+              <div>
+                <input
+                  type="text"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleChange}
+                  placeholder="Имя"
+                  className={`w-full bg-white rounded-xl px-6 py-4 text-black ${
+                    errors.name ? 'border-2 border-red-500' : ''
+                  }`}
+                />
+                {errors.name && (
+                  <span className="text-red-400 text-sm mt-1">{errors.name}</span>
+                )}
+              </div>
+              <div>
+                <IMaskInput
+                  mask="+7(000) 000 00 00"
+                  value={formData.phone}
+                  onAccept={handlePhoneChange}
+                  placeholder="+7(777) 777 77 77"
+                  className={`w-full bg-white rounded-xl px-6 py-4 text-black ${
+                    errors.phone ? 'border-2 border-red-500' : ''
+                  }`}
+                />
+                {errors.phone && (
+                  <span className="text-red-400 text-sm mt-1">{errors.phone}</span>
+                )}
+              </div>
+              <div>
+                <input
+                  type="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  placeholder="Email"
+                  className={`w-full bg-white rounded-xl px-6 py-4 text-black ${
+                    errors.email ? 'border-2 border-red-500' : ''
+                  }`}
+                />
+                {errors.email && (
+                  <span className="text-red-400 text-sm mt-1">{errors.email}</span>
+                )}
+              </div>
+              <button
+                type="submit"
+                disabled={isSubmitting}
+                className="bg-[var(--button-primary)] font-semibold text-white px-6 py-2 md:py-4 rounded-xl hover:opacity-90 transition-opacity disabled:opacity-50"
+              >
+                {isSubmitting ? 'Отправка...' : 'Записаться на курс'}
+              </button>
+              <div className="col-span-full">
+                <PrivacyNotice />
+              </div>
 
-            <span className="text-sm block md:hidden opacity-80 mt-4">*С 21.02.2025 стоимость курсов вырастет на 50% и составит 600 000 тенге</span>
-          </form>
+              <span className="text-sm block md:hidden opacity-80 mt-4">*С 21.02.2025 стоимость курсов вырастет на 50% и составит 600 000 тенге</span>
+            </form>
+          </AnimatedSection>
 
-          <div className="flex items-start w-full gap-8">
-            <h2 className="text-2xl md:text-5xl font-[550] mb-4 md:mb-0 max-w-7xl">
-              Запишись на курсы сейчас, <br />
-              пока действует низкая цена!
-            </h2>
-            <img 
-              src="/assets/arrow-up.svg" 
-              alt="arrow" 
-              className="w-24 h-24 hidden md:block"
-            />
-          </div>
+          <AnimatedSection delay={0.4}>
+            <div className="flex items-start w-full gap-8">
+              <h2 className="text-2xl md:text-5xl font-[550] mb-4 md:mb-0 max-w-7xl">
+                Запишись на курсы сейчас, <br />
+                пока действует низкая цена!
+              </h2>
+              <img 
+                src="/assets/arrow-up.svg" 
+                alt="arrow" 
+                className="w-24 h-24 hidden md:block"
+              />
+            </div>
+          </AnimatedSection>
         </div>
       </div>
 

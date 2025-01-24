@@ -6,6 +6,8 @@ import { formSchema, formatPhoneInput } from '../utils/validationSchema';
 import Badge from "../components/Badge";
 import SuccessPopup from '@/components/SuccessPopup';
 import type { ValidationError, ApiResponse } from '@/types/form';
+import PrivacyNotice from '@/components/PrivacyNotice';
+import AnimatedSection from '@/components/AnimatedSection';
 
 interface FormData {
   name: string;
@@ -109,7 +111,7 @@ function RecordForm() {
     <section className="bg-[var(--bg-section)] text-white py-16 rounded-xl">
       <div className="container flex flex-col md:flex-row gap-16">
         {/* Left Column */}
-        <div className='flex-1'>
+        <AnimatedSection className='flex-1'>
           <h2 className="text-xl md:text-3xl font-[550] mb-6">
             Полный курс SA в тесном <br />
             взаимодействии с преподавателями <br />
@@ -184,22 +186,23 @@ function RecordForm() {
             >
               {isSubmitting ? 'Отправка...' : 'Записаться'}
             </button>
+            <PrivacyNotice />
           </form>
 
           <p className="text-sm mt-4 text-[var(--white)] opacity-80">
             Запишись на живой митинг с преподавателем, чтобы в режиме <br />
             тестового собеседования узнать о своих пробелах!
           </p>
-        </div>
+        </AnimatedSection>
 
-        {/* white separater */}
+        {/* white separator */}
         <div className="w-full px-8 md:h-full md:w-1">
           <div className="w-full h-px md:h-full md:w-px bg-white opacity-20"></div>
         </div>
 
         {/* Right Column */}
-        <div className="flex-1">
-          <h3 className="text-2xl  mb-6">
+        <AnimatedSection className="flex-1" delay={0.2}>
+          <h3 className="text-2xl mb-6">
             Чтобы понимать программу, нужно <br />
             иметь хотя бы базовое понимание IT
           </h3>
@@ -220,7 +223,7 @@ function RecordForm() {
               </Badge>
             ))}
           </div>
-        </div>
+        </AnimatedSection>
       </div>
 
       <SuccessPopup 

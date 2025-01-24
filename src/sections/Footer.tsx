@@ -1,3 +1,5 @@
+import AnimatedSection from '@/components/AnimatedSection';
+
 function Footer() {
   const menuLinks = [
     'Курсы',
@@ -13,7 +15,7 @@ function Footer() {
         {/* Top Section */}
         <div className="w-full flex flex-col lg:flex-row justify-between items-start gap-8 lg:gap-12 mb-12">
           {/* Logo and Legal Links */}
-          <div className="space-y-4 w-full lg:w-auto">
+          <AnimatedSection className="space-y-4 w-full lg:w-auto">
             <img 
               src="/assets/header-logo.png" 
               alt="it.talker" 
@@ -27,10 +29,10 @@ function Footer() {
                 Публичная оферта
               </a>
             </div>
-          </div>
+          </AnimatedSection>
 
           {/* Menu */}
-          <div className="w-full lg:w-auto mt-8 lg:mt-0">
+          <AnimatedSection delay={0.2} className="w-full lg:w-auto mt-8 lg:mt-0">
             <h3 className="font-semibold mb-4 text-xl">Меню</h3>
             <ul className="space-y-3">
               {menuLinks.map((link) => (
@@ -44,10 +46,10 @@ function Footer() {
                 </li>
               ))}
             </ul>
-          </div>
+          </AnimatedSection>
 
           {/* Contacts */}
-          <div className="w-full lg:w-auto mt-8 lg:mt-0">
+          <AnimatedSection delay={0.3} className="w-full lg:w-auto mt-8 lg:mt-0">
             <h3 className="font-semibold mb-4 text-xl">Контакты</h3>
             <div className="space-y-3">
               <a 
@@ -73,25 +75,27 @@ function Footer() {
                 </span>
               </a>
             </div>
-          </div>
+          </AnimatedSection>
         </div>
 
         {/* Bottom Section */}
-        <div className="flex flex-col-reverse lg:flex-row justify-between items-center gap-8 lg:gap-0">
-          <p className="text-sm opacity-60 text-center lg:text-left">
-            2024 все права защищены
-          </p>
-          <div className="flex items-center  gap-10 lg:gap-8">
-            <p className="text-sm lg:text-md opacity-80">
-              Разработано<br />студией
+        <AnimatedSection delay={0.4}>
+          <div className="flex flex-col-reverse lg:flex-row justify-between items-center gap-8 lg:gap-0">
+            <p className="text-sm opacity-60 text-center lg:text-left">
+              2024 все права защищены
             </p>
-            <img 
-              src="/assets/footer-icon.png" 
-              alt="Dala Digital" 
-              className="w-24 lg:w-28 h-12 lg:h-14" 
-            />
+            <div className="flex items-center  gap-10 lg:gap-8">
+              <p className="text-sm lg:text-md opacity-80">
+                Разработано<br />студией
+              </p>
+              <img 
+                src="/assets/footer-icon.png" 
+                alt="Dala Digital" 
+                className="w-24 lg:w-28 h-12 lg:h-14" 
+              />
+            </div>
           </div>
-        </div>
+        </AnimatedSection>
       </div>
     </footer>
   );
