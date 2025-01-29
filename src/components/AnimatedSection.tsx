@@ -29,32 +29,17 @@ export default function AnimatedSection({
       case 'none':
         return { opacity: 0 };
       default:
-        return { opacity: 0, y: 20 };
-    }
-  };
-
-  const getFinalPosition = () => {
-    switch (direction) {
-      case 'up':
-      case 'down':
-        return { opacity: 1, y: 0 };
-      case 'left':
-      case 'right':
-        return { opacity: 1, x: 0 };
-      case 'none':
-        return { opacity: 1 };
-      default:
-        return { opacity: 1, y: 0 };
+        return { opacity: 0, y: 50 };
     }
   };
 
   return (
     <motion.div
       initial={getInitialPosition()}
-      whileInView={getFinalPosition()}
-      viewport={{ once: true }}
+      whileInView={{ opacity: 1, y: 0, x: 0 }}
+      viewport={{ once: true, margin: "-100px" }}
       transition={{ 
-        duration: 0.5, 
+        duration: 0.7, 
         delay,
         ease: "easeOut" 
       }}

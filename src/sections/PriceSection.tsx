@@ -102,7 +102,7 @@ export default function PriceSection() {
       <div className="container">
         <AnimatedSection>
           <div className="w-60 md:w-fit grid md:flex items-center gap-4 mb-12 bg-[var(--bg-medium-card)] rounded-3xl px-6 py-4">
-            <Tooltip text="С января 2025 года цена будет 700 000 тенге">
+            <Tooltip text="С января 2025 года цена будет 600 000 тенге">
               <h3 className="text-2xl opacity-80 hidden md:block cursor-help font-semibold">
                 Второй поток:
               </h3>
@@ -126,7 +126,7 @@ export default function PriceSection() {
                   value={formData.name}
                   onChange={handleChange}
                   placeholder="Имя"
-                  className={`w-full bg-white rounded-xl px-6 py-4 text-black ${
+                  className={`w-full h-[57px] px-6 rounded-[19px] text-base bg-white font-semibold text-black ${
                     errors.name ? 'border-2 border-red-500' : ''
                   }`}
                 />
@@ -139,8 +139,8 @@ export default function PriceSection() {
                   mask="+7(000) 000 00 00"
                   value={formData.phone}
                   onAccept={handlePhoneChange}
-                  placeholder="+7(777) 777 77 77"
-                  className={`w-full bg-white rounded-xl px-6 py-4 text-black ${
+                  placeholder="Телефон"
+                  className={`w-full h-[57px] px-6 rounded-[19px] text-base bg-white font-semibold text-black ${
                     errors.phone ? 'border-2 border-red-500' : ''
                   }`}
                 />
@@ -155,7 +155,7 @@ export default function PriceSection() {
                   value={formData.email}
                   onChange={handleChange}
                   placeholder="Email"
-                  className={`w-full bg-white rounded-xl px-6 py-4 text-black ${
+                  className={`w-full h-[57px] px-6 rounded-[19px] text-base bg-white font-semibold text-black ${
                     errors.email ? 'border-2 border-red-500' : ''
                   }`}
                 />
@@ -166,7 +166,7 @@ export default function PriceSection() {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="bg-[var(--button-primary)] font-semibold text-white px-6 py-2 md:py-4 rounded-xl hover:opacity-90 transition-opacity disabled:opacity-50"
+                className="h-[57px] px-8 md:px-12 bg-[#006DFC] text-white rounded-[19px] font-semibold text-base hover:opacity-90 transition-opacity whitespace-nowrap"
               >
                 {isSubmitting ? 'Отправка...' : 'Записаться на курс'}
               </button>
@@ -177,13 +177,14 @@ export default function PriceSection() {
               <span className="text-sm block md:hidden opacity-80 mt-4">*С 21.02.2025 стоимость курсов вырастет на 50% и составит 600 000 тенге</span>
             </form>
           </AnimatedSection>
-
           <AnimatedSection delay={0.4}>
             <div className="flex items-start w-full gap-8">
-              <h2 className="text-2xl md:text-5xl font-semibold mb-4 md:mb-0 max-w-7xl">
-                Запишись на курсы сейчас, <br />
-                пока действует низкая цена!
-              </h2>
+              <Tooltip text="*С 21.02.2025 стоимость курсов составит 600 000 тенге">
+                <h2 className="text-2xl md:text-5xl font-semibold mb-4 md:mb-0 max-w-7xl cursor-help">
+                  Запишись на курсы сейчас, <br />
+                  пока действует низкая цена!
+                </h2>
+              </Tooltip>
               <img 
                 src="/assets/arrow-up.svg" 
                 alt="arrow" 

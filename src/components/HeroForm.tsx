@@ -111,7 +111,7 @@ function HeroForm({ className = '', onSubmitSuccess }: HeroFormProps) {
             value={formData.name}
             onChange={handleChange}
             placeholder="Имя"
-            className={`w-full h-[57px] px-6 rounded-[19px] text-base bg-white mb-4 ${
+            className={`w-full h-[57px] px-6 rounded-[19px] font-semibold text-base bg-white mb-4 ${
               errors.name ? 'border-2 border-red-500' : ''
             }`}
           />
@@ -125,8 +125,8 @@ function HeroForm({ className = '', onSubmitSuccess }: HeroFormProps) {
             mask="+7(000) 000 00 00"
             value={formData.phone}
             onAccept={handlePhoneChange}
-            placeholder="+7(777) 777 77 77"
-            className={`w-full h-[57px] px-6 rounded-[19px] text-base bg-white mb-4 ${
+            placeholder="Телефон"
+            className={`w-full h-[57px] px-6 rounded-[19px] text-base bg-white mb-4 font-semibold ${
               errors.phone ? 'border-2 border-red-500' : ''
             }`}
           />
@@ -142,7 +142,7 @@ function HeroForm({ className = '', onSubmitSuccess }: HeroFormProps) {
             value={formData.email}
             onChange={handleChange}
             placeholder="Email"
-            className={`w-full h-[57px] px-6 rounded-[19px] text-base bg-white mb-4 ${
+            className={`w-full h-[57px] px-6 rounded-[19px] text-base font-semibold bg-white mb-4 ${
               errors.email ? 'border-2 border-red-500' : ''
             }`}
           />

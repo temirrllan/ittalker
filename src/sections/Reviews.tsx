@@ -63,26 +63,35 @@ function Reviews() {
 
         <AnimatedSection delay={0.2}>
           <div className="relative">
-            {/* Reviews Slider */}
-            <div className="overflow-hidden">
+            {/* Fixed height container */}
+            <div className="overflow-hidden h-[400px] md:h-[60vh]">
               <div className="flex items-center justify-center gap-[26px] md:gap-[26px] w-full max-w-[968px] mx-auto">
                 {getVisibleSlides().map((review, index) => (
                   <div 
                     key={review.id}
-                    className={`transition-all duration-500 ease-in-out transform flex-none
+                    className={`
+                      transition-all duration-500 ease-in-out transform
                       ${index === 1 
-                        ? 'w-[280px] md:w-[450px] aspect-[328/347] scale-100 opacity-100 z-20' 
-                        : 'w-[240px] md:w-[293px] aspect-[293/314] scale-90 opacity-50 z-10'
+                        ? 'w-[280px] md:w-[450px] opacity-100 z-20' 
+                        : 'w-[240px] md:w-[293px] opacity-50 z-10'
                       }
-                      ${isAnimating ? 'translate-x-0' : ''}
+                      aspect-[328/347]
                     `}
+                    style={{
+                      transform: `
+                        scale(${index === 1 ? '1' : '0.9'})
+                        translateY(${index === 1 ? '0' : '20px'})
+                      `
+                    }}
                   >
                     <img 
                       src={review.image} 
                       alt={`Review ${review.id}`} 
-                      className={`w-full h-full object-cover ${
-                        index === 1 ? 'rounded-[22px]' : 'rounded-[20px]'
-                      }`}
+                      className={`
+                        w-full h-full object-cover
+                        transition-all duration-500 ease-in-out
+                        ${index === 1 ? 'rounded-[22px]' : 'rounded-[20px]'}
+                      `}
                     />
                   </div>
                 ))}

@@ -144,16 +144,16 @@ function Learn() {
             <AnimatedSection 
               key={module.id} 
               delay={index * 0.1}
-              direction={index % 2 === 0 ? 'left' : 'right'}
+              direction="up"
             >
-              <div className="bg-white text-black rounded-lg overflow-hidden">
+              <div className="bg-white text-black rounded-2xl overflow-hidden">
                 <button
-                  className="w-full px-6 py-4 gap-4 text-left flex items-start justify-between hover:bg-opacity-90"
+                  className="w-full px-6 py-6 gap-4 text-left flex items-start justify-between hover:bg-opacity-90 relative z-10"
                   onClick={() => setOpenModule(openModule === module.id ? 0 : module.id)}
                 >
                   <span className="text-sm md:text-lg font-semibold">{module.title}</span>
                   <svg
-                    className={`w-6 h-6 transform transition-transform ${
+                    className={`w-8 h-8 transform transition-transform ${
                       openModule === module.id ? 'rotate-180' : ''
                     }`}
                     fill="none"
@@ -168,12 +168,13 @@ function Learn() {
                     />
                   </svg>
                 </button>
-                
-                {openModule === module.id && (
-                  <div className="px-6 py-4 bg-[#18529D]">
-                    <ul className="list-disc list-inside space-y-2 text-[var(--white)]">
+              </div>
+              <div>
+              {openModule === module.id && (
+                  <div className="px-8 py-4 bg-[#18529D] mt-2">
+                    <ul className="list-disc list-inside text-[var(--white)]">
                       {module.content.map((item, index) => (
-                        <li key={index} className="leading-relaxed">
+                        <li key={index} className="leading-relaxed font-semibold">
                           {item}
                         </li>
                       ))}

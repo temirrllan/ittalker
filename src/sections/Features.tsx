@@ -110,9 +110,8 @@ function RecordForm() {
   return (
     <section className="bg-[var(--bg-section)] text-white py-16 rounded-xl">
       <div className="container flex flex-col md:flex-row gap-16">
-        {/* Left Column */}
-        <AnimatedSection className='flex-1'>
-          <h2 className="text-xl md:text-2xl font-[700] mb-6">
+        <AnimatedSection className='flex-1' direction="up">
+          <h2 className="text-xl md:text-2xl font-semibold mb-6">
             Полный курс SA в тесном <br />
             взаимодействии с преподавателями <br />
             и с практикой в back-end реального <br />
@@ -120,8 +119,8 @@ function RecordForm() {
           </h2>
 
           <div className="flex items-center gap-4 mb-8">
-            <span className="bg-[#285EA4] px-2 md:px-4 py-2 rounded-lg">10 недель</span>
-            <Badge>Набор открыт</Badge>
+            <span className="bg-[#285EA4] px-2 md:px-4 py-2 rounded-3xl font-semibold">10 недель</span>
+            <Badge >Набор открыт</Badge>
           </div>
 
           <p className="text-white mb-12 opacity-70 font-semibold">
@@ -141,7 +140,7 @@ function RecordForm() {
                   value={formData.name}
                   onChange={handleChange}
                   placeholder="Имя"
-                  className={`w-full bg-white rounded-lg px-4 py-3 text-black ${
+                  className={`w-full h-[57px] px-6 rounded-[19px] text-base bg-white font-semibold text-black mb-4 ${
                     errors.name ? 'border-2 border-red-500' : ''
                   }`}
                 />
@@ -154,8 +153,8 @@ function RecordForm() {
                   mask="+7(000) 000 00 00"
                   value={formData.phone}
                   onAccept={handlePhoneChange}
-                  placeholder="+7(777) 777 77 77"
-                  className={`w-full bg-white rounded-lg px-4 py-3 text-black ${
+                  placeholder="Телефон"
+                  className={`w-full h-[57px] px-6 rounded-[19px] text-base bg-white font-semibold text-black mb-4 ${
                     errors.phone ? 'border-2 border-red-500' : ''
                   }`}
                 />
@@ -171,7 +170,7 @@ function RecordForm() {
                 value={formData.email}
                 onChange={handleChange}
                 placeholder="Email"
-                className={`w-full bg-white rounded-lg px-4 py-3 text-black ${
+                className={`w-full h-[57px] px-6 rounded-[19px] text-base bg-white font-semibold text-black mb-4 ${
                   errors.email ? 'border-2 border-red-500' : ''
                 }`}
               />
@@ -201,8 +200,8 @@ function RecordForm() {
         </div>
 
         {/* Right Column */}
-        <AnimatedSection className="flex-1" delay={0.2}>
-          <h3 className="text-2xl mb-6 font-[700]">
+        <AnimatedSection className="flex-1" delay={0.2} direction="up">
+          <h3 className="text-2xl mb-6 font-semibold">
             Чтобы понимать программу, нужно <br />
             иметь хотя бы базовое понимание IT
           </h3>
@@ -213,7 +212,7 @@ function RecordForm() {
             middle:
           </p>
 
-          <div className="flex flex-wrap gap-3 max-w-[400px]">
+          <div className="flex flex-wrap gap-3 pt-4 max-w-[400px]">
             {specializations.map((spec) => (
               <Badge
                 key={spec}

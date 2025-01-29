@@ -27,11 +27,6 @@ function Hero() {
       <div className="md:container">
         {/* Mobile Hero */}
         <div className="md:hidden relative">
-          {/* Background Elements */}
-          <div className="absolute inset-0 bg-[#E0E9F4] -z-10" />
-          <div className="absolute w-[211px] h-[400px] right-0 top-[410px] bg-[#00B7FF] opacity-20 blur-[61.45px] -z-10" />
-          <div className="absolute w-[231px] h-[231px] -left-[192px] top-[443px] bg-[#0073FF] opacity-40 blur-[61.45px] -z-10" />
-          <div className="absolute w-[640px] h-[389px] -left-[289px] top-[698px] bg-[#0073FF] opacity-22 blur-[61.45px] -z-10" />
 
           {/* Content */}
           <div className="px-4">
@@ -95,12 +90,37 @@ function Hero() {
         </div>
 
         {/* Desktop Hero */}
-        <div className="h-full hidden md:block">
-          <img src="/assets/center-ellipse.png" alt="" className='absolute top-0 h-[610px] xl: left-[60%] -translate-x-1/2 z-0 ' />
-          <img src="/assets/right-bottom-ellipse.png" alt="" className='absolute h-[610px] md:h-[570px] xl:bottom-[-75px] right-0 z-0' />
-          <img src="/assets/left-bottom-ellipse.png" alt="" className='absolute h-[610px] md:h-[570px] xl:bottom-[-75px] left-0 z-0' />
-          <div className="grid md:grid-cols-2 gap-12 items-center pb-0">
-            <div>
+        <div className="h-full hidden md:block relative min-h-[calc(90vh-50px)]">
+          {/* Background images */}
+          <img 
+            src="/assets/center-ellipse.png" 
+            alt="" 
+            className='absolute top-0 
+              md:h-[calc(100%-100px)] md:left-[55%] md:-translate-x-1/2
+              lg:h-[calc(100%-80px)] lg:left-[60%]
+              xl:h-[calc(100%-60px)] xl:left-[62%]
+              2xl:h-[calc(100%-40px)] 2xl:left-[65%]'
+          />
+          <img 
+            src="/assets/right-bottom-ellipse.png" 
+            alt="" 
+            className='absolute 
+              md:h-[calc(100%-100px)] md:right-[-10%] md:bottom-[calc(-5%)]
+              lg:h-[calc(100%-80px)] lg:right-[-5%] lg:bottom-[calc(-7%)]
+              xl:h-[calc(100%-60px)] xl:right-[-10%] xl:bottom-[calc(-10%)]
+              2xl:h-[calc(100%-40px)] 2xl:bottom-[calc(-12%)]'
+          />
+          <img 
+            src="/assets/left-bottom-ellipse.png" 
+            alt="" 
+            className='absolute 
+              md:h-[calc(100%-100px)] md:left-[-10%] md:bottom-[calc(-5%)]
+              lg:h-[calc(100%-80px)] lg:left-[-5%] lg:bottom-[calc(-7%)]
+              xl:h-[calc(100%-80px)] xl:left-[-10%]  xl:bottom-[calc(-10%)]
+              2xl:h-[calc(100%-40px)] 2xl:bottom-[calc(-12%)]'
+          />
+          <div className="grid md:grid-cols-2 gap-12 items-center ">
+            <div className='mt-16'>
               <AnimatedSection direction="right">
                 <h1 className="text-3xl lg:text-4xl font-bold mb-8">
                   Получи практические знания <br />
@@ -108,7 +128,7 @@ function Hero() {
                 </h1>
               </AnimatedSection>
               <AnimatedSection direction="left" delay={0.2}>
-                <div className='mb-52 space-y-1'>
+                <div className='mb-56 space-y-1'>
                   <div className="flex gap-1.5 mb-2">
                     {features.map((feature) => (
                       <Badge key={feature} className="bg-[#E9F0F7] text-sm lg:text-base">{feature}</Badge>
@@ -122,24 +142,33 @@ function Hero() {
                 </div>
               </AnimatedSection>
             </div>
-
-            <div className="relative">
+            <div className="relative h-full">
               <img 
                 src="/assets/hero-person.png" 
                 alt="hero" 
-                className="w-full h-full"
+                className="
+                  w-full 
+                  absolute
+                  right-[-10px]
+                  md:bottom-[calc(20vh-420px)]
+                  xl:bottom-[calc(20vh-340px)]
+                  h-[100vh]
+                  object-contain
+                "
               />
               <div 
                 className={`absolute bg-white shadow-lg
-                  md:top-[5%] md:right-[-10px] 
-                  lg:top-10 lg:right-[-20px] 
-                  xl:top-12 xl:right-[-50px]
+                  md:top-[calc(5%)] md:right-[-10px] 
+                  lg:top-[calc(10%)] lg:right-[-20px] 
+                  xl:top-[calc(10%)] xl:right-[-50px]
                   rounded-3xl p-4 lg:p-6
                   w-[200px] lg:w-auto
                   transform transition-all duration-300
                 `}
               >
-                <p className="text-base lg:text-lg mb-2 font-semibold">Старший и ведущий SA:</p>
+                <p className="text-base lg:text-lg mb-2 font-semibold">
+                  Старший и ведущий SA:
+                </p>
                 {companies.map((company) => (
                   <li 
                     className='ml-6 text-[var(--button-primary)] text-lg lg:text-xl font-semibold' 
@@ -151,14 +180,34 @@ function Hero() {
               </div>
             </div>
 
-            {/* Hero Form */}
-            <div 
-              className={`absolute z-20 mb-20 bg-[rgba(12,54,127,0.5)] backdrop-blur-[25px] rounded-[25px]
-                md:left-1/2 md:-translate-x-1/2 md:bottom-[4rem] md:w-[90%] md:p-6
-                lg:left-[50%] lg:bottom-[-2rem] lg:max-w-5xl lg:p-10
-                xl:left-[42%] xl:bottom-[-6rem]
-                transform transition-all duration-300
-              `}
+          {/* Form */}
+          <div 
+            className={`
+              absolute z-20 
+              bg-[rgba(12,54,127,0.5)] backdrop-blur-[25px] rounded-[25px]
+              
+              // Mobile styles (до 768px)
+              w-[90%] p-4 mx-4
+              
+              // Tablet styles (768px - 1024px)
+              md:w-[90%] md:p-6 md:left-1/2 md:-translate-x-1/2 
+              md:bottom-[calc(5%)]
+              
+              // Small desktop (1024px - 1280px)
+              lg:w-[80%] lg:p-8 
+              lg:bottom-[calc(7%)]
+              
+              // Medium desktop (1280px - 1536px)
+              xl:w-[1000px] xl:p-10 xl:left-[39%] xl:-translate-x-1/2
+              xl:bottom-[calc(10%)]
+              
+              // Large desktop (1536px and above)
+              2xl:w-[1200px] 
+              2xl:bottom-[calc(12%)]
+              
+              transform transition-all duration-300
+            `}
+
             >
               <p className='text-start text-white text-xl lg:text-2xl font-semibold mb-6 lg:mb-8'>
                 Запишись на тестовое собеседование!

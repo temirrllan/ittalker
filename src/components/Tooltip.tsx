@@ -24,9 +24,9 @@ export default function Tooltip({ text, children }: TooltipProps) {
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 10 }}
-            className="absolute z-50 w-max max-w-sm bg-white text-black px-4 py-2 rounded-xl shadow-lg -top-12 left-1/2 -translate-x-1/2"
+            className="absolute z-50 w-[700px] h-[10vh] bg-white text-black flex items-center justify-center text-center rounded-3xl shadow-lg -top-20 left-0 -translate-x-1/2"
           >
-            <div className="text-sm whitespace-nowrap font-medium">
+            <div className="text-xl whitespace-nowrap font-medium">
               {text}
             </div>
             {/* Arrow */}

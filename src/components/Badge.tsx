@@ -4,7 +4,7 @@ interface BadgeProps {
 }
 
 function Badge({ children, className }: BadgeProps) {
-  return <div className={`bg-[#D1DCEB] text-[var(--button-primary)] py-2 px-4 w-fit rounded-2xl font-semibold whitespace-nowrap ${className}`}>{children}</div>;
+  return <div className={`bg-[#D1DCEB] text-[var(--button-primary)] py-[6px] px-5 w-fit rounded-3xl font-semibold whitespace-nowrap ${className}`}>{children}</div>;
 }
 
 export default Badge;
