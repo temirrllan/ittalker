@@ -104,7 +104,7 @@ function LearnOutcomes() {
                     <div className="w-10 h-10 bg-white rounded-full p-2 flex items-center justify-center flex-shrink-0">
                       <img src={outcome.icon} alt="" />
                     </div>
-                    <p className="text-sm leading-tight text-[var(--text-primary)]">
+                    <p className="text-sm leading-tight  text-[var(--text-primary)]">
                       {outcome.title}
                     </p>
                   </div>

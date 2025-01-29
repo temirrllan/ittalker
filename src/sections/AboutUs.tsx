@@ -45,8 +45,8 @@ function AboutUs() {
               direction={index % 2 === 0 ? 'left' : 'right'}
             >
               <Card className="h-full">
-                <h3 className="text-md break-words mb-4 text-black">{advantage.title}</h3>
-                <p className="text-[#2D2F32]">{advantage.description}</p>
+                <h3 className="text-md break-words mb-4 text-black font-semibold">{advantage.title}</h3>
+                <p className="text-black">{advantage.description}</p>
               </Card>
             </AnimatedSection>
           ))}
