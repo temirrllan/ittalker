@@ -112,7 +112,7 @@ function RecordForm() {
       <div className="container flex flex-col md:flex-row gap-16">
         {/* Left Column */}
         <AnimatedSection className='flex-1'>
-          <h2 className="text-xl md:text-3xl font-[550] mb-6">
+          <h2 className="text-xl md:text-3xl font-[700] mb-6">
             Полный курс SA в тесном <br />
             взаимодействии с преподавателями <br />
             и с практикой в back-end реального <br />
@@ -124,7 +124,7 @@ function RecordForm() {
             <Badge>Набор открыт</Badge>
           </div>
 
-          <p className="text-white mb-12 opacity-70">
+          <p className="text-white mb-12 opacity-70 font-semibold">
             Комплексная программа обучения системному анализу с <br />
             фокусом на практические навыки. Вы научитесь <br />
             проектировать архитектуру, работать с базами данных, API <br />
@@ -189,7 +189,7 @@ function RecordForm() {
             <PrivacyNotice />
           </form>
 
-          <p className="text-sm mt-4 text-[var(--white)] opacity-80">
+          <p className="text-sm mt-4 text-[var(--white)] opacity-80 font-semibold">
             Запишись на живой митинг с преподавателем, чтобы в режиме <br />
             тестового собеседования узнать о своих пробелах!
           </p>
@@ -202,12 +202,12 @@ function RecordForm() {
 
         {/* Right Column */}
         <AnimatedSection className="flex-1" delay={0.2}>
-          <h3 className="text-2xl mb-6">
+          <h3 className="text-2xl mb-6 font-[700]">
             Чтобы понимать программу, нужно <br />
             иметь хотя бы базовое понимание IT
           </h3>
 
-          <p className="mb-6 opacity-70 text-xl">
+          <p className="mb-6 opacity-70 text-xl font-semibold">
             Курсы принесут максимальную пользу для <br />
             следующих специалистов уровня junior/<br />
             middle:

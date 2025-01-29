@@ -58,7 +58,7 @@ function Navbar() {
         <div className="hidden md:flex items-center justify-between">
           <div>
             <Image src="/assets/header-logo.png" alt="header-logo" width={226} height={56} />
-            <div className="text-xl text-[var(--text-secondary)] font-bold">Полный курс SA</div>
+            <div className="text-4xl text-[var(--text-secondary)] font-bold mt-2">Полный курс SA</div>
           </div>
 
           <ul className="flex space-x-6 z-50">
@@ -70,7 +70,7 @@ function Navbar() {
                     e.preventDefault();
                     handleNavClick(link.id);
                   }}
-                  className="text-[#07346F] hover:text-[var(--button-primary)] transition-colors"
+                  className="text-[#07346F] hover:text-[var(--button-primary)] transition-colors font-semibold text-lg"
                 >
                   {link.name}
                 </a>
@@ -83,7 +83,7 @@ function Navbar() {
         <div className="md:hidden flex items-start justify-between relative">
           <div className="space-y-4">
             <Image src="/assets/header-logo.png" alt="header-logo" width={226} height={56} />
-            <div className="text-lg text-[var(--text-secondary)] font-bold">Полный курс SA</div>
+            <div className="text-lg text-[var(--text-secondary)] font-extrabold">Полный курс SA</div>
           </div>
           
           <button 

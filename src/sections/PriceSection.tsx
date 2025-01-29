@@ -2,11 +2,12 @@
 
 import { useState } from 'react';
 import { IMaskInput } from 'react-imask';
-import { formSchema, formatPhoneInput } from '../utils/validationSchema';
-import SuccessPopup from '@/components/SuccessPopup';
+import { formSchema, formatPhoneInput } from '@/utils/validationSchema';
 import type { ValidationError, ApiResponse } from '@/types/form';
+import SuccessPopup from '@/components/SuccessPopup';
 import PrivacyNotice from '@/components/PrivacyNotice';
 import AnimatedSection from '@/components/AnimatedSection';
+import Tooltip from '@/components/Tooltip';
 
 interface FormData {
   name: string;
@@ -18,7 +19,7 @@ interface FormErrors {
   [key: string]: string;
 }
 
-function PriceSection() {
+export default function PriceSection() {
   const [formData, setFormData] = useState<FormData>({
     name: '',
     phone: '',
@@ -101,9 +102,17 @@ function PriceSection() {
       <div className="container">
         <AnimatedSection>
           <div className="w-60 md:w-fit grid md:flex items-center gap-4 mb-12 bg-[var(--bg-medium-card)] rounded-3xl px-6 py-4">
-            <h3 className="text-2xl opacity-80 hidden md:block">Второй поток:</h3>
-            <h3 className="text-sm opacity-80 block md:hidden">Стоимость обучения для второго потока:</h3>
-            <span className="text-xl md:text-4xl font-semibold">400 000 тенге</span>
+            <Tooltip text="С января 2025 года цена будет 700 000 тенге">
+              <h3 className="text-2xl opacity-80 hidden md:block cursor-help font-semibold">
+                Второй поток:
+              </h3>
+            </Tooltip>
+            <h3 className="text-sm opacity-80 block md:hidden">
+              Стоимость обучения для второго потока:
+            </h3>
+            <span className="text-xl md:text-4xl font-semibold">
+              500 000 тенге
+            </span>
           </div>
         </AnimatedSection>
 
@@ -171,7 +180,7 @@ function PriceSection() {
 
           <AnimatedSection delay={0.4}>
             <div className="flex items-start w-full gap-8">
-              <h2 className="text-2xl md:text-5xl font-[550] mb-4 md:mb-0 max-w-7xl">
+              <h2 className="text-2xl md:text-5xl font-semibold mb-4 md:mb-0 max-w-7xl">
                 Запишись на курсы сейчас, <br />
                 пока действует низкая цена!
               </h2>
@@ -191,6 +200,4 @@ function PriceSection() {
       />
     </section>
   );
-}
-
-export default PriceSection; 
+} 

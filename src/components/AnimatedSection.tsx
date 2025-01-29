@@ -7,17 +7,51 @@ interface AnimatedSectionProps {
   children: ReactNode;
   className?: string;
   delay?: number;
+  direction?: 'up' | 'down' | 'left' | 'right' | 'none';
 }
 
 export default function AnimatedSection({ 
   children, 
   className = '', 
-  delay = 0 
+  delay = 0,
+  direction = 'up'
 }: AnimatedSectionProps) {
+  const getInitialPosition = () => {
+    switch (direction) {
+      case 'up':
+        return { opacity: 0, y: 50 };
+      case 'down':
+        return { opacity: 0, y: -50 };
+      case 'left':
+        return { opacity: 0, x: -50 };
+      case 'right':
+        return { opacity: 0, x: 50 };
+      case 'none':
+        return { opacity: 0 };
+      default:
+        return { opacity: 0, y: 20 };
+    }
+  };
+
+  const getFinalPosition = () => {
+    switch (direction) {
+      case 'up':
+      case 'down':
+        return { opacity: 1, y: 0 };
+      case 'left':
+      case 'right':
+        return { opacity: 1, x: 0 };
+      case 'none':
+        return { opacity: 1 };
+      default:
+        return { opacity: 1, y: 0 };
+    }
+  };
+
   return (
     <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
+      initial={getInitialPosition()}
+      whileInView={getFinalPosition()}
       viewport={{ once: true }}
       transition={{ 
         duration: 0.5, 

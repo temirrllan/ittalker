@@ -4,6 +4,7 @@ import { useState } from 'react';
 import HeroForm from '@/components/HeroForm';
 import Badge from '@/components/Badge';
 import SuccessPopup from '@/components/SuccessPopup';
+import AnimatedSection from '@/components/AnimatedSection';
 
 function Hero() {
   const [showSuccess, setShowSuccess] = useState(false);
@@ -34,15 +35,19 @@ function Hero() {
 
           {/* Content */}
           <div className="px-4">
-            <h1 className="text-[30px] leading-[129%]  tracking-[-0.01em] text-[#010024] mb-6">
-              Получи практические знания SA и увеличь свой доход!
-            </h1>
+            <AnimatedSection direction="right">
+              <h1 className="text-[30px] leading-[129%]  tracking-[-0.01em] text-[#010024] mb-6 font-bold">
+                Получи практические знания SA и увеличь свой доход!
+              </h1>
+            </AnimatedSection>
 
-            <div className="flex flex-wrap gap-2 mb-2">
-              {features.map((feature) => (
-                <Badge key={feature} className='bg-[#E9F0F7] text-xs'>{feature}</Badge>
+
+              <div className="flex flex-wrap gap-2 mb-2">
+                {features.map((feature) => (
+                  <Badge key={feature} className='bg-[#E9F0F7] text-xs'>{feature}</Badge>
               ))}
             </div>
+
             <div className='flex flex-wrap gap-2'>
               {features2.map((feature) => (
                 <Badge key={feature} className='bg-[#E9F0F7] text-xs'>{feature}</Badge>
@@ -59,13 +64,13 @@ function Hero() {
             />
             
             <div className="hidden sm:block absolute top-4 right-4 bg-white rounded-[21px] p-4 shadow-lg w-[165px]">
-              <p className="text-xs  mb-1.5">
+              <p className="text-xs font-semibold mb-1.5">
                 Старший и ведущий SA:
               </p>
                 {companies.map((company) => (
                   <li 
                     key={company}
-                    className="text-[#2F87FB] text-base ml-6"
+                    className="text-[#2F87FB] text-base ml-6 font-semibold"
                   >
                     {company}
                   </li>
@@ -92,26 +97,30 @@ function Hero() {
         {/* Desktop Hero */}
         <div className="h-full hidden md:block">
           <img src="/assets/center-ellipse.png" alt="" className='absolute top-0 h-[610px] xl: left-[60%] -translate-x-1/2 z-0 ' />
-          <img src="/assets/right-bottom-ellipse.png" alt="" className='absolute h-[610px] md:h-[520px] xl:bottom-[-55px] right-0 z-0' />
-          <img src="/assets/left-bottom-ellipse.png" alt="" className='absolute h-[610px] md:h-[520px] xl:bottom-[-55px] left-0 z-0' />
+          <img src="/assets/right-bottom-ellipse.png" alt="" className='absolute h-[610px] md:h-[570px] xl:bottom-[-75px] right-0 z-0' />
+          <img src="/assets/left-bottom-ellipse.png" alt="" className='absolute h-[610px] md:h-[570px] xl:bottom-[-75px] left-0 z-0' />
           <div className="grid md:grid-cols-2 gap-12 items-center pb-0">
             <div>
-              <h1 className="text-3xl lg:text-4xl font-[550] mb-8">
-                Получи практические знания <br />
-                SA и увеличь свой доход!
-              </h1>
-              <div className='mb-48 space-y-1'>
-                <div className="flex gap-2 mb-2">
-                  {features.map((feature) => (
-                    <Badge key={feature} className="bg-[#E9F0F7] text-sm lg:text-base">{feature}</Badge>
-                  ))}
+              <AnimatedSection direction="right">
+                <h1 className="text-3xl lg:text-4xl font-bold mb-8">
+                  Получи практические знания <br />
+                  SA и увеличь свой доход!
+                </h1>
+              </AnimatedSection>
+              <AnimatedSection direction="left" delay={0.2}>
+                <div className='mb-52 space-y-1'>
+                  <div className="flex gap-1.5 mb-2">
+                    {features.map((feature) => (
+                      <Badge key={feature} className="bg-[#E9F0F7] text-sm lg:text-base">{feature}</Badge>
+                    ))}
+                  </div>
+                  <div className="grid gap-3">
+                    {features2.map((feature) => (
+                      <Badge key={feature} className="bg-[#E9F0F7] text-sm lg:text-base">{feature}</Badge>
+                    ))}
+                  </div>
                 </div>
-                <div className="grid gap-4">
-                  {features2.map((feature) => (
-                    <Badge key={feature} className="bg-[#E9F0F7] text-sm lg:text-base">{feature}</Badge>
-                  ))}
-                </div>
-              </div>
+              </AnimatedSection>
             </div>
 
             <div className="relative">
@@ -130,10 +139,10 @@ function Hero() {
                   transform transition-all duration-300
                 `}
               >
-                <p className="text-base lg:text-lg mb-2">Старший и ведущий SA:</p>
+                <p className="text-base lg:text-lg mb-2 font-semibold">Старший и ведущий SA:</p>
                 {companies.map((company) => (
                   <li 
-                    className='ml-6 text-[var(--button-primary)] text-lg lg:text-xl' 
+                    className='ml-6 text-[var(--button-primary)] text-lg lg:text-xl font-semibold' 
                     key={company}
                   >
                     {company}
@@ -151,7 +160,7 @@ function Hero() {
                 transform transition-all duration-300
               `}
             >
-              <p className='text-start text-white text-xl lg:text-2xl font-[550] mb-6 lg:mb-8'>
+              <p className='text-start text-white text-xl lg:text-2xl font-semibold mb-6 lg:mb-8'>
                 Запишись на тестовое собеседование!
               </p>
               <HeroForm 

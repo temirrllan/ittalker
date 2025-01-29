@@ -136,18 +136,22 @@ function Learn() {
     <section className="py-16 bg-[var(--bg-section)] text-white rounded-t-3xl">
       <div className="container">
         <AnimatedSection>
-          <h2 className="text-3xl font-[550] mb-8">Программа курса</h2>
+          <h2 className="text-3xl font-semibold mb-8">Программа курса</h2>
         </AnimatedSection>
         
         <div className="space-y-2 md:space-y-4">
           {modules.map((module, index) => (
-            <AnimatedSection key={module.id} delay={index * 0.1}>
+            <AnimatedSection 
+              key={module.id} 
+              delay={index * 0.1}
+              direction={index % 2 === 0 ? 'left' : 'right'}
+            >
               <div className="bg-white text-black rounded-lg overflow-hidden">
                 <button
                   className="w-full px-6 py-4 gap-4 text-left flex items-start justify-between hover:bg-opacity-90"
                   onClick={() => setOpenModule(openModule === module.id ? 0 : module.id)}
                 >
-                  <span className="text-sm md:text-lg font-medium">{module.title}</span>
+                  <span className="text-sm md:text-lg font-semibold">{module.title}</span>
                   <svg
                     className={`w-6 h-6 transform transition-transform ${
                       openModule === module.id ? 'rotate-180' : ''

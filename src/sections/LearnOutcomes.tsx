@@ -83,7 +83,7 @@ function LearnOutcomes() {
     <section id="advantages" className="py-16">
       <div className="container">
         <AnimatedSection>
-          <h2 className="text-2xl md:text-4xl font-[550] mb-8 md:mb-16">
+          <h2 className="text-2xl md:text-4xl font-[700] mb-8 md:mb-16">
             Чему вы научитесь
           </h2>
         </AnimatedSection>
@@ -139,7 +139,14 @@ function LearnOutcomes() {
         {/* Desktop Version */}
         <div className="hidden md:grid md:grid-cols-3 gap-8">
           {outcomes.map((outcome, index) => (
-            <AnimatedSection key={index} delay={index * 0.1}>
+            <AnimatedSection 
+              key={index} 
+              delay={index * 0.1}
+              direction={
+                index % 3 === 0 ? 'left' : 
+                index % 3 === 1 ? 'up' : 'right'
+              }
+            >
               <div className="flex items-start gap-4 group shadow-sm rounded-xl p-4">
                 <div className="w-12 h-12 bg-white rounded-full p-2.5 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
                   <img src={outcome.icon} alt="" />

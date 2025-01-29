@@ -39,7 +39,11 @@ function AboutUs() {
         {/* Advantages Cards */}
         <div className="grid md:grid-cols-4 gap-6 mb-16">
           {advantages.map((advantage, index) => (
-            <AnimatedSection key={advantage.title} delay={index * 0.1}>
+            <AnimatedSection 
+              key={advantage.title} 
+              delay={index * 0.1}
+              direction={index % 2 === 0 ? 'left' : 'right'}
+            >
               <Card className="h-full">
                 <h3 className="text-md break-words mb-4 text-black">{advantage.title}</h3>
                 <p className="text-[#2D2F32]">{advantage.description}</p>
@@ -51,15 +55,15 @@ function AboutUs() {
 
         {/* About Content */}
         <div className="grid md:grid-cols-2 gap-12 items-center">
-          <AnimatedSection>
+          <AnimatedSection direction="left">
             <img 
               src="/assets/about.png" 
               alt="About us" 
               className="rounded-lg"
             />
           </AnimatedSection>
-          <AnimatedSection delay={0.2}>
-            <h2 className="text-3xl md:text-4xl md:font-[550] mb-6">О нас</h2>
+          <AnimatedSection direction="right" delay={0.2}>
+            <h2 className="text-3xl md:text-4xl md:font-[700] mb-6">О нас</h2>
             <div className="space-y-4 mb-20">
               <p>
                 it.t Academy выросла из обычного блога про айти: Арсен

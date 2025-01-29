@@ -8,7 +8,11 @@ const config: Config = {
     "./src/sections/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        manrope: ['var(--font-manrope)', 'sans-serif'],
+      },
+    },
   },
   plugins: [],
 };
