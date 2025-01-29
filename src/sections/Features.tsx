@@ -112,7 +112,7 @@ function RecordForm() {
       <div className="container flex flex-col md:flex-row gap-16">
         {/* Left Column */}
         <AnimatedSection className='flex-1'>
-          <h2 className="text-xl md:text-3xl font-[700] mb-6">
+          <h2 className="text-xl md:text-2xl font-[700] mb-6">
             Полный курс SA в тесном <br />
             взаимодействии с преподавателями <br />
             и с практикой в back-end реального <br />
