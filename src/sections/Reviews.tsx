@@ -39,18 +39,11 @@ function Reviews() {
   const getVisibleSlides = () => {
     const result = [];
     const totalSlides = reviews.length;
-
-    // Previous slide
     const prevIndex = currentSlide === 1 ? totalSlides - 1 : currentSlide - 2;
     result.push(reviews[prevIndex]);
-
-    // Current slide
     result.push(reviews[currentSlide - 1]);
-
-    // Next slide
     const nextIndex = currentSlide === totalSlides ? 0 : currentSlide;
     result.push(reviews[nextIndex]);
-
     return result;
   };
 
@@ -58,24 +51,23 @@ function Reviews() {
     <section id="reviews" className="py-16">
       <div className="container">
         <AnimatedSection>
-          <h2 className="text-2xl md:text-4xl md:font-semibold mb-8 md:mb-12">Отзывы</h2>
+          <h2 className="text-2xl md:text-4xl font-semibold mb-8 md:mb-12">Отзывы</h2>
         </AnimatedSection>
 
         <AnimatedSection delay={0.2}>
           <div className="relative">
-            {/* Fixed height container */}
-            <div className="overflow-hidden h-[400px] md:h-[60vh]">
-              <div className="flex items-center justify-center gap-[26px] md:gap-[26px] w-full max-w-[968px] mx-auto">
+            <div className="overflow-hidden h-[500px] sm:h-[400px] md:h-[500px]">
+              <div className="flex items-center justify-center gap-3 sm:gap-4 md:gap-[26px] w-full max-w-[968px] mx-auto">
                 {getVisibleSlides().map((review, index) => (
                   <div 
                     key={review.id}
                     className={`
                       transition-all duration-500 ease-in-out transform
                       ${index === 1 
-                        ? 'w-[280px] md:w-[450px] opacity-100 z-20' 
-                        : 'w-[240px] md:w-[293px] opacity-50 z-10'
+                        ? 'w-[80%] h-[400px] sm:w-[70%] md:w-[80%] opacity-100 z-20' 
+                        : 'w-[20%] h-[400px] sm:w-[30%] md:w-[40%] opacity-50 z-10'
                       }
-                      aspect-[328/347]
+                      relative
                     `}
                     style={{
                       transform: `
@@ -88,9 +80,9 @@ function Reviews() {
                       src={review.image} 
                       alt={`Review ${review.id}`} 
                       className={`
-                        w-full h-full object-cover
+                        w-full h-full object-contain
                         transition-all duration-500 ease-in-out
-                        ${index === 1 ? 'rounded-[22px]' : 'rounded-[20px]'}
+                        ${index === 1 ? 'rounded-[18px] sm:rounded-[20px] md:rounded-[22px]' : 'rounded-[16px] sm:rounded-[18px] md:rounded-[20px]'}
                       `}
                     />
                   </div>
@@ -99,22 +91,38 @@ function Reviews() {
             </div>
 
             {/* Navigation Buttons */}
-            <div className="flex justify-center gap-4 mt-8">
+            <div className="flex justify-center gap-3 sm:gap-4 mt-6 sm:mt-8">
               <button
                 onClick={() => handleSlide('prev')}
                 disabled={isAnimating}
-                className="w-12 h-12 rounded-full border-2 border-[#18529D] flex items-center justify-center hover:bg-[#18529D] hover:text-white transition-colors disabled:opacity-50"
+                className="w-10 h-10 sm:w-12 sm:h-12 rounded-full border-2 border-[#18529D] flex items-center justify-center hover:bg-[#18529D] hover:text-white transition-colors disabled:opacity-50"
               >
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#18529D" strokeWidth="2">
+                <svg 
+                  width="20" 
+                  height="20" 
+                  viewBox="0 0 24 24" 
+                  fill="none" 
+                  stroke="currentColor" 
+                  className="text-[#18529D] group-hover:text-white"
+                  strokeWidth="2"
+                >
                   <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
                 </svg>
               </button>
               <button
                 onClick={() => handleSlide('next')}
                 disabled={isAnimating}
-                className="w-12 h-12 rounded-full border-2 border-[#18529D] flex items-center justify-center hover:bg-[#18529D] hover:text-white transition-colors disabled:opacity-50"
+                className="w-10 h-10 sm:w-12 sm:h-12 rounded-full border-2 border-[#18529D] flex items-center justify-center hover:bg-[#18529D] hover:text-white transition-colors disabled:opacity-50"
               >
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#18529D" strokeWidth="2">
+                <svg 
+                  width="20" 
+                  height="20" 
+                  viewBox="0 0 24 24" 
+                  fill="none" 
+                  stroke="currentColor"
+                  className="text-[#18529D] group-hover:text-white"
+                  strokeWidth="2"
+                >
                   <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
                 </svg>
               </button>
