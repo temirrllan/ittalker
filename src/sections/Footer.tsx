@@ -25,7 +25,7 @@ export default function Footer() {
               className="h-8"
             />
             <div className="space-y-2">
-              <a href="#" className="block text-base lg:text-lg opacity-80 hover:opacity-100">
+              <a href="https://docs.google.com/document/d/1SEiKgYCyK3F5l-6nFPTyilQtbWr74gsrPql9j5RV9-k/edit?usp=sharing" className="block text-base lg:text-lg opacity-80 hover:opacity-100">
                 Политика конфиденциальности
               </a>
               <a href="#" className="block text-base lg:text-lg opacity-80 hover:opacity-100">
