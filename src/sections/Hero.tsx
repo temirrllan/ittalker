@@ -151,7 +151,7 @@ function Hero() {
                   absolute
                   right-[-10px]
                   md:bottom-[calc(20vh-440px)]
-                  lg:bottom-[calc(20vh-420px)]
+                  lg:bottom-[calc(20vh-440px)]
                   xl:bottom-[calc(20vh-360px)]
                   2xl:bottom-[calc(8vh-280px)]
                   h-[100vh]
