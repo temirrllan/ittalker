@@ -58,7 +58,7 @@ function Reviews() {
     <section id="reviews" className="py-16">
       <div className="container">
         <AnimatedSection>
-          <h2 className="text-2xl md:text-4xl md:font-semibold mb-8 md:mb-12">Отзывы</h2>
+          <h2 className="text-[30px] leading-[129%] tracking-[-0.01em] font-semibold mb-8 md:mb-12">Отзывы</h2>
         </AnimatedSection>
 
         <AnimatedSection delay={0.2}>

@@ -151,7 +151,8 @@ function Hero() {
                   absolute
                   right-[-10px]
                   md:bottom-[calc(20vh-420px)]
-                  xl:bottom-[calc(20vh-340px)]
+                  xl:bottom-[calc(20vh-360px)]
+                  2xl:bottom-[calc(8vh-280px)]
                   h-[100vh]
                   object-contain
                 "
@@ -202,7 +203,7 @@ function Hero() {
               xl:bottom-[calc(10%)]
               
               // Large desktop (1536px and above)
-              2xl:w-[1200px] 
+              2xl:w-[1200px]  2xl:p-12 2xl:left-[47%] 2xl:-translate-x-1/2
               2xl:bottom-[calc(12%)]
               
               transform transition-all duration-300
