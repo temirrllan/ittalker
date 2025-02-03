@@ -98,7 +98,7 @@ export default function PriceSection() {
   };
 
   return (
-    <section className="bg-[var(--bg-section)] text-white py-16 rounded-t-3xl">
+    <section id="contacts" className="bg-[var(--bg-section)] text-white py-16 rounded-t-3xl">
       <div className="container">
         <AnimatedSection>
           <div className="w-60 md:w-fit grid md:flex items-center gap-4 mb-12 bg-[var(--bg-medium-card)] rounded-3xl px-6 py-4">

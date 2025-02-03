@@ -108,7 +108,7 @@ function RecordForm() {
   };
 
   return (
-    <section className="bg-[var(--bg-section)] text-white py-16 rounded-xl">
+    <section id="courses" className="bg-[var(--bg-section)] text-white py-16 rounded-xl">
       <div className="container flex flex-col md:flex-row gap-16">
         <AnimatedSection className='flex-1' direction="up">
           <h2 className="text-xl md:text-2xl font-semibold mb-6">

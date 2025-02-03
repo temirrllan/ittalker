@@ -80,7 +80,7 @@ function LearnOutcomes() {
   };
 
   return (
-    <section id="advantages" className="py-16">
+    <section id="advantages" className="py-12 md:py-16">
       <div className="container">
         <AnimatedSection>
           <h2 className="text-2xl md:text-4xl font-[700] mb-8 md:mb-16">
@@ -93,7 +93,7 @@ function LearnOutcomes() {
           <AnimatedSection delay={0.2}>
             <div className="relative overflow-hidden">
               <div 
-                className={`flex flex-col gap-4 min-h-[360px] transition-transform duration-300 ease-in-out
+                className={`flex flex-col gap-4 min-h-[300px] transition-transform duration-300 ease-in-out
                   ${isAnimating ? (slideDirection === 'left' ? '-translate-x-full' : 'translate-x-full') : 'translate-x-0'}`}
               >
                 {getCurrentCards().map((outcome, index) => (

@@ -5,11 +5,26 @@ import { motion } from 'framer-motion';
 
 export default function Footer() {
   const menuLinks = [
-    'Курсы',
-    'О нас',
-    'Преимущества',
-    'Отзывы',
-    'Контакты'
+    {
+      name: 'Курсы',
+      link: 'courses'
+    },
+    {
+      name: 'О нас',
+      link: 'about'
+    },
+    {
+      name: 'Преимущества',
+      link: 'advantages'
+    },
+    {
+      name: 'Отзывы',
+      link: 'reviews'
+    },
+    {
+      name: 'Контакты',
+      link: 'contacts'
+    }
   ];
 
   return (
@@ -28,7 +43,7 @@ export default function Footer() {
               <a href="https://docs.google.com/document/d/1SEiKgYCyK3F5l-6nFPTyilQtbWr74gsrPql9j5RV9-k/edit?usp=sharing" className="block text-base lg:text-lg opacity-80 hover:opacity-100">
                 Политика конфиденциальности
               </a>
-              <a href="#" className="block text-base lg:text-lg opacity-80 hover:opacity-100">
+              <a href="https://docs.google.com/document/d/1Epqh7OKKUHqlHV7qO9UelqGcr0OdHtTQNaBWlJKIAWQ/edit?tab=t.0" className="block text-base lg:text-lg opacity-80 hover:opacity-100">
                 Публичная оферта
               </a>
             </div>
@@ -39,12 +54,12 @@ export default function Footer() {
             <h3 className="font-semibold mb-4 text-xl">Меню</h3>
             <ul className="space-y-3">
               {menuLinks.map((link) => (
-                <li key={link}>
+                <li key={link.link}>
                   <a 
-                    href={`#${link.toLowerCase()}`} 
+                    href={`#${link.link}`} 
                     className="text-base lg:text-lg opacity-80 hover:opacity-100"
                   >
-                    {link}
+                    {link.name}
                   </a>
                 </li>
               ))}

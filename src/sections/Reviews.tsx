@@ -55,14 +55,14 @@ function Reviews() {
   };
 
   return (
-    <section id="reviews" className="py-16">
-      <div className="container">
+    <section id="reviews" className="py-12 md:py-16">
+      <div className="container overflow-hidden">
         <AnimatedSection>
           <h2 className="text-[30px] leading-[129%] tracking-[-0.01em] font-semibold mb-8 md:mb-12">Отзывы</h2>
         </AnimatedSection>
 
         <AnimatedSection delay={0.2}>
-          <div className="relative h-[450px] md:h-[500px] md:mb-[120px]">
+          <div className="relative h-[450px] md:h-[600px] md:block flex flex-col justify-center items-center">
             {/* Reviews Slider */}
             <div className="overflow-hidden">
               <div className="flex items-center justify-center gap-[26px] md:gap-[26px] w-full max-w-[968px] mx-auto">
@@ -71,8 +71,8 @@ function Reviews() {
                     key={review.id}
                     className={`transition-all duration-500 ease-in-out transform flex-none
                       ${index === 1 
-                        ? 'w-[280px] md:w-[450px] aspect-[328/347] scale-100 opacity-100 z-20' 
-                        : 'w-[240px] md:w-[293px] aspect-[293/314] scale-90 opacity-50 z-10'
+                        ? 'w-[280px] md:w-[450px] aspect-[328/347]  z-20' 
+                        : 'w-[240px] md:w-[293px] aspect-[293/314]  z-10'
                       }
                       ${isAnimating ? 'translate-x-0' : ''}
                     `}

@@ -1,0 +1,187 @@
+/* Mobile styles first */
+.heroImage {
+  @apply w-full mx-auto object-contain;
+  max-width: 334px; /* Mobile width */
+}
+
+.mobileHeroImage {
+  @apply relative mt-8 mb-[-100px];
+}
+
+/* Desktop styles */
+@media (min-width: 768px) {
+  .heroImage {
+    @apply absolute right-[-10px];
+    max-width: none;
+    height: calc(100vh - 80px);
+    bottom: calc(20vh - 400px);
+  }
+
+  .mobileHeroImage {
+    @apply mt-0 mb-0;
+  }
+}
+
+@media (min-width: 1024px) {
+  .heroImage {
+    bottom: calc(20vh - 340px);
+  }
+}
+
+@media (min-width: 1280px) {
+  .heroImage {
+    bottom: calc(20vh - 320px);
+  }
+}
+
+@media (min-width: 1440px) {
+  .heroImage {
+    bottom: calc(15vh - 300px);
+  }
+}
+
+@media (min-width: 1536px) {
+  .heroImage {
+    bottom: calc(8vh - 180px);
+  }
+}
+
+.ellipseBg {
+  @apply absolute;
+}
+
+.centerEllipse {
+  @apply top-0;
+}
+
+/* Breakpoints for center ellipse */
+@media (min-width: 768px) {
+  .centerEllipse {
+    height: calc(100% - 100px);
+    left: 55%;
+    transform: translateX(-50%);
+  }
+}
+
+@media (min-width: 1024px) {
+  .centerEllipse {
+    height: calc(100% - 80px);
+    left: 60%;
+  }
+}
+
+@media (min-width: 1280px) {
+  .centerEllipse {
+    height: calc(100% - 60px);
+    left: 62%;
+  }
+}
+
+@media (min-width: 1440px) {
+  .centerEllipse {
+    height: calc(100% - 50px);
+    left: 63%;
+  }
+}
+
+@media (min-width: 1536px) {
+  .centerEllipse {
+    height: calc(100% - 40px);
+    left: 65%;
+  }
+}
+
+.sideEllipse {
+  @apply absolute;
+}
+
+/* Breakpoints for side ellipses */
+@media (min-width: 768px) {
+  .sideEllipse {
+    height: calc(100% - 100px);
+    bottom: calc(-5%);
+  }
+  .leftEllipse {
+    left: -10%;
+  }
+  .rightEllipse {
+    right: -10%;
+  }
+}
+
+@media (min-width: 1024px) {
+  .sideEllipse {
+    height: calc(100% - 80px);
+    bottom: calc(-7%);
+  }
+  .leftEllipse {
+    left: -5%;
+  }
+  .rightEllipse {
+    right: -5%;
+  }
+}
+
+@media (min-width: 1280px) {
+  .sideEllipse {
+    height: calc(100% - 60px);
+    bottom: calc(-10%);
+  }
+  .leftEllipse {
+    left: -10%;
+  }
+  .rightEllipse {
+    right: -10%;
+  }
+}
+
+@media (min-width: 1440px) {
+  .sideEllipse {
+    height: calc(100% - 50px);
+    bottom: calc(-11%);
+  }
+}
+
+@media (min-width: 1536px) {
+  .sideEllipse {
+    height: calc(100% - 40px);
+    bottom: calc(-12%);
+  }
+}
+
+.companyCard {
+  @apply absolute bg-white shadow-lg rounded-3xl transform transition-all duration-300;
+}
+
+/* Breakpoints for company card */
+@media (min-width: 768px) {
+  .companyCard {
+    top: calc(5%);
+    right: -10px;
+    width: 200px;
+    padding: 1rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .companyCard {
+    top: calc(10%);
+    right: -20px;
+    width: auto;
+    padding: 1.5rem;
+  }
+}
+
+@media (min-width: 1280px) {
+  .companyCard {
+    top: calc(10%);
+    right: -50px;
+  }
+}
+
+@media (min-width: 1440px) {
+  .companyCard {
+    top: calc(12%);
+    right: -60px;
+  }
+} 
