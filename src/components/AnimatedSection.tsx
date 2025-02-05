@@ -34,18 +34,20 @@ export default function AnimatedSection({
   };
 
   return (
-    <motion.div
-      initial={getInitialPosition()}
-      whileInView={{ opacity: 1, y: 0, x: 0 }}
-      viewport={{ once: true, margin: "-100px" }}
-      transition={{ 
-        duration: 0.7, 
-        delay,
-        ease: "easeOut" 
-      }}
-      className={className}
-    >
-      {children}
-    </motion.div>
+    <div className="overflow-hidden">
+      <motion.div
+        initial={getInitialPosition()}
+        whileInView={{ opacity: 1, y: 0, x: 0 }}
+        viewport={{ once: true, margin: "-100px" }}
+        transition={{ 
+          duration: 0.7, 
+          delay,
+          ease: "easeOut" 
+        }}
+        className={className}
+      >
+        {children}
+      </motion.div>
+    </div>
   );
 } 

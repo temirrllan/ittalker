@@ -10,7 +10,7 @@ import Footer from "@/sections/Footer";
 
 export default function Home() {
   return (
-    <>
+    <main className="relative w-full overflow-x-hidden">
       <Navbar />
       <Hero />
       <AboutUs />
@@ -20,7 +20,6 @@ export default function Home() {
       <Reviews />
       <PriceSection />
       <Footer />
-    </>
-    
+    </main>
   );
 }

@@ -102,11 +102,9 @@ export default function PriceSection() {
       <div className="container">
         <AnimatedSection>
           <div className="w-60 md:w-fit grid md:flex items-center gap-4 mb-12 bg-[var(--bg-medium-card)] rounded-3xl px-6 py-4">
-            <Tooltip text="С января 2025 года цена будет 600 000 тенге">
               <h3 className="text-2xl opacity-80 hidden md:block cursor-help font-semibold">
                 Второй поток:
               </h3>
-            </Tooltip>
             <h3 className="text-sm opacity-80 block md:hidden">
               Стоимость обучения для второго потока:
             </h3>
