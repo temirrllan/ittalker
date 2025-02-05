@@ -23,10 +23,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${manrope.variable} font-manrope antialiased overflow-x-hidden`}>
-        <div className="relative w-full overflow-x-hidden">
+      <body className={`${manrope.variable} font-manrope antialiased `}>
           {children}
-        </div>
       </body>
     </html>
   );

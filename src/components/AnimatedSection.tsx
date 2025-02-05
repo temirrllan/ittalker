@@ -34,7 +34,7 @@ export default function AnimatedSection({
   };
 
   return (
-    <div className="overflow-hidden">
+    <div className="">
       <motion.div
         initial={getInitialPosition()}
         whileInView={{ opacity: 1, y: 0, x: 0 }}
