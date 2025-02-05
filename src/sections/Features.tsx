@@ -181,7 +181,7 @@ function RecordForm() {
             <button
               type="submit"
               disabled={isSubmitting}
-              className="w-full bg-[var(--button-primary)] text-white py-3 rounded-lg hover:opacity-90 transition-opacity disabled:opacity-50"
+              className="w-full bg-[var(--button-primary)] font-semibold text-white py-3 rounded-lg hover:opacity-90 transition-opacity disabled:opacity-50"
             >
               {isSubmitting ? 'Отправка...' : 'Записаться'}
             </button>

@@ -79,7 +79,7 @@ function Hero() {
             <div className="bg-[rgba(12,54,127,0.5)] backdrop-blur-[25px] rounded-[25px]">
               <div className="px-6 py-8">
                 <h3 className="text-[25px] leading-[129%] font-semibold text-white mb-8">
-                  Запишись на бесплатный вебинар!
+                  Запишись на тестовое собеседование!
                 </h3>
                 <HeroForm 
                   className="mt-8"
@@ -162,19 +162,19 @@ function Hero() {
               w-[90%] p-4 mx-4
               
               // Tablet styles (768px - 1024px)
-              md:w-[90%] md:p-6 md:left-1/2 md:-translate-x-1/2 
+              md:w-[90%] md:px-6 md:left-1/2 md:-translate-x-1/2 
               md:bottom-[calc(5%)]
               
               // Small desktop (1024px - 1280px)
-              lg:w-[80%] lg:p-8 
+              lg:w-[80%] lg:px-8  
               lg:bottom-[calc(7%)]
               
               // Medium desktop (1280px - 1536px)
-              xl:w-[1000px] xl:p-10 xl:left-[39%] xl:-translate-x-1/2
+              xl:w-[1000px] xl:px-10 xl:left-[39%] xl:-translate-x-1/2
               xl:bottom-[calc(7%)]
               
               // Large desktop (1536px and above)
-              2xl:w-[1200px]  2xl:p-12 2xl:left-[47%] 2xl:-translate-x-1/2
+              2xl:w-[1200px]  2xl:px-12 2xl:left-[47%] 2xl:-translate-x-1/2
               2xl:bottom-[calc(6%)]
               
               transform transition-all duration-300

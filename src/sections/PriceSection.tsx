@@ -174,7 +174,7 @@ export default function PriceSection() {
                 <PrivacyNotice />
               </div>
 
-              <span className="text-sm block md:hidden opacity-80 mt-4">*С 21.02.2025 стоимость курсов вырастет на 50% и составит 600 000 тенге</span>
+              <span className="text-sm block md:hidden opacity-80 mt-4">*С 21.02.2025 стоимость курсов составит 600 000 тенге</span>
             </form>
           </AnimatedSection>
           <AnimatedSection delay={0.4}>
