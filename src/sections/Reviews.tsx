@@ -1,120 +1,128 @@
 'use client'
 
-import { useState } from 'react';
+import Link from 'next/link';
+import Image from 'next/image';
 import AnimatedSection from '@/components/AnimatedSection';
 
-function Reviews() {
-  const [currentSlide, setCurrentSlide] = useState(1);
-  const [isAnimating, setIsAnimating] = useState(false);
+interface ReviewCardProps {
+  name: string;
+  image: string;
+  description: string;
+  story: string;
+}
 
-  const reviews = [
-    {
-      id: 1,
-      image: '/assets/review_1.png',
-    },
-    {
-      id: 2,
-      image: '/assets/review_2.png',
-    },
-    {
-      id: 3,
-      image: '/assets/review_3.png',
-    }
-  ];
+const reviewsData: ReviewCardProps[] = [
+  {
+    name: 'Куатбек',
+    image: '/assets/kuatbek.png',
+    description: 'Системный аналитик\nстудент 1-го потока',
+    story: 'Узнайте историю Куатбека, как он с нуля поднялся до Junior специалиста'
+  },
+  {
+    name: 'Анатолий',
+    image: '/assets/anatoliy.png',
+    description: 'Системный аналитик\nстудент 1-го потока',
+    story: 'Узнайте историю Анатолия, как он с нуля поднялся до Junior специалиста'
+  },
+  {
+    name: 'Софья',
+    image: '/assets/sofya.png',
+    description: 'Системный аналитик\nстудент 1-го потока',
+    story: 'Узнайте историю Софьи, как она с нуля поднялась до Junior специалиста'
+  },
+  {
+    name: 'Алишер',
+    image: '/assets/alisher.png',
+    description: 'Системный аналитик\nстудент 1-го потока',
+    story: 'Узнайте историю Алишера, как он с нуля поднялся до Junior специалиста'
+  },
+  {
+    name: 'Софья',
+    image: '/assets/sofya.png',
+    description: 'Системный аналитик\nстудент 1-го потока',
+    story: 'Узнайте историю Софьи, как она с нуля поднялась до Junior специалиста'
+  },
+  {
+    name: 'Алишер',
+    image: '/assets/alisher.png',
+    description: 'Системный аналитик\nстудент 1-го потока',
+    story: 'Узнайте историю Алишера, как он с нуля поднялся до Junior специалиста'
+  }
+];
 
-  const handleSlide = (direction: 'prev' | 'next') => {
-    if (isAnimating) return;
-    setIsAnimating(true);
-
-    setCurrentSlide((prev) => {
-      if (direction === 'next') {
-        return prev === reviews.length ? 1 : prev + 1;
-      }
-      return prev === 1 ? reviews.length : prev - 1;
-    });
-
-    setTimeout(() => setIsAnimating(false), 500);
-  };
-
-  const getVisibleSlides = () => {
-    const result = [];
-    const totalSlides = reviews.length;
-
-    // Previous slide
-    const prevIndex = currentSlide === 1 ? totalSlides - 1 : currentSlide - 2;
-    result.push(reviews[prevIndex]);
-
-    // Current slide
-    result.push(reviews[currentSlide - 1]);
-
-    // Next slide
-    const nextIndex = currentSlide === totalSlides ? 0 : currentSlide;
-    result.push(reviews[nextIndex]);
-
-    return result;
-  };
-
+const ReviewCard = ({ name, image, description, story }: ReviewCardProps) => {
   return (
-    <section id="reviews" className="py-12 md:py-16">
-      <div className="container overflow-hidden">
-        <AnimatedSection>
-          <h2 className="text-[30px] leading-[129%] tracking-[-0.01em] font-semibold mb-8 md:mb-12">Отзывы</h2>
-        </AnimatedSection>
-
-        <AnimatedSection delay={0.2}>
-          <div className="relative h-[450px] md:h-[600px] md:block flex flex-col justify-center items-center">
-            {/* Reviews Slider */}
-            <div className="overflow-hidden">
-              <div className="flex items-center justify-center gap-[26px] md:gap-[26px] w-full max-w-[968px] mx-auto">
-                {getVisibleSlides().map((review, index) => (
-                  <div 
-                    key={review.id}
-                    className={`transition-all duration-500 ease-in-out transform flex-none
-                      ${index === 1 
-                        ? 'w-[280px] md:w-[450px] aspect-[328/347]  z-20' 
-                        : 'w-[240px] md:w-[293px] aspect-[293/314]  z-10'
-                      }
-                      ${isAnimating ? 'translate-x-0' : ''}
-                    `}
-                  >
-                    <img 
-                      src={review.image} 
-                      alt={`Review ${review.id}`} 
-                      className={`w-full h-full object-cover ${
-                        index === 1 ? 'rounded-[22px]' : 'rounded-[20px]'
-                      }`}
-                    />
-                  </div>
-                ))}
-              </div>
+    <div className="bg-white rounded-[25px] p-8">
+      <div className="flex flex-col gap-6">
+        <div className="flex items-start gap-6">
+          <div className="relative w-[310px] h-[383px] flex-shrink-0">
+            <Image
+              src={image}
+              alt={name}
+              fill
+              className="object-cover rounded-[15px]"
+            />
+          </div>
+          <div className='flex flex-col justify-between items-start'>
+            <div className='space-y-10'>
+            <h3 className="text-3xl text-[var(--text-primary)] mt-4">
+              {name}
+            </h3>
+            <p className="text-[15px] text-[var(--text-primary)] opacity-70">
+              {description.split('\n').map((line, i) => (
+                <span key={i} className="block leading-snug">
+                  {line}
+                </span>
+              ))}
+            </p>
+            <p className="text-[15px] text-[var(--text-primary)] opacity-80 leading-snug">
+              {story}
+            </p>
             </div>
+            <Link 
+                href="#" 
+                className="text-[var(--button-primary)] text-[15px] font-medium hover:opacity-80 bg-[#F2F2F2] px-4 py-2 rounded-3xl transition-opacity inline-flex items-center"
+              >
+                Узнать подробнее
+                <svg className="ml-1 w-4 h-4" viewBox="0 0 20 20" fill="currentColor">
+                  <path fillRule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clipRule="evenodd" />
+                </svg>
+              </Link>
+          </div>
+        </div>
+        
+        
 
-            {/* Navigation Buttons */}
-            <div className="flex justify-center gap-4 mt-8">
-              <button
-                onClick={() => handleSlide('prev')}
-                disabled={isAnimating}
-                className="w-12 h-12 rounded-full border-2 border-[#18529D] flex items-center justify-center hover:bg-[#18529D] hover:text-white transition-colors disabled:opacity-50"
-              >
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#18529D" strokeWidth="2">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
-                </svg>
-              </button>
-              <button
-                onClick={() => handleSlide('next')}
-                disabled={isAnimating}
-                className="w-12 h-12 rounded-full border-2 border-[#18529D] flex items-center justify-center hover:bg-[#18529D] hover:text-white transition-colors disabled:opacity-50"
-              >
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#18529D" strokeWidth="2">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
-                </svg>
-              </button>
-            </div>
+
+      </div>
+    </div>
+  );
+};
+
+const Reviews = () => {
+  return (
+    <section className="bg-[var(--bg-section)] py-16 px-4 md:px-0 rounded-3xl">
+      <div className="container mx-auto">
+        <AnimatedSection direction="up">
+          <h2 className="text-[32px] text-white font-semibold mb-8">
+            Отзывы
+          </h2>
+
+          <div className="grid md:grid-cols-2 gap-6 mb-8">
+            {reviewsData.map((review, index) => (
+              <ReviewCard key={index} {...review} />
+            ))}
+          </div>
+
+          <div className="flex justify-center">
+            <button className="bg-[var(--button-primary)] text-white px-8 py-3 rounded-lg hover:opacity-90 transition-opacity font-medium text-[15px]">
+              Смотреть все
+            </button>
           </div>
         </AnimatedSection>
       </div>
     </section>
   );
-}
+};
 
 export default Reviews;
