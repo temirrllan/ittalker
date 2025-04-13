@@ -112,7 +112,7 @@
 @media (min-width: 1024px) {
   .sideEllipse {
     height: calc(100% - 80px);
-    bottom: calc(-7%);
+    bottom: calc(-2%);
   }
   .leftEllipse {
     left: -5%;
