@@ -80,33 +80,38 @@ function Hero() {
           <div className="relative z-10">
             <div className="bg-[rgba(12,54,127,0.5)] backdrop-blur-[25px] rounded-[25px]">
               <div className="px-6 py-8">
-                <div className='flex'>
-                <h3 className="text-[25px] font-semibold text-white mb-8">
-                  Запишись на бесплатный вебинар!
-                </h3>
-                <div className='flex gap-x-4 bg-[#6485BB] rounded-xl'>
-                  <Image 
-                      src="/assets/colorful/insta.svg" 
-                      alt="hero" 
-                      width={29}
-                      height={29}
-                  />
-                  <Image 
-                    src="/assets/colorful/tg.svg" 
-                    alt="hero" 
-                    width={29}
-                    height={29}
-                  />
-                </div>
-                <div>
+                <div className='flex flex-col w-full'>
+                  <div className='flex justify-between items-start mb-8'>
+                    <h3 className="text-[25px] font-semibold text-white">
+                      Запишись на бесплатный вебинар!
+                    </h3>
+                    <div className='md:hidden flex gap-x-2 bg-[#6989BE] opacity-90 rounded-xl p-2'>
+                      <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">
+                        <Image 
+                          src="/assets/colorful/insta.svg" 
+                          alt="Instagram" 
+                          width={50}
+                          height={50}
+                          className="cursor-pointer hover:opacity-80 transition-opacity"
+                        />
+                      </a>
+                      <a href="https://t.me" target="_blank" rel="noopener noreferrer">
+                        <Image 
+                          src="/assets/colorful/tg.svg" 
+                          alt="Telegram" 
+                          width={50}
+                          height={50}
+                          className="cursor-pointer hover:opacity-80 transition-opacity"
+                        />
+                      </a>
+                    </div>
+                  </div>
 
+                  <HeroForm 
+                    className="mt-8"
+                    onSubmitSuccess={() => setShowSuccess(true)} 
+                  />
                 </div>
-                </div>
-
-                <HeroForm 
-                  className="mt-8"
-                  onSubmitSuccess={() => setShowSuccess(true)} 
-                />
               </div>
             </div>
           </div>

@@ -57,7 +57,7 @@ const Rules = () => {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {rules.map((rule) => (
                 <div key={rule.id} className={rule.colSpan}>
-                  <div className="bg-white rounded-[25px] p-4 md:p-8 h-full">
+                  <div className="bg-white rounded-[25px] p-6 md:p-8 h-full">
                     <h3 className="text-[var(--text-primary)] text-2xl font-semibold mb-4">
                       {rule.title}
                     </h3>
