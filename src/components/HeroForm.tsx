@@ -157,7 +157,7 @@ function HeroForm({ className = '', onSubmitSuccess }: HeroFormProps) {
           className={`h-[57px] px-8 md:px-12 bg-[#006DFC] text-white rounded-[19px] font-semibold text-base hover:opacity-90 transition-opacity whitespace-nowrap
             ${isSubmitting ? 'opacity-50 cursor-not-allowed' : ''}`}
         >
-          {isSubmitting ? 'Отправка...' : 'Записаться'}
+          {isSubmitting ? 'Отправка...' : 'Присоединиться'}
         </button>
       </form>
       <PrivacyNotice />

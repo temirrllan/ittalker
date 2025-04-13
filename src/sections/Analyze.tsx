@@ -52,7 +52,7 @@ const SystemsAnalyst = () => {
 
             <Link 
                 href="/program" 
-                className="bg-[#006DFC] hover:bg-blue-600 text-lg text-white font-medium py-3 px-6 rounded-2xl inline-flex items-center transition-all"
+                className="bg-[#006DFC] hover:bg-blue-600 text-lg text-white font-medium py-3 px-6 rounded-2xl inline-flex items-center transition-all mb-8 md:mb-0"
             >
                 Программа курса
                 <svg className="ml-2 w-5 h-5" viewBox="0 0 20 20" fill="currentColor">
@@ -61,13 +61,14 @@ const SystemsAnalyst = () => {
             </Link>
             </div>
 
-            {/* Vertical Divider */}
+            {/* Divider - Vertical on desktop, Horizontal on mobile */}
+            <div className="md:hidden w-full h-px bg-[#B2D3FE] my-8"></div>
             <div className="hidden md:flex justify-center mx-12 py-10 self-stretch">
-            <div className="w-px bg-[#B2D3FE]" />
+                <div className="w-px bg-[#B2D3FE]"></div>
             </div>
 
             {/* Right Column - Stats */}
-            <div className="grid grid-cols-2 gap-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
             {stats.map(({ title, description }, i) => (
                 <div key={i} className="mb-8">
                 <h3
@@ -87,19 +88,19 @@ const SystemsAnalyst = () => {
         
         {/* Salary Section */}
         <AnimatedSection direction="up" className="mt-24">
-          <div className="bg-[#F8F8F8] p-12 rounded-3xl">
-            <h2 className="text-3xl md:text-4xl font-semibold mb-12 text-start">
+          <div className="bg-[#F8F8F8] p-4 md:p-12 rounded-3xl">
+            <h2 className="text-2xl md:text-4xl font-semibold mb-12 text-start">
               Средняя зарплата системного аналитика
             </h2>
             
             <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
                 {levels.map(({ title, desc, price }) => (
-                    <div key={title} className="bg-white p-8 rounded-2xl shadow-sm gap-6 border-[1px] border-[#E5E5E5] ">
+                    <div key={title} className="bg-white p-4 md:p-8 rounded-2xl shadow-sm gap-3 md:gap-6 border-[1px] border-[#E5E5E5] ">
                     <div>
                         <span className="bg-[#006DFC] text-white px-4 py-1 rounded-full">{title}</span>
                     </div>
-                    <p className="text-gray-600 mt-10 mb-8 text-left text-xl">{desc}</p>
-                    <h3 className="text-5xl font-bold text-left bg-clip-text text-transparent" style={{ backgroundImage: 'linear-gradient(180deg, #9ABBE6 0%, #3075CE 100%)' }}>
+                    <p className="text-[#808080] mt-10 mb-8 text-left text-md md:text-xl">{desc}</p>
+                    <h3 className="text-3xl md:text-5xl font-bold text-left bg-clip-text text-transparent" style={{ backgroundImage: 'linear-gradient(180deg, #9ABBE6 0%, #3075CE 100%)' }}>
                         {price}
                     </h3>
                     </div>

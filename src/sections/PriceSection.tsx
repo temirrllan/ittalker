@@ -17,54 +17,60 @@ interface PriceCardProps {
 
 const PriceCard = ({ title, price, features, monthlyPayment }: PriceCardProps) => {
   return (
-    <div className="bg-white rounded-[25px] p-8 flex flex-col h-full">
-      <div className="mb-6">
-        <h3 className="text-[22px] font-semibold mb-2 text-[var(--text-primary)]">
-          {title}
-        </h3>
-        <div className="bg-[var(--bg-section)] text-white text-xl font-semibold py-2 px-4 rounded-lg inline-block">
+    <div className="bg-white rounded-[22px] flex flex-col h-full">
+      <div className="relative">
+        <div className="bg-[#18529D] text-white text-xl font-semibold py-3 md:py-4 px-4 md:px-8 rounded-b-[22px] text-center mx-12 md:mx-20">
           {price}
         </div>
       </div>
 
-      <div className="flex-grow">
-        <ul className="space-y-3">
-          {features.map((feature, index) => (
-            <li key={index} className="flex items-start gap-2">
-              <span className="text-[var(--button-primary)] mt-1">•</span>
-              <span className="text-[15px] text-[var(--text-primary)] opacity-80 whitespace-pre-line leading-snug">
-                {feature}
-              </span>
-            </li>
-          ))}
-        </ul>
-      </div>
+      <div className="p-4 md:p-8 flex flex-col h-full">
+        <h3 className="text-2xl md:text-[32px] font-semibold text-[var(--text-primary)] mb-6 md:mb-8">
+          {title}
+        </h3>
 
-      {monthlyPayment && (
-        <div className="mt-6">
-          <Link href="#" className="flex items-center gap-3 bg-[#E3EFFF] rounded-[15px] border border-[#006DFC] p-4 hover:border-[var(--button-primary)] transition-colors group">
-            <div className="w-8 h-8 relative flex-shrink-0">
-              <Image
-                src="/assets/kaspi.png"
-                alt="Kaspi Bank"
-                fill
-                className="object-contain"
-              />
-            </div>
-            <div>
-              <div className="text-sm text-[var(--text-primary)] opacity-70">
-                {monthlyPayment.months}
-              </div>
-              <div className="text-[var(--text-primary)] font-medium">
-                {monthlyPayment.amount}
-              </div>
-            </div>
-            <svg className="w-5 h-5 ml-auto text-[#006DFC] opacity-70 group-hover:opacity-100" viewBox="0 0 20 20" fill="currentColor">
-              <path fillRule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clipRule="evenodd" />
-            </svg>
-          </Link>
+        <div className="flex-grow">
+          <ul className="space-y-3">
+            {features.map((feature, index) => (
+              <li key={index} className="flex items-baseline gap-2 md:gap-3">
+                <span className="text-base md:text-lg leading-none">•</span>
+                <span className="text-sm md:text-base font-medium whitespace-pre-line leading-snug">
+                  {feature}
+                </span>
+              </li>
+            ))}
+          </ul>
         </div>
-      )}
+
+        {monthlyPayment && (
+          <div className="mt-4 md:mt-6">
+            <Link 
+              href="#" 
+              className="flex items-center gap-2 md:gap-3 bg-[#EBF3FF] rounded-[15px] p-3 md:p-4 hover:bg-[#E3EFFF] transition-colors group"
+            >
+              <div className="w-8 h-8 md:w-10 md:h-10 relative flex-shrink-0">
+                <Image
+                  src="/assets/kaspi.png"
+                  alt="Kaspi Bank"
+                  fill
+                  className="object-contain"
+                />
+              </div>
+              <div>
+                <div className="text-[13px] md:text-[15px] text-[var(--text-primary)] opacity-70">
+                  {monthlyPayment.months}
+                </div>
+                <div className="text-[var(--text-primary)] font-medium text-base md:text-[20px]">
+                  {monthlyPayment.amount}
+                </div>
+              </div>
+              <svg className="w-4 h-4 md:w-5 md:h-5 ml-auto text-[#006DFC] opacity-70 group-hover:opacity-100" viewBox="0 0 20 20" fill="currentColor">
+                <path fillRule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clipRule="evenodd" />
+              </svg>
+            </Link>
+          </div>
+        )}
+      </div>
     </div>
   );
 };
@@ -119,14 +125,14 @@ const PriceSection = () => {
   ];
 
   return (
-    <section className="py-16 px-4 md:px-0 bg-[#1A549E]">
+    <section className="py-8 md:py-16 px- md:px-0 bg-[#1A549E] rounded-3xl">
       <div className="container mx-auto">
         <AnimatedSection direction="up">
-          <h2 className="text-[32px] font-semibold mb-12 text-white">
+          <h2 className="text-2xl md:text-[32px] font-semibold mb-8 md:mb-12 text-white">
             Тарифы
           </h2>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 md:gap-6">
             {priceCards.map((card, index) => (
               <PriceCard key={index} {...card} />
             ))}
@@ -137,4 +143,4 @@ const PriceSection = () => {
   );
 };
 
-export default PriceSection; 
+export default PriceSection;

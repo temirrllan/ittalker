@@ -18,7 +18,7 @@ const FAQItem = ({ question, isOpen = false, onClick }: FAQItemProps) => {
       className="flex justify-between items-center w-full cursor-pointer py-6"
       onClick={onClick}
     >
-      <h3 className="text-[1.25rem] font-medium leading-[109%] tracking-[-0.01em] text-black max-w-[48.875rem]">
+      <h3 className="text-[1rem] md:text-[1.25rem] font-medium leading-[109%] tracking-[-0.01em] text-black max-w-[48.875rem]">
         {question}
       </h3>
       <div className="w-[2.25rem] h-[2.25rem] bg-[#18529D] rounded-[2rem] flex items-center justify-center flex-shrink-0">
@@ -38,7 +38,7 @@ const FAQ = ({ questions }: FAQProps) => {
     <section className="py-20 md:px-0">
       <div className="container mx-auto max-w-[80rem]">
         <AnimatedSection direction="up">
-          <h2 className="text-[2.78rem] font-semibold leading-[129%] tracking-[-0.01em] text-[#010024] mb-8">
+          <h2 className="text-[1.75rem] md:text-[2.78rem] font-semibold leading-[129%] tracking-[-0.01em] text-[#010024] mb-8">
             Вопрос - ответ
           </h2>
 

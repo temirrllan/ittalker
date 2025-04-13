@@ -6,19 +6,21 @@ import Badge from '@/components/Badge';
 import SuccessPopup from '@/components/SuccessPopup';
 import AnimatedSection from '@/components/AnimatedSection';
 import styles from '@/styles/Hero.module.css';
+import Image from 'next/image';
 
 function Hero() {
   const [showSuccess, setShowSuccess] = useState(false);
 
   const features = [
-    'Группы по 15 человек',
-    'Только польза без воды',
+    'Группы по 20 человек',
+    'Еженедельная real-time практика',
   ];
 
   const features2 = [
-    'От сбора требований до брокеров сообщений',
-    'Работа в back-end реального проекта',
-    'Еженедельная real-time практика'
+    'Настоящая практика в реальном проекте',
+    'От старта в профессии до уровня middle',
+    'Опытные и новички - в разных группах', 
+    'Длительность обучения - 3 месяца'
   ]
 
   const companies = ['Теле2', 'Альфа банк', 'Сбербанк', 'Uzum'];
@@ -44,7 +46,7 @@ function Hero() {
               ))}
             </div>
 
-            <div className='flex flex-wrap gap-2'>
+            <div className='flex flex-wrap-reverse gap-2'>
               {features2.map((feature) => (
                 <Badge key={feature} className='bg-[#E9F0F7] text-xs'>{feature}</Badge>
               ))}
@@ -78,9 +80,29 @@ function Hero() {
           <div className="relative z-10">
             <div className="bg-[rgba(12,54,127,0.5)] backdrop-blur-[25px] rounded-[25px]">
               <div className="px-6 py-8">
-                <h3 className="text-[25px] leading-[129%] font-semibold text-white mb-8">
-                  Запишись на тестовое собеседование!
+                <div className='flex'>
+                <h3 className="text-[25px] font-semibold text-white mb-8">
+                  Запишись на бесплатный вебинар!
                 </h3>
+                <div className='flex gap-x-4 bg-[#6485BB] rounded-xl'>
+                  <Image 
+                      src="/assets/colorful/insta.svg" 
+                      alt="hero" 
+                      width={29}
+                      height={29}
+                  />
+                  <Image 
+                    src="/assets/colorful/tg.svg" 
+                    alt="hero" 
+                    width={29}
+                    height={29}
+                  />
+                </div>
+                <div>
+
+                </div>
+                </div>
+
                 <HeroForm 
                   className="mt-8"
                   onSubmitSuccess={() => setShowSuccess(true)} 
