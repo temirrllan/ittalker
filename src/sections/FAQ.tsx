@@ -2,6 +2,10 @@
 import { useState } from 'react';
 import AnimatedSection from '@/components/AnimatedSection';
 
+interface FAQProps {
+  questions: string[];
+}
+
 interface FAQItemProps {
   question: string;
   isOpen?: boolean;
@@ -27,15 +31,8 @@ const FAQItem = ({ question, isOpen = false, onClick }: FAQItemProps) => {
   );
 };
 
-const FAQ = () => {
+const FAQ = ({ questions }: FAQProps) => {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
-
-  const faqItems = [
-    'Можно ли приобрести все 4 курса вместе и будет ли скидка?',
-    'Есть ли рассрочка?',
-    'Может ли компания оплатить мое обучение?',
-    'Как понять в какую группу меня зачислят?'
-  ];
 
   return (
     <section className="py-20 md:px-0">
@@ -46,7 +43,7 @@ const FAQ = () => {
           </h2>
 
           <div className="flex flex-col">
-            {faqItems.map((question, index) => (
+            {questions.map((question, index) => (
               <FAQItem
                 key={index}
                 question={question}

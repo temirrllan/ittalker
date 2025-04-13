@@ -7,6 +7,11 @@ import type { ValidationError, ApiResponse } from '@/types/form';
 import AnimatedSection from '@/components/AnimatedSection';
 import Image from 'next/image';
 
+interface ConsultationFormProps {
+  bgColor?: string;
+  textColor?: string;
+}
+
 interface FormData {
   name: string;
   phone: string;
@@ -18,7 +23,7 @@ interface FormErrors {
   [key: string]: string;
 }
 
-const ConsultationForm = () => {
+const ConsultationForm = ({ bgColor, textColor }: ConsultationFormProps) => {
   const [formData, setFormData] = useState<FormData>({
     name: '',
     phone: '',
@@ -96,17 +101,17 @@ const ConsultationForm = () => {
   };
 
   return (
-    <section className="relative w-full bg-white py-12 md:py-16 lg:py-48">
+    <section className={`${bgColor || 'bg-white'} relative w-full py-12 md:py-16 lg:py-48`}>
       <div className="container mx-auto px-4">
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-16">
           <AnimatedSection direction="left">
             <div className="max-w-[50rem]">
-              <h2 className="text-[2rem] md:text-[2.2rem] lg:text-[2.5rem] font-semibold leading-[129%] tracking-[-0.01em] text-[#010024] mb-2">
-                Узнай больше о системном анализе
-              </h2>
-              <p className="text-[1rem] md:text-[1.2rem] lg:text-[1.4rem] font-semibold leading-[129%] tracking-[-0.01em] text-[#010024] opacity-80 mb-4 lg:mb-8">
-                Оставь заявку и мы вас проконсультируем
-              </p>
+            <h2 className={`text-[2rem] md:text-[2.2rem] lg:text-[2.5rem] font-semibold leading-[129%] tracking-[-0.01em] mb-2 ${textColor || 'text-[#010024]'}`}>
+              Узнай больше о системном анализе
+            </h2>
+            <p className={`text-[1rem] md:text-[1.2rem] lg:text-[1.4rem] font-semibold leading-[129%] tracking-[-0.01em] opacity-80 mb-4 lg:mb-8 ${textColor || 'text-[#010024]'}`}>
+              Оставь заявку и мы вас проконсультируем
+            </p>
 
               <form onSubmit={handleSubmit} className="max-w-[50rem]">
                 <div className="grid md:grid-cols-2 gap-3 lg:gap-4 mb-4 lg:mb-6">

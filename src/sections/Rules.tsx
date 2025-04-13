@@ -3,7 +3,19 @@ import AnimatedSection from '@/components/AnimatedSection';
 
 const Rules = () => {
   return (
-    <section className="bg-[#6587C1] text-white py-16 px-4 md:px-0 rounded-xl">
+    <section className="relative overflow-hidden bg-[#6587C1] text-white py-16 px-4 md:px-0 rounded-xl ">
+      {/* Left Blob */}
+    <div className="absolute w-[667px] h-[505px] bg-[#04326F] opacity-45 rounded-full blur-[120px] z-0" style={{ top: '323px', left: '-230px' }} />
+
+    {/* Right Blob */}
+    <div className="absolute w-[299px] h-[467px] bg-[#004DFF] opacity-45 rounded-full blur-[120px] z-0" style={{ top: '204px', left: '1587px' }} />
+
+    {/* Top Blob */}
+    <div className="absolute w-[652px] h-[299px] bg-[#ECF4FF] opacity-45 rounded-full blur-[120px] z-0" style={{ top: '68px', left: '978px' }} />
+
+    {/* Bottom Blob */}
+    <div className="absolute w-[1014px] h-[299px] bg-[#ECF4FF] opacity-45 rounded-full blur-[120px] z-0" style={{ top: '887px', left: '195px' }} />
+    <div className="relative z-10">
       <div className="container mx-auto">
         <AnimatedSection direction="up">
           <h2 className="text-3xl md:text-4xl font-semibold mb-4">
@@ -14,7 +26,6 @@ const Rules = () => {
           </p>
 
           <div className="grid grid-cols-3 gap-6">
-            {/* First card - Takes 2 columns in first row */}
             <div className="col-span-2">
               <div className="bg-white rounded-[25px] p-8 h-full">
                 <h3 className="text-[var(--text-primary)] text-2xl font-semibold mb-4">
@@ -90,6 +101,7 @@ const Rules = () => {
             </div>
           </div>
         </AnimatedSection>
+      </div>
       </div>
     </section>
   );
