@@ -3,7 +3,11 @@
 import { useState } from 'react';
 import Image from 'next/image';
 
-function Navbar() {
+interface NavbarProps {
+  bgColor?: string
+}
+
+function Navbar({ bgColor }: NavbarProps) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const navLinks = [
@@ -52,7 +56,7 @@ function Navbar() {
   };
 
   return (
-    <nav className="bg-[var(--bg-primary)]">
+    <nav className={`${bgColor || 'bg-[var(--bg-primary)]'}`}>
       <div className="container py-6">
         {/* Desktop Navigation */}
         <div className="hidden md:flex items-center justify-between">

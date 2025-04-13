@@ -28,7 +28,7 @@ export default function Footer() {
   ];
 
   return (
-    <footer id="contacts" className="bg-[#0A1628] text-white py-8 md:py-12 lg:py-16 font-semibold">
+    <footer id="contacts" className="bg-[#022046] text-white py-8 md:py-12 lg:py-16 font-semibold">
       <div className="container">
         {/* Top Section */}
         <div className="w-full flex flex-col lg:flex-row justify-between items-start gap-8 lg:gap-12 mb-12">
@@ -47,6 +47,23 @@ export default function Footer() {
                 Публичная оферта
               </a>
             </div>
+            <div className="flex flex-col lg:flex-col justify-between items-start gap-12 lg:gap-8">
+            <p className="text-md opacity-60 text-center lg:text-left">
+              2025 все права защищены
+            </p>
+            <div className="flex items-center gap-10 lg:gap-8">
+              <p className="text-lg lg:text-md">
+                Разработано<br />студией
+              </p>
+              <motion.img 
+                src="/assets/footer-icon.png" 
+                alt="Dala Digital" 
+                className="w-24 lg:w-28 h-12 lg:h-14"
+                whileHover={{ scale: 1.1 }}
+                transition={{ type: "spring", stiffness: 400, damping: 10 }}
+              />
+            </div>
+          </div>
           </AnimatedSection>
 
           {/* Menu */}
@@ -100,13 +117,28 @@ export default function Footer() {
                 </a>
 
                 <a 
+                  href=" info@ittalker.kz" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-3"
+                >
+                  <div className="w-10 h-10 flex items-center justify-center">
+                    <img src="/assets/mail.svg" alt="WhatsApp" className="w-8 h-8" />
+                  </div>
+                  <span className="text-base lg:text-lg opacity-80 hover:opacity-100">
+                    info@ittalker.kz
+                  </span>
+                </a>
+
+
+                <a 
                   href="https://t.me/ittacademy" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="flex items-center gap-3"
                 >
                   <div className="w-10 h-10 flex items-center justify-center">
-                    <img src="/assets/tg.png" alt="Telegram" className="w-10 h-10" />
+                    <img src="/assets/telegram.svg" alt="Telegram" className="w-8 h-8" />
                   </div>
                   <span className="text-base lg:text-lg opacity-80 hover:opacity-100">
                     it.talker.academy
@@ -116,27 +148,7 @@ export default function Footer() {
             </div>
           </AnimatedSection>
         </div>
-
-        {/* Bottom Section */}
-        <AnimatedSection delay={0.4}>
-          <div className="flex flex-col-reverse lg:flex-row justify-between items-center gap-8 lg:gap-0">
-            <p className="text-sm opacity-60 text-center lg:text-left">
-              2024 все права защищены
-            </p>
-            <div className="flex items-center gap-10 lg:gap-8">
-              <p className="text-sm lg:text-md opacity-80">
-                Разработано<br />студией
-              </p>
-              <motion.img 
-                src="/assets/footer-icon.png" 
-                alt="Dala Digital" 
-                className="w-24 lg:w-28 h-12 lg:h-14"
-                whileHover={{ scale: 1.1 }}
-                transition={{ type: "spring", stiffness: 400, damping: 10 }}
-              />
-            </div>
-          </div>
-        </AnimatedSection>
+          
       </div>
     </footer>
   );

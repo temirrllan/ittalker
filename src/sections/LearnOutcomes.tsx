@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import AnimatedSection from '@/components/AnimatedSection';
 
+
 interface Outcome {
   icon: string;
   title: string;
@@ -80,10 +81,10 @@ function LearnOutcomes() {
   };
 
   return (
-    <section id="advantages" className="py-12 md:py-16">
+    <section id="advantages" className="py-12 md:py-16 bg-[#6B95DD]">
       <div className="container">
         <AnimatedSection>
-          <h2 className="text-2xl md:text-4xl font-[700] mb-8 md:mb-16">
+          <h2 className="text-2xl md:text-4xl font-[700] mb-8 md:mb-16 text-white">
             Чему вы научитесь
           </h2>
         </AnimatedSection>
@@ -147,7 +148,7 @@ function LearnOutcomes() {
                 index % 3 === 1 ? 'up' : 'right'
               }
             >
-              <div className="flex items-start gap-4 group shadow-sm rounded-xl p-4">
+              <div className="bg-white flex items-start gap-4 group shadow-sm rounded-xl p-4 h-[7rem]">
                 <div className="w-12 h-12 bg-white rounded-full p-2.5 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
                   <img src={outcome.icon} alt="" />
                 </div>
