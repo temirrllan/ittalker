@@ -81,8 +81,11 @@ function LearnOutcomes() {
   };
 
   return (
-    <section id="advantages" className="py-12 md:py-16 bg-[#6B95DD]">
+    <section id="advantages" className="py-12 md:py-16 bg-[#6587C1] rounded-t-3xl">
       <div className="container">
+      <div className="absolute w-[299px] h-[467px] bg-[#004DFF] opacity-45 rounded-full blur-[120px] z-0" style={{ top: '204px', left: '1587px' }} />
+      <div className="absolute w-[652px] h-[299px] bg-[#ECF4FF] opacity-45 rounded-full blur-[120px] z-0" style={{ top: '68px', left: '978px' }} />
+      <div className="absolute w-[1014px] h-[299px] bg-[#ECF4FF] opacity-45 rounded-full blur-[120px] z-0" style={{ top: '887px', left: '195px' }} />
         <AnimatedSection>
           <h2 className="text-2xl md:text-4xl font-[700] mb-8 md:mb-16 text-white">
             Чему вы научитесь

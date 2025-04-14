@@ -57,9 +57,9 @@ const SocialButton = ({ type, link }: { type: 'linkedin' | 'telegram', link: str
 
 const TeamMemberCard = ({ name, surname, role, image, socialType, socialLink, badge }: TeamMemberProps) => {
   return (
-    <div className="bg-[#FAFAFA] rounded-[22px] p-4 md:p-6 min-h-[280px] md:h-[324px]">
+    <div className="bg-[#FAFAFA] rounded-[22px] p-4 md:p-6 min-h-[260px] md:h-[260px]">
       <div className="flex flex-col md:flex-row gap-4 md:gap-6 h-full">
-        <div className="relative w-full md:w-[180px] h-[200px] md:h-[180px] bg-[#E9E9E9] rounded-[20px] overflow-hidden flex-shrink-0">
+        <div className="relative w-full md:w-[180px] h-[220px] md:h-[210px] bg-[#E9E9E9] rounded-[20px] overflow-hidden flex-shrink-0">
           <Image
             src={image}
             alt={`${name} ${surname}`}
