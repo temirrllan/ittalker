@@ -25,7 +25,7 @@ interface FormErrors {
   [key: string]: string;
 }
 
-const ConsultationForm = ({ bgColor, textColor, title, description }: ConsultationFormProps) => {
+const ConsultationForm = ({ bgColor, textColor }: ConsultationFormProps) => {
   const [formData, setFormData] = useState<FormData>({
     name: '',
     phone: '',
