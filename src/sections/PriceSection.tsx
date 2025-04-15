@@ -30,7 +30,7 @@ const PriceCard = ({ title, price, features, monthlyPayment }: PriceCardProps) =
       </div>
 
       <div className="p-4 px-6 md:p-8 md:px-10 flex flex-col h-full ">
-        <h3 className="text-2xl md:text-[32px] font-semibold text-[#18529D] mb-2 md:mb-4">
+        <h3 className="text-2xl md:text-[32px] text-center font-semibold text-[#18529D] mb-2 md:mb-4">
           {title}
         </h3>
 
@@ -51,7 +51,7 @@ const PriceCard = ({ title, price, features, monthlyPayment }: PriceCardProps) =
           }
           `}
               >
-          <span className={`text-base md:text-md leading-none ${isIntroLine ? 'invisible' : ''}`}>
+          <span className={`text-base md:text-md leading-none mt-1 ${isIntroLine ? 'invisible ' : ''}`}>
             •
           </span>
           <span className="text-sm md:text-base font-medium whitespace-pre-line leading-snug text-left">
@@ -67,7 +67,7 @@ const PriceCard = ({ title, price, features, monthlyPayment }: PriceCardProps) =
           <div className="mt-4 md:mt-6">
             <Link 
               href="#" 
-              className="flex items-center gap-2 md:gap-3 bg-[#EBF3FF] border-[#006DFC] border  rounded-[15px] p-3 md:p-4 hover:bg-[#E3EFFF] transition-colors group"
+              className="flex items-center gap-2 md:gap-3 bg-[#EBF3FF] border-[#006DFC] border  rounded-[22px] p-3 md:p-4 hover:bg-[#E3EFFF] transition-colors group"
             >
               <div className="w-8 h-8 md:w-10 md:h-10 relative flex-shrink-0">
                 <Image
@@ -85,9 +85,7 @@ const PriceCard = ({ title, price, features, monthlyPayment }: PriceCardProps) =
                   {monthlyPayment.amount}
                 </div>
               </div>
-              <svg className="w-4 h-4 md:w-5 md:h-5 ml-auto text-[#006DFC] opacity-70 group-hover:opacity-100" viewBox="0 0 20 20" fill="currentColor">
-                <path fillRule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clipRule="evenodd" />
-              </svg>
+              <img src='/assets/arrow.svg' alt='arrow-right' className='w-8 h-8 ml-14' />
             </Link>
           </div>
         )}
@@ -135,7 +133,7 @@ const PriceSection = () => {
       price: '990 000 тг',
       features: [
         'Все перечисленное в тарифе "С\nобратной связью", и дополнительно:',
-        { indent: true, text: 'Индивидуальные созвоны с\nлектором каждые 2 недели...' },
+        { indent: true, text: 'Индивидуальные созвоны с лектором один раз в неделю длительностью до часа, на которых вы: закрываете вопросы по образовательной программе; разбираете кейс на вашей текущей работе; улучшаете CV и так далее' },
         { indent: true, text: 'Индивидуальная обратная связь\nпо домашним заданиям' }
       ],
       monthlyPayment: {
@@ -146,10 +144,40 @@ const PriceSection = () => {
   ];
 
   return (
-    <section className="py-8 md:py-16 px- md:px-0 bg-[#1A549E] rounded-3xl">
-      <div className="container mx-auto">
+    <section className="py-8 md:py-16 px- md:px-0 bg-[#1A549E] rounded-3xl relative overflow-hidden">
+        <div 
+          className="absolute w-[499px] h-[297px] left-[2%] top-[11%] opacity-30 blur-[100px]"
+          style={{
+            background: '#ECF4FF',
+            borderRadius: '499px/297px'
+          }}
+        />
+        <div 
+          className="absolute w-[499px] h-[297px] left-[30.7%] top-[8.6%] opacity-30 blur-[100px]"
+          style={{
+            background: '#ECF4FF',
+            borderRadius: '499px/297px'
+          }}
+        />
+        <div 
+          className="absolute w-[555px] h-[297px] left-[60.2%] top-[11%] opacity-45 blur-[100px]"
+          style={{
+            background: '#ECF4FF',
+            borderRadius: '555px/297px'
+          }}
+        />
+        {/* Bottom ellipse */}
+        <div 
+          className="absolute w-[2001px] h-[320px] -left-[20.4%] top-[67.3%] opacity-30 blur-[100px]"
+          style={{
+            background: '#FFFFFF',
+            borderRadius: '2001px/355px'
+          }}
+        />
+      
+      <div className="container mx-auto relative z-10">
         <AnimatedSection direction="up">
-          <h2 className="text-2xl md:text-[32px] font-semibold mb-8 md:mb-12 text-white">
+          <h2 className="text-2xl md:text-[38px] font-semibold mb-8 md:mb-12 text-white">
             Тарифы
           </h2>
 
