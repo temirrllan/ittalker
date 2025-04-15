@@ -261,7 +261,7 @@ function Hero() {
                     value={promoCode}
                     onChange={(e) => setPromoCode(e.target.value)}
                     placeholder="Промокод"
-                    className="bg-[#3D4C6A] text-white text-md opacity-90 py-3 pl-4 rounded-2xl w-56 font-medium placeholder-white/70"
+                    className="bg-[#3D4C6A] text-white text-md opacity-90 py-4 pl-4 rounded-2xl w-60 font-medium placeholder-white/70"
                   />
                 </form>
               </div>

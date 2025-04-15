@@ -34,7 +34,7 @@ const featureSectionsData: FeatureSectionProps[] = [
 
 const FeatureSection = ({ title, description, image, reverse = false, buttonText, location }: FeatureSectionProps) => {
   return (
-    <div className={`bg-[var(--bg-section)] py-8 md:py-16 px-4 md:px-0 rounded-3xl mb-6`}>
+    <div className={`${reverse ? 'bg-white' : 'bg-[var(--bg-section)]'} py-8 md:py-16 px-4 md:px-0 rounded-3xl mb-6`}>
       <div className="container mx-auto">
         <AnimatedSection direction="up">
           <div className={`flex flex-col ${reverse ? 'md:flex-row' : 'md:flex-row-reverse'} items-center gap-6 md:gap-10`}>
@@ -49,7 +49,7 @@ const FeatureSection = ({ title, description, image, reverse = false, buttonText
               </div>
             </div>
             
-            <div className="w-full md:w-1/3 text-white">
+            <div className={`w-full md:w-1/3 ${reverse ? '' : 'text-white'}`}>
               <h2 className="text-2xl md:text-3xl font-medium mb-4">{title}</h2>
               <p className="text-sm md:text-base opacity-90 mb-4">{description}</p>
               {location && (

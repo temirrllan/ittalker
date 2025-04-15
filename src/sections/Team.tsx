@@ -65,7 +65,7 @@ const TeamMemberCard = ({ name, surname, role, image, socialType, socialLink, ba
   return (
     <div className="bg-[#FAFAFA] rounded-[22px] p-6 min-h-[260px] h-full">
       <div className="flex flex-col md:flex-row gap-6 h-full">
-        <div className="relative w-full md:w-[220px] h-[180px] md:h-[192px] bg-[#E9E9E9] rounded-[20px] overflow-hidden flex-shrink-0">
+        <div className="relative w-full md:w-[200px] h-[180px] md:h-[192px] bg-[#E9E9E9] rounded-[20px] overflow-hidden flex-shrink-0">
           <Image
             src={image}
             alt={`${name} ${surname}`}

@@ -242,7 +242,7 @@
 /* Mobile: Small phones (up to 639px) */
 @media (max-width: 639px) {
   .chartCard {
-    top: calc(41%);
+    top: calc(39%);
     right: 8px;
     width: 150px;
     padding: 0.625rem;

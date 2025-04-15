@@ -62,7 +62,7 @@ const ReviewCard = ({ name, images, description, story }: ReviewCardProps) => {
       <div className="flex flex-col gap-4 md:gap-6">
         {/* Mobile Layout */}
         <div className="flex md:hidden flex-col">
-          <div className="relative w-full h-[200px] group">
+          <div className="relative aspect-square w-full group">
             {/* Navigation Arrows */}
             <button
               onClick={prevImage}
@@ -88,7 +88,7 @@ const ReviewCard = ({ name, images, description, story }: ReviewCardProps) => {
                 src={images[currentImageIndex]}
                 alt={name}
                 fill
-                className="object-cover rounded-[15px]"
+                className="object-contain rounded-[15px]"
               />
             </div>
           </div>
@@ -107,7 +107,7 @@ const ReviewCard = ({ name, images, description, story }: ReviewCardProps) => {
               {story}
             </p>
             <Link 
-              href="#" 
+              href="#"   
               className="text-[var(--button-primary)] text-sm font-medium hover:opacity-80 bg-[#F2F2F2] px-3 py-1.5 rounded-2xl transition-opacity inline-flex items-center mt-2"
             >
               Узнать подробнее
@@ -120,7 +120,7 @@ const ReviewCard = ({ name, images, description, story }: ReviewCardProps) => {
 
         {/* Desktop Layout */}
         <div className="hidden md:flex items-start gap-6">
-          <div className="relative w-[310px] h-[383px] flex-shrink-0 group">
+          <div className="relative aspect-square w-[320px] flex-shrink-0 group">
             {/* Navigation Arrows */}
             <button
               onClick={prevImage}
@@ -146,14 +146,14 @@ const ReviewCard = ({ name, images, description, story }: ReviewCardProps) => {
                 src={images[currentImageIndex]}
                 alt={name}
                 fill
-                className="object-cover rounded-[15px]"
+                className="object-contain rounded-[15px]"
               />
             </div>
           </div>
 
-          <div className='flex flex-col justify-between h-[383px] w-full'>
-            <div className='space-y-10'>
-              <h3 className="text-3xl text-[var(--text-primary)] mt-4">
+          <div className='flex flex-col justify-between h-[320px] w-full py-4'>
+            <div className='space-y-6'>
+              <h3 className="text-3xl text-[var(--text-primary)]">
                 {name}
               </h3>
               <p className="text-[15px] text-[var(--text-primary)] opacity-70">
