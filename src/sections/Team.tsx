@@ -45,45 +45,51 @@ const SocialButton = ({ type, link }: { type: 'linkedin' | 'telegram', link: str
   return (
     <Link 
       href={link}
-      className="inline-flex items-center gap-2 bg-[#3478F6] text-white pl-4 py-2 rounded-[100px] hover:opacity-90 transition-opacity text-sm font-medium w-28"
+      className="inline-flex items-center justify-between gap-2 bg-[#3478F6] text-white pl-4 pr-2 py-2 rounded-[100px] hover:opacity-90 transition-opacity text-sm font-medium w-[124px]"
     >
-      {type === 'linkedin' ? 'LinkedIn' : 'Telegram'}
-      <svg className="w-4 h-4" viewBox="0 0 20 20" fill="currentColor">
-        <path fillRule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clipRule="evenodd" />
-      </svg>
+      <span>{type === 'linkedin' ? 'LinkedIn' : 'Telegram'}</span>
+      <div className="w-6 h-6 bg-white rounded-full flex items-center justify-center">
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M1.16675 7.00008H12.8334M12.8334 7.00008L7.00008 1.16675M12.8334 7.00008L7.00008 12.8334" 
+            stroke="#3478F6" 
+            strokeWidth="1.5" 
+            strokeLinecap="round" 
+            strokeLinejoin="round"/>
+        </svg>
+      </div>
     </Link>
   );
 };
 
 const TeamMemberCard = ({ name, surname, role, image, socialType, socialLink, badge }: TeamMemberProps) => {
   return (
-    <div className="bg-[#FAFAFA] rounded-[22px] p-4 md:p-6 min-h-[260px] md:h-[260px]">
-      <div className="flex flex-col md:flex-row gap-4 md:gap-6 h-full">
-        <div className="relative w-full md:w-[180px] h-[220px] md:h-[210px] bg-[#E9E9E9] rounded-[20px] overflow-hidden flex-shrink-0">
+    <div className="bg-[#FAFAFA] rounded-[22px] p-6 min-h-[260px] h-full">
+      <div className="flex flex-col md:flex-row gap-6 h-full">
+        <div className="relative w-full md:w-[220px] h-[180px] md:h-[192px] bg-[#E9E9E9] rounded-[20px] overflow-hidden flex-shrink-0">
           <Image
             src={image}
             alt={`${name} ${surname}`}
             fill
-            className="object-cover mix-blend-multiply grayscale"
+            className="object-cover object-top mix-blend-multiply grayscale"
           />
           {badge && (
-            <div className="absolute bottom-0 right-0 bg-[#D9D9D9] px-3 py-1 rounded-tl-[10px] rounded-br-[20px]">
-              <span className="text-[16px] md:text-[22px] font-semibold text-[#18529D]">
+            <div className="absolute bottom-0 right-0 bg-[#D9D9D9] px-3 py-1 rounded-[10px]">
+              <span className="text-[16px] md:text-[18px] font-semibold text-[#18529D]">
                 {badge}
               </span>
             </div>
           )}
         </div>
         <div className="flex flex-col justify-between flex-grow py-1 w-full md:w-auto">
-          <div className="space-y-2 md:space-y-3">
-            <h3 className="text-[20px] md:text-[25px] font-medium leading-[129%] tracking-[-0.01em] text-black">
+          <div className="space-y-2">
+            <h3 className="text-[20px] md:text-[24px] font-medium leading-[129%] tracking-[-0.01em] text-black">
               {name}<br/>{surname}
             </h3>
-            <p className="text-[13px] md:text-[15px] leading-[129%] tracking-[-0.01em] text-black opacity-60 whitespace-pre-line w-full">
+            <p className="text-[13px] md:text-[14px] leading-[129%] tracking-[-0.01em] text-black opacity-60 whitespace-pre-line w-full">
               {role}
             </p>
           </div>
-          <div className="mt-3 md:mt-0">
+          <div className="mt-4 md:mt-0">
             <SocialButton type={socialType} link={socialLink} />
           </div>
         </div>

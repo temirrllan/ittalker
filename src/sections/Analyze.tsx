@@ -38,11 +38,11 @@ const SystemsAnalyst = () => {
                 <h2 className="text-3xl md:text-4xl font-semibold mb-6">
                 О системном анализе
             </h2>
-            <p className="text-md mb-4">
-                Системный аналитик <span className="text-[#0052BE]">не пишет код</span>, но зарабатывает
+            <p className="text-md mb-4 font-medium">
+                Системный аналитик <span className="text-[#0052BE]">не пишет код</span>, но зарабатывает <br />
                 не меньше разработчика.
             </p>
-            <p className="text-md mb-8">
+            <p className="text-md mb-8 font-medium">
                 Благодаря работе SA разработчики не будут зря тратить свое
                 время, а компания сэкономит деньги: системный аналитик должен
                 собрать и проанализировать требования бизнеса, а затем
@@ -68,18 +68,18 @@ const SystemsAnalyst = () => {
             </div>
 
             {/* Right Column - Stats */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 mt-10">
             {stats.map(({ title, description }, i) => (
                 <div key={i} className="mb-8">
                 <h3
-                    className="text-4xl font-bold mb-2 text-transparent bg-clip-text"
+                    className="text-4xl font-medium mb-2 text-transparent bg-clip-text"
                     style={{
                     backgroundImage: "linear-gradient(180deg, #9ABBE6 0%, #3075CE 100%)",
                     }}
                 >
                     {title}
                 </h3>
-                <p className="text-gray-700">{description}</p>
+                <p className="font-medium text-sm">{description}</p>
                 </div>
             ))}
             </div>
@@ -89,7 +89,7 @@ const SystemsAnalyst = () => {
         {/* Salary Section */}
         <AnimatedSection direction="up" className="mt-24">
           <div className="bg-[#F8F8F8] p-4 md:p-12 rounded-3xl">
-            <h2 className="text-2xl md:text-4xl font-semibold mb-12 text-start">
+            <h2 className="text-2xl md:text-4xl font-medium mb-12 text-start">
               Средняя зарплата системного аналитика
             </h2>
             

@@ -13,15 +13,15 @@ function Navbar({ bgColor }: NavbarProps) {
   const navLinks = [
     {
       id: 'about',
-      name: 'О нас'
-    },
-    {
-      id: 'advantages',
-      name: 'Преимущества'
+      name: 'Программа курса'
     },
     {
       id: 'reviews',
       name: 'Отзывы'
+    },
+    {
+      id: 'faq',
+      name: 'FAQ'
     },
     {
       id: 'contacts',

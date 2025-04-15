@@ -20,7 +20,7 @@ const reviewsData: ReviewCardProps[] = [
   },
   {
     name: 'Анатолий',
-    image: '/assets/anatoliy.png',
+    image: '/assets/review/1.PNG',
     description: 'Системный аналитик\nстудент 1-го потока',
     story: 'Узнайте историю Анатолия, как он с нуля поднялся до Junior специалиста'
   },
@@ -102,28 +102,28 @@ const ReviewCard = ({ name, image, description, story, index }: ReviewCardProps 
               className="object-cover rounded-[15px]"
             />
           </div>
-          <div className='flex flex-col justify-between items-start'>
+          <div className='flex flex-col justify-between h-[383px] w-full'>
             <div className='space-y-10'>
               <h3 className="text-3xl text-[var(--text-primary)] mt-4">
-                {name}
+          {name}
               </h3>
               <p className="text-[15px] text-[var(--text-primary)] opacity-70">
-                {description.split('\n').map((line, i) => (
-                  <span key={i} className="block leading-snug">
-                    {line}
-                  </span>
-                ))}
+          {description.split('\n').map((line, i) => (
+            <span key={i} className="block leading-snug">
+              {line}
+            </span>
+          ))}
               </p>
               <p className="text-[15px] text-[var(--text-primary)] opacity-80 leading-snug">
-                {story}
+          {story}
               </p>
             </div>
             <Link 
               href="#" 
-              className="text-[var(--button-primary)] text-[15px] font-medium hover:opacity-80 bg-[#F2F2F2] px-4 py-2 rounded-3xl transition-opacity inline-flex items-center"
+              className="text-[var(--button-primary)] text-md font-medium hover:opacity-80 bg-[#F2F2F2] px-4 py-4 rounded-3xl transition-opacity inline-flex items-center w-52"
             >
               Узнать подробнее
-              <svg className="ml-1 w-4 h-4" viewBox="0 0 20 20" fill="currentColor">
+              <svg className="ml-1 w-5 h-5" viewBox="0 0 20 20" fill="currentColor">
                 <path fillRule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clipRule="evenodd" />
               </svg>
             </Link>

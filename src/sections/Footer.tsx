@@ -2,6 +2,7 @@
 
 import AnimatedSection from '@/components/AnimatedSection';
 import { motion } from 'framer-motion';
+import Link from 'next/link';
 
 export default function Footer() {
   const menuLinks = [
@@ -55,13 +56,16 @@ export default function Footer() {
               <p className="text-lg lg:text-md">
                 Разработано<br />студией
               </p>
+              <Link href="https://daladigital.kz/" target="_blank" rel="noopener noreferrer">
               <motion.img 
+                
                 src="/assets/footer-icon.png" 
                 alt="Dala Digital" 
                 className="w-24 lg:w-28 h-12 lg:h-14"
                 whileHover={{ scale: 1.1 }}
                 transition={{ type: "spring", stiffness: 400, damping: 10 }}
               />
+              </Link>
             </div>
           </div>
           </AnimatedSection>
@@ -117,7 +121,7 @@ export default function Footer() {
                 </a>
 
                 <a 
-                  href=" info@ittalker.kz" 
+                  href="https://gmail/info@ittalker.kz" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="flex items-center gap-3"

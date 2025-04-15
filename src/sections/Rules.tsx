@@ -37,7 +37,7 @@ const rules = [
 
 const Rules = () => {
   return (
-    <section className="relative overflow-hidden bg-[#6587C1] text-white py-16 px-4 md:px-0 rounded-xl">
+    <section className="relative overflow-hidden bg-[#6587C1] text-white pt-16 px-4 md:px-0 rounded-xl">
       {/* Decorative blobs */}
       <div className="absolute w-[667px] h-[505px] bg-[#04326F] opacity-45 rounded-full blur-[120px] z-0" style={{ top: '323px', left: '-230px' }} />
       <div className="absolute w-[299px] h-[467px] bg-[#004DFF] opacity-45 rounded-full blur-[120px] z-0" style={{ top: '204px', left: '1587px' }} />
@@ -80,13 +80,13 @@ const Rules = () => {
               ))}
             </div>
 
-            <div className="mt-8 flex justify-center">
-              <div className="bg-[#285EA4] bg-opacity-50 backdrop-blur-sm rounded-[32px] px-6 py-3">
+            <div className="mt-12 flex justify-center w-full">
+              <div className="bg-[#285EA4] bg-opacity-50 backdrop-blur-sm rounded-t-2xl px-6 py-3 mx-auto">
                 <p className="text-sm text-white text-center">
                   *актуально для тарифов &ldquo;С обратной связью&rdquo; и &ldquo;Премиум&rdquo;
                 </p>
               </div>
-            </div>
+          </div>
           </AnimatedSection>
         </div>
       </div>

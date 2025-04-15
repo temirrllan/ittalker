@@ -25,15 +25,15 @@ const PriceCard = ({ title, price, features, monthlyPayment }: PriceCardProps) =
       </div>
 
       <div className="p-4 md:p-8 flex flex-col h-full">
-        <h3 className="text-2xl md:text-[32px] font-semibold text-[var(--text-primary)] mb-6 md:mb-8">
+        <h3 className="text-2xl md:text-[32px] font-semibold text-[#18529D] mb-6 md:mb-8">
           {title}
         </h3>
 
         <div className="flex-grow">
-          <ul className="space-y-3">
+          <ul className='pl-8'>
             {features.map((feature, index) => (
               <li key={index} className="flex items-baseline gap-2 md:gap-3">
-                <span className="text-base md:text-lg leading-none">•</span>
+                <span className="text-base md:text-md leading-none">•</span>
                 <span className="text-sm md:text-base font-medium whitespace-pre-line leading-snug">
                   {feature}
                 </span>
