@@ -17,20 +17,20 @@ interface PriceCardProps {
 
 const PriceCard = ({ title, price, features, monthlyPayment }: PriceCardProps) => {
   return (
-    <div className="bg-white rounded-[22px] flex flex-col h-full">
+    <div className="bg-[#F5F9FF]  rounded-[22px] flex flex-col h-full">
       <div className="relative">
-        <div className="bg-[#18529D] text-white text-xl font-semibold py-3 md:py-4 px-4 md:px-8 rounded-b-[22px] text-center mx-12 md:mx-20">
+        <div className="bg-[#18529D] text-white text-2xl font-semibold py-3 md:py-4 px-4 md:px-8 rounded-b-[22px] text-center mx-12 md:mx-20">
           {price}
         </div>
       </div>
 
-      <div className="p-4 md:p-8 flex flex-col h-full">
-        <h3 className="text-2xl md:text-[32px] font-semibold text-[#18529D] mb-6 md:mb-8">
+      <div className="p-4 px-6 md:p-8 md:px-10 flex flex-col h-full ">
+        <h3 className="text-2xl md:text-[32px] font-semibold text-[#18529D] mb-2 md:mb-4">
           {title}
         </h3>
 
         <div className="flex-grow">
-          <ul className='pl-8'>
+          <ul className='pl-4'>
             {features.map((feature, index) => (
               <li key={index} className="flex items-baseline gap-2 md:gap-3">
                 <span className="text-base md:text-md leading-none">•</span>
@@ -46,7 +46,7 @@ const PriceCard = ({ title, price, features, monthlyPayment }: PriceCardProps) =
           <div className="mt-4 md:mt-6">
             <Link 
               href="#" 
-              className="flex items-center gap-2 md:gap-3 bg-[#EBF3FF] rounded-[15px] p-3 md:p-4 hover:bg-[#E3EFFF] transition-colors group"
+              className="flex items-center gap-2 md:gap-3 bg-[#EBF3FF] border-[#006DFC] border  rounded-[15px] p-3 md:p-4 hover:bg-[#E3EFFF] transition-colors group"
             >
               <div className="w-8 h-8 md:w-10 md:h-10 relative flex-shrink-0">
                 <Image

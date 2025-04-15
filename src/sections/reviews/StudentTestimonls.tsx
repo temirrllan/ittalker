@@ -13,7 +13,7 @@ interface Testimonial {
   name: string;
   position: string;
   batchNumber: string;
-  image: string;
+  images: string[];  // Changed from single image to array of images
 }
 
 interface TestimonialCardProps {
@@ -30,25 +30,25 @@ const testimonialGroups: TestimonialGroup[] = [
         name: 'Адема',
         position: 'Системный аналитик',
         batchNumber: '1-го',
-        image: '/assets/array.png'
+        images: ['/assets/review/akjol.png', '/assets/review/akjol2.png', '/assets/review/akjol3.png', '/assets/review/akjol4.png']
       },
       {
         name: 'Куатбек',
         position: 'Системный аналитик',
         batchNumber: '1-го',
-        image: '/assets/array.png'
+        images: ['/assets/review/albina.png', '/assets/review/albina2.png', '/assets/review/albina3.png', '/assets/review/albina4.png']
       },
       {
         name: 'Анатолий',
         position: 'Системный аналитик',
         batchNumber: '1-го',
-        image: '/assets/array.png'
+        images: ['/assets/review/dayana.png', '/assets/review/dayana2.png', '/assets/review/dayana3.png', '/assets/review/dayana4.png']
       },
       {
         name: 'Софья',
         position: 'Системный аналитик',
         batchNumber: '1-го',
-        image: '/assets/array.png'
+        images: ['/assets/review/jazira.PNG', '/assets/review/jazira2.PNG', '/assets/review/jazira3.PNG', '/assets/review/jazira4.PNG']
       }
     ]
   },
@@ -59,42 +59,81 @@ const testimonialGroups: TestimonialGroup[] = [
         name: 'Адема',
         position: 'Системный аналитик',
         batchNumber: '1-го',
-        image: '/assets/array.png'
+        images: ['/assets/review/akjol.png', '/assets/review/akjol2.png', '/assets/review/akjol3.png', '/assets/review/akjol4.png']
       },
       {
         name: 'Куатбек',
         position: 'Системный аналитик',
         batchNumber: '1-го',
-        image: '/assets/array.png'
+        images: ['/assets/review/albina.png', '/assets/review/albina2.png', '/assets/review/albina3.png', '/assets/review/albina4.png']
       },
       {
         name: 'Софья',
         position: 'Системный аналитик',
         batchNumber: '1-го',
-        image: '/assets/array.png'
+        images: ['/assets/review/dayana.png', '/assets/review/dayana2.png', '/assets/review/dayana3.png', '/assets/review/dayana4.png']
       },
       {
         name: 'Алишер',
         position: 'Системный аналитик',
         batchNumber: '1-го',
-        image: '/assets/array.png'
+        images: ['/assets/review/jazira.PNG', '/assets/review/jazira2.PNG', '/assets/review/jazira3.PNG', '/assets/review/jazira4.PNG']
       }
     ]
   }
 ];
 
 const TestimonialCard = ({ testimonial, onNext, onPrev }: TestimonialCardProps) => {
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [isAnimating, setIsAnimating] = useState(false);
+
+  const nextImage = () => {
+    if (isAnimating) return;
+    setIsAnimating(true);
+    setCurrentImageIndex((prev) => (prev + 1) % testimonial.images.length);
+    setTimeout(() => setIsAnimating(false), 300);
+  };
+
+  const prevImage = () => {
+    if (isAnimating) return;
+    setIsAnimating(true);
+    setCurrentImageIndex((prev) => (prev - 1 + testimonial.images.length) % testimonial.images.length);
+    setTimeout(() => setIsAnimating(false), 300);
+  };
+
   return (
     <div className="flex flex-col">
-      {/* Card is just the image */}
-      <div className="relative rounded-2xl overflow-hidden shadow-md w-full aspect-[3/4] mb-6">
-        <Image
-          src={testimonial.image}
-          alt={testimonial.name}
-          fill
-          className="object-cover"
-          priority
-        />
+      {/* Card with image carousel */}
+      <div className="relative rounded-2xl overflow-hidden shadow-md w-full aspect-[3/4] mb-6 group">
+        {/* Navigation Arrows */}
+        <button
+          onClick={prevImage}
+          className="absolute left-4 top-1/2 -translate-y-1/2 z-10 w-10 h-10 bg-white/80 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity"
+          aria-label="Previous image"
+        >
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+            <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
+          </svg>
+        </button>
+        <button
+          onClick={nextImage}
+          className="absolute right-4 top-1/2 -translate-y-1/2 z-10 w-10 h-10 bg-white/80 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity"
+          aria-label="Next image"
+        >
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+            <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+          </svg>
+        </button>
+
+        <div className={`relative w-full h-full transition-opacity duration-300 ${isAnimating ? 'opacity-50' : 'opacity-100'}`}>
+          <Image
+            src={testimonial.images[currentImageIndex]}
+            alt={testimonial.name}
+            fill
+            className="object-cover"
+            priority
+          />
+        </div>
       </div>
       
       {/* Navigation buttons are outside the card */}

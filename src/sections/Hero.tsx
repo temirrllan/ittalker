@@ -10,6 +10,7 @@ import Image from 'next/image';
 
 function Hero() {
   const [showSuccess, setShowSuccess] = useState(false);
+  const [promoCode, setPromoCode] = useState('');
 
   const features = [
     'Группы по 20 человек',
@@ -21,62 +22,84 @@ function Hero() {
     'От старта в профессии до уровня middle',
     'Опытные и новички - в разных группах', 
     'Длительность обучения - 3 месяца'
-  ]
+  ];
 
   const companies = ['Теле2', 'Альфа банк', 'Сбербанк', 'Uzum'];
+
+  const handlePromoSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    // Handle promo code submission
+  };
 
   return (
     <section className="pt-6 bg-[var(--bg-primary)] overflow-hidden rounded-b-3xl">
       <div className="md:container">
         {/* Mobile Hero */}
         <div className="md:hidden relative">
-
           {/* Content */}
           <div className="px-4">
             <AnimatedSection direction="right">
-              <h1 className="text-[30px] leading-[129%]  tracking-[-0.01em] text-[#010024] mb-6 font-bold">
+              <h1 className="text-[30px] leading-[129%] tracking-[-0.01em] text-[#010024] mb-6 font-bold">
                 Получи практические знания SA и увеличь свой доход!
               </h1>
             </AnimatedSection>
 
-
-              <div className="flex flex-wrap gap-2 mb-2">
-                {features.map((feature) => (
-                  <Badge key={feature} className='bg-[#E9F0F7] text-xs'>{feature}</Badge>
+            <div className="flex flex-wrap gap-2 mb-2">
+              {features.map((feature) => (
+                <Badge key={feature} className='bg-[#E9F0F7] text-xs'>{feature}</Badge>
               ))}
             </div>
 
             <div className='flex flex-wrap-reverse gap-2'>
-              {features2.map((feature) => (
-                <Badge key={feature} className='bg-[#E9F0F7] text-xs'>{feature}</Badge>
-              ))}
+                {features2.map((feature, index) => (
+                <Badge 
+                  key={feature} 
+                  className={`${index === 0 ? 'bg-[#F8FAFC] border border-[#006DFC]' : 'bg-[#E7EDF5]'} text-xs`}
+                >
+                  {feature}
+                </Badge>
+                ))}
+            </div>
+
+            {/* Mobile Chart Card */}
+            <div className={styles.chartCard}>
+              <Image 
+                src="/assets/blue_chart.png" 
+                alt="Salary Chart" 
+                width={150}
+                height={90}
+                className="w-full h-auto max-w-[150px]"
+              />
+              <div >
+                <span className="text-xl font-bold text-[var(--button-primary)]">2000$</span>
+                <p className="text-xs md:text-sm font-medium">Средняя зарплата системного аналитика</p>
+              </div>
             </div>
           </div>
 
-          {/* Person Image with Card */}
+          {/* Mobile Person Image and Company Card */}
           <div className={styles.mobileHeroImage}>
             <img 
               src="/assets/hero-person.png" 
               alt="hero" 
               className={styles.heroImage}
             />
-            
-            <div className="hidden sm:block absolute top-4 right-4 bg-white rounded-[21px] p-4 shadow-lg w-[165px]">
+            <div className={styles.companyCard}>
               <p className="text-xs font-semibold mb-1.5">
                 Старший и ведущий SA:
               </p>
-                {companies.map((company) => (
-                  <li 
-                    key={company}
-                    className="text-[#2F87FB] text-base ml-6 font-semibold"
-                  >
-                    {company}
-                  </li>
-                ))}
+              {companies.map((company) => (
+                <li 
+                  key={company}
+                  className="text-[#2F87FB] text-xs ml-3 font-semibold"
+                >
+                  {company}
+                </li>
+              ))}
             </div>
           </div>
 
-          {/* Form */}
+          {/* Mobile Form */}
           <div className="relative z-10">
             <div className="bg-[rgba(12,54,127,0.5)] backdrop-blur-[25px] rounded-[25px]">
               <div className="px-6 py-8">
@@ -107,6 +130,16 @@ function Hero() {
                     </div>
                   </div>
 
+                  <form onSubmit={handlePromoSubmit}>
+                    <input
+                      type="text"
+                      value={promoCode}
+                      onChange={(e) => setPromoCode(e.target.value)}
+                      placeholder="Промокод"
+                      className="bg-[#3D4C6A] text-white text-sm opacity-90 py-4 px-3 rounded-xl w-full font-medium placeholder-white/70"
+                    />
+                  </form>
+
                   <HeroForm 
                     className="mt-8"
                     onSubmitSuccess={() => setShowSuccess(true)} 
@@ -135,7 +168,10 @@ function Hero() {
             alt="" 
             className={`${styles.sideEllipse} ${styles.leftEllipse}`}
           />
-          <div className="grid md:grid-cols-2 gap-12 items-center ">
+          
+          {/* Content */}
+
+          <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className='mt-16'>
               <AnimatedSection direction="right">
                 <h1 className="text-3xl lg:text-4xl font-bold mb-8">
@@ -151,13 +187,19 @@ function Hero() {
                     ))}
                   </div>
                   <div className="grid gap-3">
-                    {features2.map((feature) => (
-                      <Badge key={feature} className="bg-[#E9F0F7] text-sm lg:text-base">{feature}</Badge>
+                    {features2.map((feature, index) => (
+                      <Badge 
+                      key={feature} 
+                      className={`${index === 0 ? 'bg-[#F8FAFC] border border-[#006DFC]' : 'bg-[#E7EDF5]'} text-sm lg:text-base`}
+                      >
+                      {feature}
+                      </Badge>
                     ))}
                   </div>
                 </div>
               </AnimatedSection>
             </div>
+
             <div className="relative h-full">
               <img 
                 src="/assets/hero-person.png" 
@@ -177,40 +219,54 @@ function Hero() {
                   </li>
                 ))}
               </div>
+
+              {/* Desktop Chart Card */}
+              <div className={styles.chartCard}>
+                <Image 
+                  src="/assets/blue_chart.png" 
+                  alt="Salary Chart" 
+                  width={200}
+                  height={100}
+                  className="w-full h-auto"
+                  priority
+                />
+                <div >
+                  <span className="text-xl md:text-2xl lg:text-[2rem] font-bold text-[var(--button-primary)]">2000$</span>
+                  <p className="text-sm md:text-base lg:text-lg font-medium">Средняя зарплата системного аналитика</p>
+                </div>
+              </div>
             </div>
 
-          {/* Form */}
-          <div 
-            className={`
-              absolute z-20 
-              bg-[rgba(12,54,127,0.5)] backdrop-blur-[25px] rounded-[25px]
-              
-              // Mobile styles (до 768px)
-              w-[90%] p-4 mx-4
-              
-              // Tablet styles (768px - 1024px)
-              md:w-[90%] md:px-6 md:left-1/2 md:-translate-x-1/2 
-              md:bottom-[calc(5%)]
-              
-              // Small desktop (1024px - 1280px)
-              lg:w-[80%] lg:px-8  
-              lg:bottom-[calc(7%)]
-              
-              // Medium desktop (1280px - 1536px)
-              xl:w-[1000px] xl:px-10 xl:left-[39%] xl:-translate-x-1/2
-              xl:bottom-[calc(7%)]
-              
-              // Large desktop (1536px and above)
-              2xl:w-[1200px]  2xl:px-12 2xl:left-[47%] 2xl:-translate-x-1/2
-              2xl:bottom-[calc(6%)]
-              
-              transform transition-all duration-300
-            `}
-
+            {/* Desktop Form */}
+            <div 
+              className={`
+                absolute z-20 
+                bg-[rgba(12,54,127,0.5)] backdrop-blur-[25px] rounded-[25px]
+                w-[90%] p-4 mx-4
+                md:w-[90%] md:px-6 md:left-1/2 md:-translate-x-1/2 md:bottom-[calc(5%)]
+                lg:w-[80%] lg:px-8 lg:bottom-[calc(7%)]
+                xl:w-[1000px] xl:px-10 xl:left-[39%] xl:-translate-x-1/2 xl:bottom-[calc(7%)]
+                2xl:w-[1200px] 2xl:px-12 2xl:left-[47%] 2xl:-translate-x-1/2 2xl:bottom-[calc(6%)]
+                transform transition-all duration-300
+              `}
             >
-              <p className='text-start text-white text-xl lg:text-3xl font-bold mb-6 lg:mb-8'>
-                Запишись на тестовое собеседование!
-              </p>
+              <div className='flex items-center justify-between'>
+                <p className='text-start text-white text-xl lg:text-3xl font-bold mb-6 lg:mb-8'>
+                  Запишись на тестовое собеседование!
+                </p>
+                
+                <form onSubmit={handlePromoSubmit} className="mb-8">
+                  <input
+                    type="text"
+                    value={promoCode}
+                    onChange={(e) => setPromoCode(e.target.value)}
+                    placeholder="Промокод"
+                    className="bg-[#3D4C6A] text-white text-md opacity-90 py-3 pl-4 rounded-2xl w-56 font-medium placeholder-white/70"
+                  />
+                </form>
+              </div>
+
+
               <HeroForm 
                 onSubmitSuccess={() => setShowSuccess(true)} 
               />

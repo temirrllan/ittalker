@@ -16,7 +16,7 @@ const teamMembers: TeamMemberProps[] = [
   {
     name: 'Арсен',
     surname: 'Курмашев',
-    role: 'Старший и\nведущий SA в T-\nbank, Tele2, Uzum,\nСбер, Альфа-банк',
+    role: 'Старший и ведущий SA в T-bank, Tele2, Uzum, Сбер, Альфа-банк',
     image: '/assets/arsen.png',
     socialType: 'linkedin',
     socialLink: '#',
@@ -25,7 +25,7 @@ const teamMembers: TeamMemberProps[] = [
   {
     name: 'Адиль',
     surname: 'Франк',
-    role: 'Co-founder\n&CEO\nit.t.Academy',
+    role: 'Co-founder &CEO it.t.Academy',
     image: '/assets/adil.png',
     socialType: 'telegram',
     socialLink: '#',
@@ -34,7 +34,7 @@ const teamMembers: TeamMemberProps[] = [
   {
     name: 'Михаил',
     surname: 'Черкашин',
-    role: 'Главный SA\nРенессанс\nКредит',
+    role: 'Главный SA Ренессанс Кредит',
     image: '/assets/mikhail.png',
     socialType: 'linkedin',
     socialLink: '#'
@@ -83,7 +83,7 @@ const TeamMemberCard = ({ name, surname, role, image, socialType, socialLink, ba
         <div className="flex flex-col justify-between flex-grow py-1 w-full md:w-auto">
           <div className="space-y-2">
             <h3 className="text-[20px] md:text-[24px] font-medium leading-[129%] tracking-[-0.01em] text-black">
-              {name}<br/>{surname}
+              {name} {surname}
             </h3>
             <p className="text-[13px] md:text-[14px] leading-[129%] tracking-[-0.01em] text-black opacity-60 whitespace-pre-line w-full">
               {role}
