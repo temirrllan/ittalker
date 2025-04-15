@@ -54,7 +54,7 @@ const PriceCard = ({ title, price, features, monthlyPayment }: PriceCardProps) =
           <span className={`text-base md:text-md leading-none mt-1 ${isIntroLine ? 'invisible ' : ''}`}>
             •
           </span>
-          <span className="text-sm md:text-base font-medium whitespace-pre-line leading-snug text-left">
+          <span className="text-xs md:text-sm font-medium whitespace-pre-line leading-snug text-left">
             {text}
           </span>
               </li>
@@ -177,7 +177,7 @@ const PriceSection = () => {
       
       <div className="container mx-auto relative z-10">
         <AnimatedSection direction="up">
-          <h2 className="text-2xl md:text-[38px] font-semibold mb-8 md:mb-12 text-white">
+          <h2 className="text-2xl md:text-[38 px] font-semibold mb-8 md:mb-12 text-white">
             Тарифы
           </h2>
 
