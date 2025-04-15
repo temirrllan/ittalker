@@ -70,7 +70,7 @@ function Hero() {
                 height={90}
                 className="w-full h-auto max-w-[150px]"
               />
-              <div >
+              <div className='mt-2'>
                 <span className="text-xl font-bold text-[var(--button-primary)]">2000$</span>
                 <p className="text-xs md:text-sm font-medium">Средняя зарплата системного аналитика</p>
               </div>
@@ -230,7 +230,7 @@ function Hero() {
                   className="w-full h-auto"
                   priority
                 />
-                <div >
+                <div className='mt-4'>
                   <span className="text-xl md:text-2xl lg:text-[2rem] font-bold text-[var(--button-primary)]">2000$</span>
                   <p className="text-sm md:text-base lg:text-lg font-medium">Средняя зарплата системного аналитика</p>
                 </div>
@@ -252,16 +252,16 @@ function Hero() {
             >
               <div className='flex items-center justify-between'>
                 <p className='text-start text-white text-xl lg:text-3xl font-bold mb-6 lg:mb-8'>
-                  Запишись на тестовое собеседование!
+                  Запишись на тестовое консультацию!
                 </p>
                 
-                <form onSubmit={handlePromoSubmit} className="mb-8">
+                <form onSubmit={handlePromoSubmit} className="mb-4">
                   <input
                     type="text"
                     value={promoCode}
                     onChange={(e) => setPromoCode(e.target.value)}
                     placeholder="Промокод"
-                    className="bg-[#3D4C6A] text-white text-md opacity-90 py-4 pl-4 rounded-2xl w-60 font-medium placeholder-white/70"
+                    className="bg-[#3D4C6A] text-white text-md opacity-60 py-4 pl-4 rounded-2xl w-64 font-medium placeholder-white/70"
                   />
                 </form>
               </div>
