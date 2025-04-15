@@ -251,7 +251,7 @@ function Hero() {
               `}
             >
               <div className='flex items-center justify-between'>
-                <p className='text-start text-white text-xl lg:text-3xl font-bold mb-6 lg:mb-8'>
+                <p className='text-start text-white text-xl lg:text-3xl font-bold mb-4 lg:mb-6'>
                   Запишись на тестовое консультацию!
                 </p>
                 
