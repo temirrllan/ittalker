@@ -5,10 +5,15 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 
+interface FeatureItem {
+  text: string;
+  indent?: boolean;
+}
+
 interface PriceCardProps {
   title: string;
   price: string;
-  features: string[];
+  features: (string | FeatureItem)[];
   monthlyPayment?: {
     months: string;
     amount: string;
@@ -30,15 +35,31 @@ const PriceCard = ({ title, price, features, monthlyPayment }: PriceCardProps) =
         </h3>
 
         <div className="flex-grow">
-          <ul className='pl-4'>
-            {features.map((feature, index) => (
-              <li key={index} className="flex items-baseline gap-2 md:gap-3">
-                <span className="text-base md:text-md leading-none">•</span>
-                <span className="text-sm md:text-base font-medium whitespace-pre-line leading-snug">
-                  {feature}
-                </span>
+          <ul className='list-none'>
+          {features.map((feature, index) => {
+            const isObject = typeof feature === 'object';
+            const text = isObject ? feature.text : feature;
+
+            const isIntroLine = !isObject && text.includes('дополнительно:');
+
+            return (
+              <li
+          key={index}
+          className={`flex items-start gap-2 md:gap-3
+          ${
+            isIntroLine ? '' : 'pl-8 md:pl-8'
+          }
+          `}
+              >
+          <span className={`text-base md:text-md leading-none ${isIntroLine ? 'invisible' : ''}`}>
+            •
+          </span>
+          <span className="text-sm md:text-base font-medium whitespace-pre-line leading-snug text-left">
+            {text}
+          </span>
               </li>
-            ))}
+            );
+          })}
           </ul>
         </div>
 
@@ -114,8 +135,8 @@ const PriceSection = () => {
       price: '990 000 тг',
       features: [
         'Все перечисленное в тарифе "С\nобратной связью", и дополнительно:',
-        'Индивидуальные созвоны с\nлектором каждые 2 недели\nдлительностью до часа, на\nкоторых вы: закрепляете вопросы\nпо образовательной программе;\nразбираете кейс на вашем\nтекущем работе; получаете CV и\nтд далее',
-        'Индивидуальная обратная связь\nпо домашним заданиям'
+        { indent: true, text: 'Индивидуальные созвоны с\nлектором каждые 2 недели...' },
+        { indent: true, text: 'Индивидуальная обратная связь\nпо домашним заданиям' }
       ],
       monthlyPayment: {
         months: '0-0-12',
