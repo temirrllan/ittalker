@@ -152,7 +152,7 @@ function HeroForm({ className = '', onSubmitSuccess }: HeroFormProps) {
           )}
         </div>
 
-        <div className='flex-1'>
+        <div className='flex-1 md:hidden'>
             <input
               type="text"
               value={promoCode}
