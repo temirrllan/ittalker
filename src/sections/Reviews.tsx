@@ -14,16 +14,10 @@ interface ReviewCardProps {
 
 const reviewsData: ReviewCardProps[] = [
   {
-    name: 'Акжол',
-    images: ['/assets/review/akjol.png', '/assets/review/akjol2.png', '/assets/review/akjol3.png', '/assets/review/akjol4.png'],
+    name: 'Жасулан',
+    images: ['/assets/review/jasulan1.jpeg', '/assets/review/jasulan2.jpeg', '/assets/review/jasulan3.jpeg'],
     description: 'Системный аналитик\nстудент 1-го потока',
     story: 'Узнайте историю Акжола, как он с нуля поднялся до Junior специалиста'
-  },
-  {
-    name: 'Альбина',
-    images: ['/assets/review/albina.png', '/assets/review/albina2.png', '/assets/review/albina3.png', '/assets/review/albina4.png'],
-    description: 'Системный аналитик\nстудент 1-го потока',
-    story: 'Узнайте историю Альбины, как она с нуля поднялась до Junior специалиста'
   },
   {
     name: 'Даяна',
@@ -32,10 +26,17 @@ const reviewsData: ReviewCardProps[] = [
     story: 'Узнайте историю Даяны, как она с нуля поднялась до Junior специалиста'
   },
   {
-    name: 'Жазира',
-    images: ['/assets/review/jazira.PNG', '/assets/review/jazira2.PNG', '/assets/review/jazira3.PNG', '/assets/review/jazira4.PNG'],
+    name: 'Анатолий',
+    images: ['/assets/review/anatoly1.jpeg', '/assets/review/anatoly2.jpeg', '/assets/review/anatoly3.jpeg', '/assets/review/anatoly4.jpeg'],
     description: 'Системный аналитик\nстудент 1-го потока',
-    story: 'Узнайте историю Жазиры, как она с нуля поднялась до Junior специалиста'
+    story: 'Узнайте историю Анатолий, как она с нуля поднялась до Junior специалиста'
+  },
+  
+  {
+    name: 'Софья',
+    images: ['/assets/review/sofya1.png', '/assets/review/sofya2.png', '/assets/review/sofya3.png', '/assets/review/sofya4.png'],
+    description: 'Системный аналитик\nстудент 1-го потока',
+    story: 'Узнайте историю Софью, как она с нуля поднялась до Junior специалиста'
   }
 ];
 

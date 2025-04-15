@@ -4,6 +4,7 @@ import AnimatedSection from '@/components/AnimatedSection';
 
 interface FAQProps {
   questions: string[];
+  answers: string[];
 }
 
 interface FAQItemProps {
@@ -20,7 +21,7 @@ const FAQItem = ({ question, answer, isOpen = false, onClick }: FAQItemProps) =>
         className="flex justify-between items-center w-full cursor-pointer py-6"
         onClick={onClick}
       >
-        <h3 className="text-[1rem] md:text-[1.25rem] font-medium leading-[109%] tracking-[-0.01em] text-black max-w-[48.875rem]">
+        <h3 className="text-[1.125rem] md:text-[1.375rem] font-medium leading-[109%] tracking-[-0.01em] text-black max-w-[48.875rem]">
           {question}
         </h3>
         <div className="w-[2.25rem] h-[2.25rem] bg-[#18529D] rounded-[2rem] flex items-center justify-center flex-shrink-0">
@@ -32,7 +33,7 @@ const FAQItem = ({ question, answer, isOpen = false, onClick }: FAQItemProps) =>
       </div>
       {isOpen && (
         <div className="pb-6">
-          <p className="text-[0.875rem] md:text-[1rem] text-gray-700 whitespace-pre-line">
+          <p className="text-[1rem] md:text-[1.125rem] text-gray-700 whitespace-pre-line">
             {answer}
           </p>
         </div>
@@ -41,26 +42,14 @@ const FAQItem = ({ question, answer, isOpen = false, onClick }: FAQItemProps) =>
   );
 };
 
-const FAQ = ({ questions }: FAQProps) => {
+const FAQ = ({ questions, answers }: FAQProps) => {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
-
-  const answers = [
-    'Да, сможете! Половина учебного процесса проходит в формате воркшопов: на еженедельной онлайн-встрече лектор объясняет вам материал и отвечает на ваши вопросы. Поэтому у нас гибкая система обучения - опытных мы отправляем к опытным, новичков к новичкам. В группе для новичков материал объясняется более доступным языком со множеством примеров.',
-    
-    'Мы предусмотрели разделение опытных и начинающих учеников. В группу опытных мы добавляем тех, кто уже работает в какой-либо IT-профессии. Эту группу ведут сильные лекторы, которые способны обогатить профессиональный опыт ученика новыми нюансами. Поскольку все ученики в такой группе примерно одного уровня, лектору не придется долго объяснять базу и вы сможете быстро перейти к интересным нюансам, которые отделяют вас от желанного грейда.\nПоэтому да, курс будет вам полезен!',
-    
-    'Да! Но при соблюдении трех условий:\n1. Ученик проходил обучение по тарифам "С обратной связью" или "Премиум";\n2. Ученик выполнил все домашние задания на проходной балл в течение трех месяцев обучения;\n3. Ученик успешно прошел финальный экзамен у лектора.\n\nПосле экзамена, при соблюдении всех условий с вашей стороны, мы обязуемся предоставить вам одно собеседование в компанию одного из наших партнеров. Опытным ищем оффер, а новичкам - практику, после которой работодатель по своему усмотрению оставляет вас в штате с окладом.',
-    
-    'Да, вы можете купить курс в рассрочку 0-0-12. Ежемесячный платеж вы увидите ниже в разделе "Тарифы". Оставляйте заявку и наш куратор ответит на все ваши вопросы :)',
-    
-    'Конечно! Мы работаем с любой казахстанской компанией. Ограничений на число обучаемых нет, длительность обучения и цена для корпоративного сектора не меняется*. Ученики, как и все остальные, получат сертификат в конце обучения. Мы поможем с оформлением бумаг и возьмем на себя расходы по документообороту. Пишите на почту info@ittalker.kz, чтобы наш менеджер проконсультировал вас!\n\n*акции, скидки и промокоды не применяются.'
-  ];
 
   return (
     <section className="py-20 md:px-0">
       <div className="container mx-auto max-w-[80rem]">
         <AnimatedSection direction="up">
-          <h2 className="text-[1.75rem] md:text-[2.78rem] font-semibold leading-[129%] tracking-[-0.01em] text-[#010024] mb-8">
+          <h2 className="text-[2rem] md:text-[3rem] font-semibold leading-[129%] tracking-[-0.01em] text-[#010024] mb-8">
             Вопрос - ответ
           </h2>
 

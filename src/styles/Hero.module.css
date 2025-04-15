@@ -5,7 +5,7 @@
 }
 
 .mobileHeroImage {
-  @apply relative mt-8 mb-[-100px];
+  @apply relative mt-8 mb-[-100px] right-10;
 }
 
 /* Desktop styles */
@@ -152,8 +152,8 @@
 .companyCard {
   @apply absolute bg-white shadow-lg rounded-3xl transform transition-all duration-300;
   /* Base mobile styles */
-  top: calc(-8%);
-  right: 10px;
+  top: calc(-6%);
+  right: -30px;
   width: 140px;
   padding: 0.75rem;
   z-index: 10;
@@ -239,10 +239,58 @@
   @apply absolute bg-white shadow-lg rounded-[30px] transform transition-all duration-300;
 }
 
-/* Mobile: Small phones (up to 639px) */
-@media (max-width: 639px) {
+@media (max-width: 360px) {
   .chartCard {
-    top: calc(39%);
+    top: calc(43%);
+    right: 10px;
+    width: 150px;
+    padding: 0.5rem;
+    border-radius: 15px;
+    z-index: 10;
+  }
+  .chartCard img {
+    max-width: 80px;
+    height: auto;
+  }
+  .chartCard span {
+    font-size: 0.75rem;
+    color: #2F87FB;
+  }
+  .chartCard p {
+    font-size: 0.625rem;
+    margin-top: 0.25rem;
+    font-weight: 500;
+  }
+}
+
+@media (min-width: 360px) and (max-width: 480px) {
+  .chartCard {
+    top: calc(40%);
+    right: 10px;
+    width: 150px;
+    padding: 0.5rem;
+    border-radius: 15px;
+    z-index: 10;
+  }
+  .chartCard img {
+    max-width: 80px;
+    height: auto;
+  }
+  .chartCard span {
+    font-size: 0.75rem;
+    color: #2F87FB;
+  }
+  .chartCard p {
+    font-size: 0.625rem;
+    margin-top: 0.25rem;
+    font-weight: 500;
+  }
+}
+
+/* Mobile: Small phones (up to 639px) */
+@media (min-width: 480px) and (max-width: 639px) {
+  .chartCard {
+    top: calc(34%);
     right: 8px;
     width: 150px;
     padding: 0.625rem;
@@ -267,7 +315,7 @@
 /* Mobile: Medium to large phones (640px-767px) */
 @media (min-width: 640px) and (max-width: 767px) {
   .chartCard {
-    top: calc(30%);
+    top: calc(32%);
     right: 20px;
     width: 160px;
     padding: 0.75rem;   

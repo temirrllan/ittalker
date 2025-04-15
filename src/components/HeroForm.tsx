@@ -22,6 +22,7 @@ interface HeroFormProps {
 }
 
 function HeroForm({ className = '', onSubmitSuccess }: HeroFormProps) {
+  const [promoCode, setPromoCode] = useState('');
   const [formData, setFormData] = useState<FormData>({
     name: '',
     phone: '',
@@ -150,6 +151,18 @@ function HeroForm({ className = '', onSubmitSuccess }: HeroFormProps) {
             <span className="text-red-400 text-sm mt-1">{errors.email}</span>
           )}
         </div>
+
+        <div className='flex-1'>
+            <input
+              type="text"
+              value={promoCode}
+              onChange={(e) => setPromoCode(e.target.value)}
+              placeholder="Промокод"
+              className="bg-[#3D4C6A] text-white text-sm opacity-90 py-4 px-3 rounded-xl w-full font-medium placeholder-white/70 mb-4"
+            />
+        </div>
+
+                    
 
         <button 
           type="submit"

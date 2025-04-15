@@ -4,6 +4,7 @@ import Hero from "@/sections/reviews/Hero";
 import ConsultationForm from "@/sections/ConsultationForm";
 import FeatureSections from "@/sections/reviews/Feature";
 import StudentTestimonials from "@/sections/reviews/StudentTestimonls";
+import SocialLinks from "@/components/SocialLinks";
 
 export default function ReviewsPage() {
     return (
@@ -12,8 +13,9 @@ export default function ReviewsPage() {
             <Hero />
             <FeatureSections />
             <StudentTestimonials />
-            <ConsultationForm />
+            <ConsultationForm description="Оставь заявку и мы вас проконсультируем" title="Присоединяйся к сообществу SA!" bgColor="bg-[#18529D]" textColor="text-white" image="/assets/consult.png"/>
             <Footer />
+            <SocialLinks />
         </main>
     );
 }

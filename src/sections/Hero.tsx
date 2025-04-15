@@ -108,40 +108,10 @@ function Hero() {
                     <h3 className="text-[25px] font-semibold text-white">
                       Запишись на бесплатный вебинар!
                     </h3>
-                    <div className='md:hidden flex gap-x-2 bg-[#6989BE] opacity-90 rounded-xl p-2'>
-                      <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">
-                        <Image 
-                          src="/assets/colorful/insta.svg" 
-                          alt="Instagram" 
-                          width={50}
-                          height={50}
-                          className="cursor-pointer hover:opacity-80 transition-opacity"
-                        />
-                      </a>
-                      <a href="https://t.me" target="_blank" rel="noopener noreferrer">
-                        <Image 
-                          src="/assets/colorful/tg.svg" 
-                          alt="Telegram" 
-                          width={50}
-                          height={50}
-                          className="cursor-pointer hover:opacity-80 transition-opacity"
-                        />
-                      </a>
-                    </div>
                   </div>
 
-                  <form onSubmit={handlePromoSubmit}>
-                    <input
-                      type="text"
-                      value={promoCode}
-                      onChange={(e) => setPromoCode(e.target.value)}
-                      placeholder="Промокод"
-                      className="bg-[#3D4C6A] text-white text-sm opacity-90 py-4 px-3 rounded-xl w-full font-medium placeholder-white/70"
-                    />
-                  </form>
-
                   <HeroForm 
-                    className="mt-8"
+                    className="mb-4"
                     onSubmitSuccess={() => setShowSuccess(true)} 
                   />
                 </div>

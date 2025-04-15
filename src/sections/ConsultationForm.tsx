@@ -109,7 +109,7 @@ const ConsultationForm = ({ bgColor, textColor, title, description, image }: Con
         <div className="grid lg:grid-cols-2 gap-6 lg:gap-16">
           <AnimatedSection direction="left">
             <div className="max-w-[80rem]">
-              <h2 className={`text-[1.5rem] sm:text-[2rem] md:text-[2.2rem] lg:text-[2.5rem] font-semibold leading-[120%] sm:leading-[129%] tracking-[-0.01em] mb-2 ${textColor || 'text-[#010024]'}`}>
+              <h2 className={`text-[1.5rem] sm:text-[2rem] md:text-[2.2rem] lg:text-[2.5rem] font-semibold leading-[120%] sm:leading-[129%] tracking-[-0.01em] mb-2 xl:whitespace-nowrap ${textColor || 'text-[#010024]'}`}>
                 {title || 'Узнай больше о системном анализе'}
               </h2>
               <p className={`text-[0.875rem] sm:text-[1rem] md:text-[1.2rem] lg:text-[1.4rem] font-semibold leading-[120%] sm:leading-[129%] tracking-[-0.01em] opacity-80 mb-3 lg:mb-8 ${textColor || 'text-[#010024]'}`}>
