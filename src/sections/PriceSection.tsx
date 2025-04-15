@@ -64,12 +64,12 @@ const PriceCard = ({ title, price, features, monthlyPayment }: PriceCardProps) =
         </div>
 
         {monthlyPayment && (
-          <div className="mt-4 md:mt-6">
+          <div className="mt-3 md:mt-6">
             <Link 
               href="#" 
-              className="flex items-center gap-2 md:gap-3 bg-[#EBF3FF] border-[#006DFC] border  rounded-[22px] p-3 md:p-4 hover:bg-[#E3EFFF] transition-colors group"
+              className="flex items-center gap-1.5 md:gap-3 bg-[#EBF3FF] border-[#006DFC] border rounded-[18px] md:rounded-[22px] p-2.5 md:p-4 hover:bg-[#E3EFFF] transition-colors group"
             >
-              <div className="w-8 h-8 md:w-10 md:h-10 relative flex-shrink-0">
+              <div className="w-6 h-6 md:w-10 md:h-10 relative flex-shrink-0">
                 <Image
                   src="/assets/kaspi.png"
                   alt="Kaspi Bank"
@@ -78,14 +78,14 @@ const PriceCard = ({ title, price, features, monthlyPayment }: PriceCardProps) =
                 />
               </div>
               <div>
-                <div className="text-[13px] md:text-[15px] text-[var(--text-primary)] opacity-70">
+                <div className="text-[11px] md:text-[15px] text-[var(--text-primary)] opacity-70">
                   {monthlyPayment.months}
                 </div>
-                <div className="text-[var(--text-primary)] font-medium text-base md:text-[20px]">
+                <div className="text-[var(--text-primary)] font-medium text-sm md:text-[20px]">
                   {monthlyPayment.amount}
                 </div>
               </div>
-              <img src='/assets/arrow.svg' alt='arrow-right' className='w-8 h-8 ml-14' />
+              <img src='/assets/arrow.svg' alt='arrow-right' className='w-6 h-6 md:w-8 md:h-8 ml-auto' />
             </Link>
           </div>
         )}

@@ -108,7 +108,7 @@ const ReviewCard = ({ name, images, description, story }: ReviewCardProps) => {
               {story}
             </p>
             <Link 
-              href="#"   
+              href="/reviews"   
               className="text-[var(--button-primary)] text-sm font-medium hover:opacity-80 bg-[#F2F2F2] px-3 py-1.5 rounded-2xl transition-opacity inline-flex items-center mt-2"
             >
               Узнать подробнее
@@ -169,7 +169,7 @@ const ReviewCard = ({ name, images, description, story }: ReviewCardProps) => {
               </p>
             </div>
             <Link 
-              href="#" 
+              href="/reviews" 
               className="text-[var(--button-primary)] text-md font-medium hover:opacity-80 bg-[#F2F2F2] px-4 py-4 rounded-3xl transition-opacity inline-flex items-center w-52"
             >
               Узнать подробнее

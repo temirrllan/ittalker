@@ -27,28 +27,28 @@ const testimonialGroups: TestimonialGroup[] = [
     title: 'Отзывы студентов 1 потока',
     testimonials: [
       {
+        name: 'Айнура',
+        position: 'Системный аналитик',
+        batchNumber: '1-го',
+        images: ['/assets/review/ainur1.png', '/assets/review/ainur2.png', '/assets/review/ainur3.png', '/assets/review/ainur4.png']
+      },
+      {
         name: 'Адема',
         position: 'Системный аналитик',
         batchNumber: '1-го',
-        images: ['/assets/review/akjol.png', '/assets/review/akjol2.png', '/assets/review/akjol3.png', '/assets/review/akjol4.png']
+        images: ['/assets/review/adema1.png', '/assets/review/adema2.png', '/assets/review/adema3.png', '/assets/review/adema4.png']
       },
       {
-        name: 'Куатбек',
+        name: 'Асхат',
         position: 'Системный аналитик',
         batchNumber: '1-го',
-        images: ['/assets/review/albina.png', '/assets/review/albina2.png', '/assets/review/albina3.png', '/assets/review/albina4.png']
+        images: ['/assets/review/ashat1.png', '/assets/review/ashat2.png', '/assets/review/ashat3.png']
       },
       {
-        name: 'Анатолий',
+        name: 'Даниар',
         position: 'Системный аналитик',
         batchNumber: '1-го',
-        images: ['/assets/review/dayana.png', '/assets/review/dayana2.png', '/assets/review/dayana3.png', '/assets/review/dayana4.png']
-      },
-      {
-        name: 'Софья',
-        position: 'Системный аналитик',
-        batchNumber: '1-го',
-        images: ['/assets/review/jazira.PNG', '/assets/review/jazira2.PNG', '/assets/review/jazira3.PNG', '/assets/review/jazira4.PNG']
+        images: ['/assets/review/danyar1.png', '/assets/review/danyar2.png', '/assets/review/danyar3.png', '/assets/review/danyar4.png']
       }
     ]
   },
@@ -68,10 +68,10 @@ const testimonialGroups: TestimonialGroup[] = [
         images: ['/assets/review/albina.png', '/assets/review/albina2.png', '/assets/review/albina3.png', '/assets/review/albina4.png']
       },
       {
-        name: 'Софья',
+        name: 'Жасулан',
         position: 'Системный аналитик',
         batchNumber: '1-го',
-        images: ['/assets/review/dayana.png', '/assets/review/dayana2.png', '/assets/review/dayana3.png', '/assets/review/dayana4.png']
+        images: ['/assets/review/jasulan1.jpeg', '/assets/review/jasulan2.jpeg', '/assets/review/jasulan3.jpeg']
       },
       {
         name: 'Алишер',
@@ -136,8 +136,8 @@ const TestimonialCard = ({ testimonial, onNext, onPrev }: TestimonialCardProps) 
         </div>
       </div>
       
-      {/* Navigation buttons are outside the card */}
-      <div className="flex justify-center gap-4 mt-4">
+      {/* Navigation buttons */}
+      <div className="flex justify-center gap-4">
         <button 
           onClick={onPrev}
           className="w-12 h-12 md:w-16 md:h-16 rounded-full bg-[#F0F0F0] flex items-center justify-center hover:bg-gray-200 transition-colors"
@@ -163,41 +163,21 @@ const TestimonialCard = ({ testimonial, onNext, onPrev }: TestimonialCardProps) 
 };
 
 const TestimonialSection = ({ group }: { group: TestimonialGroup }) => {
-  const [currentIndexes, setCurrentIndexes] = useState([0, 1]);
-  
-  const handleNext = (cardIndex: number) => {
-    setCurrentIndexes(prev => {
-      const newIndexes = [...prev];
-      newIndexes[cardIndex] = (newIndexes[cardIndex] + 1) % group.testimonials.length;
-      return newIndexes;
-    });
-  };
-  
-  const handlePrev = (cardIndex: number) => {
-    setCurrentIndexes(prev => {
-      const newIndexes = [...prev];
-      newIndexes[cardIndex] = (newIndexes[cardIndex] - 1 + group.testimonials.length) % group.testimonials.length;
-      return newIndexes;
-    });
-  };
-  
   return (
     <div className="mb-20">
       <h2 className="text-xl md:text-2xl lg:text-3xl font-bold mb-8 md:mb-10 text-[var(--text-primary)]">
         {group.title}
       </h2>
       
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10 lg:gap-12">
-        <TestimonialCard 
-          testimonial={group.testimonials[currentIndexes[0]]} 
-          onNext={() => handleNext(0)} 
-          onPrev={() => handlePrev(0)} 
-        />
-        <TestimonialCard 
-          testimonial={group.testimonials[currentIndexes[1]]} 
-          onNext={() => handleNext(1)} 
-          onPrev={() => handlePrev(1)} 
-        />
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 md:gap-8">
+        {group.testimonials.map((testimonial, index) => (
+          <TestimonialCard 
+            key={index}
+            testimonial={testimonial} 
+            onNext={() => {}} 
+            onPrev={() => {}} 
+          />
+        ))}
       </div>
     </div>
   );

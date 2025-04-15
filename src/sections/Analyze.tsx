@@ -28,7 +28,7 @@ const levels = [
 
 const SystemsAnalyst = () => {
   return (
-    <section className="bg-white py-20 px-4 md:px-0 rounded-xl">
+    <section className="bg-white py-20 md:px-0 rounded-xl">
       <div className="container mx-auto">
       <AnimatedSection direction="up">
         <div className="grid grid-cols-1 md:grid-cols-[1fr_auto_1fr] gap-6 items-start">
@@ -88,7 +88,7 @@ const SystemsAnalyst = () => {
         
         {/* Salary Section */}
         <AnimatedSection direction="up" className="mt-24">
-          <div className="bg-[#F8F8F8] p-4 md:p-12 rounded-3xl">
+          <div className="bg-[#F8F8F8] p-8 md:p-12 rounded-3xl">
             <h2 className="text-2xl md:text-4xl font-medium mb-12 text-start">
               Средняя зарплата системного аналитика
             </h2>

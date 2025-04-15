@@ -152,7 +152,7 @@
 .companyCard {
   @apply absolute bg-white shadow-lg rounded-3xl transform transition-all duration-300;
   /* Base mobile styles */
-  top: calc(-6%);
+  top: calc(-2%);
   right: -30px;
   width: 140px;
   padding: 0.75rem;

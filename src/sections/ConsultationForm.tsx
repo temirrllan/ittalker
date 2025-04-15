@@ -13,6 +13,8 @@ interface ConsultationFormProps {
   title?: string;
   description?: string;
   image?: string;
+  isEllipses?: boolean;
+  ellipseColor?: string;
 }
 
 interface FormData {
@@ -26,7 +28,15 @@ interface FormErrors {
   [key: string]: string;
 }
 
-const ConsultationForm = ({ bgColor, textColor, title, description, image }: ConsultationFormProps) => {
+const ConsultationForm = ({ 
+  bgColor, 
+  textColor, 
+  title, 
+  description, 
+  image, 
+  isEllipses = false,
+  ellipseColor = '#ECF4FF' 
+}: ConsultationFormProps) => {
   const [formData, setFormData] = useState<FormData>({
     name: '',
     phone: '',
@@ -104,7 +114,47 @@ const ConsultationForm = ({ bgColor, textColor, title, description, image }: Con
   };
 
   return (
-    <section className={`${bgColor || 'bg-white'} relative w-full py-8 sm:py-12 md:py-16 lg:py-48`}>
+    <section className={`${bgColor || 'bg-white'} relative w-full py-8 sm:py-12 md:py-16 lg:py-48 overflow-hidden`}>
+      {isEllipses && (
+        <>
+          {/* Top Left Ellipse */}
+          <div 
+            className="hidden lg:block absolute rounded-full blur-xl"
+            style={{
+              width: '604px',
+              height: '258px',
+              top: '-41px',
+              left: '-229px',
+              opacity: 0.25,
+              background: ellipseColor
+            }}
+          />
+          {/* Top Right Ellipse */}
+          <div 
+            className="hidden lg:block absolute rounded-full blur-xl"
+            style={{
+              width: '672px',
+              height: '257.5px',
+              top: '-36px',
+              right: '-120px',
+              opacity: 0.25,
+              background: ellipseColor
+            }}
+          />
+          {/* Bottom Left Ellipse */}
+          <div 
+            className="hidden lg:block absolute rounded-full blur-xl"
+            style={{
+              width: '604px',
+              height: '358px',
+              bottom: '-161px',
+              left: '-189px',
+              opacity: 0.25,
+              background: ellipseColor
+            }}
+          />
+        </>
+      )}
       <div className="container mx-auto px-4">
         <div className="grid lg:grid-cols-2 gap-6 lg:gap-16">
           <AnimatedSection direction="left">
@@ -192,7 +242,7 @@ const ConsultationForm = ({ bgColor, textColor, title, description, image }: Con
 
           <AnimatedSection direction="right" className="relative hidden lg:block">
             <div className="absolute right-0 w-full max-w-[30rem] h-auto aspect-square">
-              <div className="relative w-full max-w-[32rem] h-auto aspect-square bg-[#5A7EBC] opacity-70 rounded-[2rem]" />
+              <div className="relative w-full max-w-[32rem] h-auto aspect-square opacity-70 rounded-[2rem]" />
               <Image
                 src={image || "/assets/graduation-hats.png"}
                 alt="Graduation Hats"

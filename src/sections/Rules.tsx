@@ -81,7 +81,7 @@ const Rules = () => {
             </div>
 
             <div className="mt-12 flex justify-center w-full">
-              <div className="bg-[#285EA4] bg-opacity-50 backdrop-blur-sm rounded-t-2xl px-6 py-3 mx-auto">
+              <div className="bg-[#18529D] md:bg-[#285EA4] md:bg-opacity-50 backdrop-blur-sm rounded-t-2xl px-6 md:py-3 py-1 mx-auto">
                 <p className="text-md text-white text-center">
                   *актуально для тарифов &ldquo;С обратной связью&rdquo; и &ldquo;Премиум&rdquo;
                 </p>
