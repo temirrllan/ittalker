@@ -177,7 +177,7 @@ const PriceSection = () => {
       
       <div className="container mx-auto relative z-10">
         <AnimatedSection direction="up">
-          <h2 className="text-2xl md:text-[38 px] font-semibold mb-8 md:mb-12 text-white">
+          <h2 className="text-2xl md:text-[32px] font-semibold mb-8 md:mb-12 text-white">
             Тарифы
           </h2>
 
