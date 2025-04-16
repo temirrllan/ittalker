@@ -26,7 +26,7 @@ export default function Reviews() {
             <LearnOutcomes />
             <Learn />
             <FAQ questions={questions} answers={answers}/>
-            <ConsultationForm title="Хочешь изучить системный анализ?" description="it.t Academy поможет тебе!" bgColor="bg-[#18529D66]" textColor="text-white" isEllipses={true} 
+            <ConsultationForm title="Хочешь изучить системный анализ?" description="it.t Academy поможет тебе!"  textColor="text-white"
             ellipseColor="#557FB5" />
             <Footer />
         </main>

@@ -13,7 +13,7 @@ const manrope = Manrope({
 
 export const metadata: Metadata  = {
   title: 'it.t Academy SA| Системный Анализ',
-  description: 'Профессиональные курсы программирования в Казахстане. Обучение веб-разработке, JavaScript, React, Node.js. Старт карьеры в IT с нуля.',
+  description: 'it.t Academy SA| Системный Анализ',
   keywords: 'IT курсы, программирование, обучение, Казахстан, веб-разработка, JavaScript, React',
 };
 

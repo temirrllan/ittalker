@@ -64,16 +64,12 @@ function Hero() {
             {/* Mobile Chart Card */}
             <div className={styles.chartCard}>
               <Image 
-                src="/assets/blue_chart.png" 
+                src="/assets/chart.png" 
                 alt="Salary Chart" 
-                width={150}
-                height={90}
+                width={190}
+                height={120}
                 className="w-full h-auto max-w-[150px]"
               />
-              <div className='mt-2'>
-                <span className="text-xl font-bold text-[var(--button-primary)]">2000$</span>
-                <p className="text-xs md:text-sm font-medium">Средняя зарплата системного аналитика</p>
-              </div>
             </div>
           </div>
 
@@ -191,20 +187,16 @@ function Hero() {
               </div>
 
               {/* Desktop Chart Card */}
-              <div className={styles.chartCard}>
+                <div className={styles.chartCard}>
                 <Image 
-                  src="/assets/blue_chart.png" 
-                  alt="Salary Chart" 
-                  width={200}
-                  height={100}
+                  src="/assets/chart.png" 
+                  alt="Chart" 
+                  width={300}
+                  height={200}
                   className="w-full h-auto"
                   priority
                 />
-                <div className='mt-4'>
-                  <span className="text-xl md:text-2xl lg:text-[2rem] font-bold text-[var(--button-primary)]">2000$</span>
-                  <p className="text-sm md:text-base lg:text-lg font-medium">Средняя зарплата системного аналитика</p>
                 </div>
-              </div>
             </div>
 
             {/* Desktop Form */}

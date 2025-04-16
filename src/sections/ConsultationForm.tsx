@@ -8,13 +8,13 @@ import AnimatedSection from '@/components/AnimatedSection';
 import Image from 'next/image';
 
 interface ConsultationFormProps {
-  bgColor?: string;
   textColor?: string; 
   title?: string;
   description?: string;
   image?: string;
   isEllipses?: boolean;
   ellipseColor?: string;
+  backgroundImage?: string;
 }
 
 interface FormData {
@@ -29,13 +29,11 @@ interface FormErrors {
 }
 
 const ConsultationForm = ({ 
-  bgColor, 
   textColor, 
   title, 
   description, 
   image, 
-  isEllipses = false,
-  ellipseColor = '#ECF4FF' 
+  backgroundImage = '/assets/consult_bg.png'
 }: ConsultationFormProps) => {
   const [formData, setFormData] = useState<FormData>({
     name: '',
@@ -114,47 +112,12 @@ const ConsultationForm = ({
   };
 
   return (
-    <section className={`${bgColor || 'bg-white'} relative w-full py-8 sm:py-12 md:py-16 lg:py-48 overflow-hidden`}>
-      {isEllipses && (
-        <>
-          {/* Top Left Ellipse */}
-          <div 
-            className="hidden lg:block absolute rounded-full blur-xl"
-            style={{
-              width: '604px',
-              height: '258px',
-              top: '-41px',
-              left: '-229px',
-              opacity: 0.25,
-              background: ellipseColor
-            }}
-          />
-          {/* Top Right Ellipse */}
-          <div 
-            className="hidden lg:block absolute rounded-full blur-xl"
-            style={{
-              width: '672px',
-              height: '257.5px',
-              top: '-36px',
-              right: '-120px',
-              opacity: 0.25,
-              background: ellipseColor
-            }}
-          />
-          {/* Bottom Left Ellipse */}
-          <div 
-            className="hidden lg:block absolute rounded-full blur-xl"
-            style={{
-              width: '604px',
-              height: '358px',
-              bottom: '-161px',
-              left: '-189px',
-              opacity: 0.25,
-              background: ellipseColor
-            }}
-          />
-        </>
-      )}
+    <section 
+      className="relative w-full py-8 sm:py-12 md:py-16 lg:py-48 overflow-hidden bg-cover bg-center bg-no-repeat"
+      style={{
+        backgroundImage: `url(${backgroundImage})`
+      }}
+    >
       <div className="container mx-auto px-4">
         <div className="grid lg:grid-cols-2 gap-6 lg:gap-16">
           <AnimatedSection direction="left">

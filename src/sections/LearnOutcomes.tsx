@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react';
+import Image from 'next/image';
 import AnimatedSection from '@/components/AnimatedSection';
 
 
@@ -81,11 +82,26 @@ function LearnOutcomes() {
   };
 
   return (
-    <section id="advantages" className="py-12 md:py-16 bg-[#6587C1] rounded-t-3xl">
-      <div className="container">
-      <div className="absolute w-[299px] h-[467px] bg-[#004DFF] opacity-45 rounded-full blur-[120px] z-0" style={{ top: '204px', left: '1587px' }} />
-      <div className="absolute w-[652px] h-[299px] bg-[#ECF4FF] opacity-45 rounded-full blur-[120px] z-[-99px]" style={{ top: '1290px', left: '-70px' }} />
-      <div className="absolute w-[1014px] h-[199px] bg-[#ECF4FF] opacity-80 rounded-full blur-[120px] z-0" style={{ top: '890px', left: '495px' }} />
+    <section id="advantages" className="py-12 md:py-16 bg-[#FCFCFE] rounded-t-3xl relative">
+      <div className="absolute left-[-700px] top-[-200px] w-[2000px] h-[800px] z-0">
+        <Image 
+          src="/assets/learn-ellipse.png" 
+          alt=""
+          fill
+          className="object-contain"
+          priority
+        />
+      </div>
+      <div className="absolute right-[-300px] bottom-[-300px] w-[1014px] h-[800px] z-0">
+        <Image 
+          src="/assets/learn-ellipse2.png" 
+          alt=""
+          fill
+          className="object-contain"
+          priority
+        />
+      </div>
+      <div className="container relative z-10">
         <AnimatedSection>
           <h2 className="text-2xl md:text-4xl font-[700] mb-8 md:mb-16 text-white">
             Чему вы научитесь
@@ -106,7 +122,12 @@ function LearnOutcomes() {
                     className="flex items-start gap-4 bg-white shadow-sm rounded-xl p-4 "
                   >
                     <div className="w-10 h-10 bg-white rounded-full p-2 flex items-center justify-center flex-shrink-0">
-                      <img src={outcome.icon} alt="" />
+                      <Image 
+                        src={outcome.icon} 
+                        alt=""
+                        width={24}
+                        height={24}
+                      />
                     </div>
                     <p className="text-sm leading-tight text-[var(--text-primary)]">
                       {outcome.title}
@@ -153,7 +174,12 @@ function LearnOutcomes() {
             >
               <div className="bg-white flex items-start gap-4 group shadow-sm rounded-xl p-4 pt-6 h-[7rem] z-50">
                 <div className="w-6 h-6 bg-white rounded-full flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
-                  <img src={outcome.icon} alt={outcome.title} />
+                  <Image 
+                    src={outcome.icon} 
+                    alt={outcome.title}
+                    width={16}
+                    height={16}
+                  />
                 </div>
                 <p className="text-md font-medium text-[var(--text-primary)]">
                   {outcome.title}
@@ -167,4 +193,4 @@ function LearnOutcomes() {
   );
 }
 
-export default LearnOutcomes; 
+export default LearnOutcomes;

@@ -18,8 +18,6 @@ interface Testimonial {
 
 interface TestimonialCardProps {
   testimonial: Testimonial;
-  onNext: () => void;
-  onPrev: () => void;
 }
 
 const testimonialGroups: TestimonialGroup[] = [
@@ -83,7 +81,7 @@ const testimonialGroups: TestimonialGroup[] = [
   }
 ];
 
-const TestimonialCard = ({ testimonial, onNext, onPrev }: TestimonialCardProps) => {
+const TestimonialCard = ({ testimonial }: TestimonialCardProps) => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [isAnimating, setIsAnimating] = useState(false);
 
@@ -135,29 +133,6 @@ const TestimonialCard = ({ testimonial, onNext, onPrev }: TestimonialCardProps) 
           />
         </div>
       </div>
-      
-      {/* Navigation buttons */}
-      <div className="flex justify-center gap-4">
-        <button 
-          onClick={onPrev}
-          className="w-12 h-12 md:w-16 md:h-16 rounded-full bg-[#F0F0F0] flex items-center justify-center hover:bg-gray-200 transition-colors"
-          aria-label="Previous testimonial"
-        >
-          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M10 12L6 8L10 4" stroke="#006DFC" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-          </svg>
-        </button>
-        
-        <button 
-          onClick={onNext}
-          className="w-12 h-12 md:w-16 md:h-16 rounded-full bg-[#F0F0F0] flex items-center justify-center hover:bg-gray-200 transition-colors"
-          aria-label="Next testimonial"
-        >
-          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M6 4L10 8L6 12" stroke="#006DFC" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-          </svg>
-        </button>
-      </div>
     </div>
   );
 };
@@ -173,9 +148,7 @@ const TestimonialSection = ({ group }: { group: TestimonialGroup }) => {
         {group.testimonials.map((testimonial, index) => (
           <TestimonialCard 
             key={index}
-            testimonial={testimonial} 
-            onNext={() => {}} 
-            onPrev={() => {}} 
+            testimonial={testimonial}
           />
         ))}
       </div>

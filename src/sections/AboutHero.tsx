@@ -15,7 +15,7 @@ const listItems = [
 
 const AboutHero = () => {
   return (
-    <section className="py-10 sm:py-16 md:py-20 px-4 md:px-0">
+    <section className="bg-white py-10 sm:py-16 md:py-20 px-4 md:px-0 rounded-5xl z-50">
       <div className="container mx-auto">
         <AnimatedSection direction="up">
           <div className="max-w-[91.625rem] mx-auto">
