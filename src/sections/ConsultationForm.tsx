@@ -15,6 +15,7 @@ interface ConsultationFormProps {
   isEllipses?: boolean;
   ellipseColor?: string;
   backgroundImage?: string;
+  bgColor?: string;
 }
 
 interface FormData {
@@ -33,7 +34,11 @@ const ConsultationForm = ({
   title, 
   description, 
   image, 
-  backgroundImage = '/assets/consult_bg.png'
+  backgroundImage,
+  ellipseColor,
+  bgColor,
+  isEllipses = false,
+  
 }: ConsultationFormProps) => {
   const [formData, setFormData] = useState<FormData>({
     name: '',
@@ -112,12 +117,53 @@ const ConsultationForm = ({
   };
 
   return (
-    <section 
-      className="relative w-full py-8 sm:py-12 md:py-16 lg:py-48 overflow-hidden bg-cover bg-center bg-no-repeat"
+    <section
+      id='contact' 
+      className={`${bgColor} relative w-full py-8 sm:py-12 md:py-16 lg:py-48 overflow-hidden bg-cover bg-center bg-no-repeat`}
       style={{
         backgroundImage: `url(${backgroundImage})`
       }}
     >
+      {isEllipses && (
+        <>
+          {/* Top Left Ellipse */}
+          <div 
+            className="hidden lg:block absolute rounded-full blur-xl"
+            style={{
+              width: '604px',
+              height: '258px',
+              top: '-41px',
+              left: '-229px',
+              opacity: 0.25,
+              background: ellipseColor
+            }}
+          />
+          {/* Top Right Ellipse */}
+          <div 
+            className="hidden lg:block absolute rounded-full blur-xl"
+            style={{
+              width: '672px',
+              height: '257.5px',
+              top: '-36px',
+              right: '-120px',
+              opacity: 0.25,
+              background: ellipseColor
+            }}
+          />
+          {/* Bottom Left Ellipse */}
+          <div 
+            className="hidden lg:block absolute rounded-full blur-xl"
+            style={{
+              width: '604px',
+              height: '358px',
+              bottom: '-161px',
+              left: '-189px',
+              opacity: 0.25,
+              background: ellipseColor
+            }}
+          />
+        </>
+      )}
       <div className="container mx-auto px-4">
         <div className="grid lg:grid-cols-2 gap-6 lg:gap-16">
           <AnimatedSection direction="left">

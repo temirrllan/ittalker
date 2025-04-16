@@ -1,7 +1,8 @@
 'use client'
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Image from 'next/image';
+import { useRouter } from 'next/navigation';
 
 interface NavbarProps {
   bgColor?: string
@@ -9,47 +10,75 @@ interface NavbarProps {
 
 function Navbar({ bgColor }: NavbarProps) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState<string>('');
+  const router = useRouter();
 
   const navLinks = [
     {
       id: 'about',
-      name: 'Программа курса'
+      name: 'Программа курса',
+      type: 'page'
     },
     {
       id: 'reviews',
-      name: 'Отзывы'
+      name: 'Отзывы',
+      type: 'page'
     },
     {
       id: 'faq',
-      name: 'FAQ'
+      name: 'FAQ',
+      type: 'hash'
     },
     {
       id: 'contacts',
-      name: 'Контакты'
+      name: 'Контакты',
+      type: 'hash'
     }
   ];
 
+  useEffect(() => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          setActiveSection(entry.target.id);
+        }
+      });
+    }, {
+      rootMargin: '-50% 0px',
+      threshold: 0
+    });
+
+    // Only observe hash navigation elements
+    navLinks
+      .filter(link => link.type === 'hash')
+      .forEach(({ id }) => {
+        const element = document.getElementById(id);
+        if (element) observer.observe(element);
+      });
+
+    return () => observer.disconnect();
+  }, [navLinks]);
+
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
-    // Prevent scrolling when menu is open
     document.body.style.overflow = !isMenuOpen ? 'hidden' : 'auto';
   };
 
-  const handleNavClick = (linkId: string) => {
-    const element = document.getElementById(linkId);
-    if (element) {
-      // Prevent default to handle scroll manually
-      event?.preventDefault();
-      
-      // Calculate header height (adjust value based on your header height)
-      const headerOffset = 100;
-      const elementPosition = element.getBoundingClientRect().top;
-      const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+  const handleNavClick = (link: { id: string, type: string }) => {
+    if (link.type === 'page') {
+      router.push(`/${link.id}`);
+    } else {
+      const element = document.getElementById(link.id);
+      if (element) {
+        const headerOffset = 100;
+        const elementPosition = element.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
 
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: "smooth"
-      });
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: "smooth"
+        });
+      }
     }
     setIsMenuOpen(false);
     document.body.style.overflow = 'auto';
@@ -69,12 +98,12 @@ function Navbar({ bgColor }: NavbarProps) {
             {navLinks.map((link) => (
               <li key={link.id}>
                 <a 
-                  href={`#${link.id}`} 
+                  href={link.type === 'page' ? `/${link.id}` : `#${link.id}`}
                   onClick={(e) => {
                     e.preventDefault();
-                    handleNavClick(link.id);
+                    handleNavClick(link);
                   }}
-                  className="text-[#07346F] hover:text-[var(--button-primary)] transition-colors font-semibold text-lg"
+                  className={`text-[#07346F] hover:text-[var(--button-primary)] transition-colors font-semibold text-lg ${activeSection === link.id ? 'text-[var(--button-primary)]' : ''}`}
                 >
                   {link.name}
                 </a>
@@ -116,12 +145,12 @@ function Navbar({ bgColor }: NavbarProps) {
                 {navLinks.map((link) => (
                   <li key={link.id}>
                     <a
-                      href={`#${link.id}`}
+                      href={link.type === 'page' ? `/${link.id}` : `#${link.id}`}
                       onClick={(e) => {
                         e.preventDefault();
-                        handleNavClick(link.id);
+                        handleNavClick(link);
                       }}
-                      className="text-2xl text-[#07346F] hover:text-[var(--button-primary)] transition-colors"
+                      className={`text-2xl text-[#07346F] hover:text-[var(--button-primary)] transition-colors ${activeSection === link.id ? 'text-[var(--button-primary)]' : ''}`}
                     >
                       {link.name}
                     </a>

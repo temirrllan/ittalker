@@ -46,7 +46,7 @@ const FAQ = ({ questions, answers }: FAQProps) => {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   return (
-    <section className="py-20 md:px-0">
+    <section id='faq' className="py-20 md:px-0">
       <div className="container mx-auto max-w-[80rem]">
         <AnimatedSection direction="up">
           <h2 className="text-[2rem] md:text-[3rem] font-semibold leading-[129%] tracking-[-0.01em] text-[#010024] mb-8">

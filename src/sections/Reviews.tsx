@@ -186,7 +186,7 @@ const ReviewCard = ({ name, images, description, story }: ReviewCardProps) => {
 
 const Reviews = () => {
   return (
-    <section className="bg-[var(--bg-section)] py-16 px-4 md:px-0 rounded-3xl">
+    <section id='reviews' className="bg-[var(--bg-section)] py-16 px-4 md:px-0 rounded-3xl">
       <div className="container mx-auto">
         <AnimatedSection direction="up">
           <h2 className="text-[32px] text-white font-semibold mb-8">

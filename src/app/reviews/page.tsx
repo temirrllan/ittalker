@@ -16,7 +16,7 @@ export default function ReviewsPage() {
             <ConsultationForm 
             isEllipses={true} 
             ellipseColor="#ECF4FF"
-             description="Оставь заявку и мы вас проконсультируем" title="Присоединяйся к сообществу SA!"  textColor="text-white" image="/assets/consult.png"/>
+             description="Оставь заявку и мы вас проконсультируем" title="Присоединяйся к сообществу SA!"  textColor="text-white" image="/assets/consult.png" backgroundImage="/assets/consult_bg.png"/>
             <Footer />
             <SocialLinks />
         </main>
