@@ -26,11 +26,7 @@ const levels = [
     { title: "Senior", desc: "Через 3-5 лет", price: "1 500 000 тг" },
 ];
 
-interface SystemsAnalystProps {
-  openModal: () => void;
-}
-
-const SystemsAnalyst = ({ openModal }: SystemsAnalystProps) => {
+const SystemsAnalyst = () => {
   return (
     <section className="bg-white py-20 md:px-0 rounded-xl">
       <div className="container mx-auto">

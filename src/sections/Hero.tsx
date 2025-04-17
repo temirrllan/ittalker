@@ -8,11 +8,8 @@ import AnimatedSection from '@/components/AnimatedSection';
 import styles from '@/styles/Hero.module.css';
 import Image from 'next/image';
 
-interface HeroProps {
-  openModal: () => void;
-}
 
-function Hero({ openModal }: HeroProps) {
+function Hero() {
   const [showSuccess, setShowSuccess] = useState(false);
   const [promoCode, setPromoCode] = useState('');
 
@@ -32,7 +29,6 @@ function Hero({ openModal }: HeroProps) {
 
   const handlePromoSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle promo code submission
   };
 
   return (

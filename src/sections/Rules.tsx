@@ -1,4 +1,3 @@
-import Link from 'next/link';
 import AnimatedSection from '@/components/AnimatedSection';
 
 const rules = [

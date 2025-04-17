@@ -4,7 +4,6 @@ import { useState } from 'react';
 import { IMaskInput } from 'react-imask';
 import { formSchema, formatPhoneInput } from '@/utils/validationSchema';
 import type { ValidationError, ApiResponse } from '@/types/form';
-import Image from 'next/image';
 
 interface ModalFormProps {
   isOpen: boolean;

@@ -184,11 +184,8 @@ const ReviewCard = ({ name, images, description, story }: ReviewCardProps) => {
   );
 };
 
-interface ReviewsProps {
-  openModal: () => void;
-}
 
-const Reviews = ({ openModal }: ReviewsProps) => {
+const Reviews = () => {
   return (
     <section id='reviews' className="bg-[var(--bg-section)] py-16 px-4 md:px-0 rounded-3xl">
       <div className="container mx-auto">

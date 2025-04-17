@@ -98,11 +98,8 @@ const TeamMemberCard = ({ name, surname, role, image, socialType, socialLink, ba
   );
 };
 
-interface TeamProps {
-  openModal: () => void;
-}
 
-const Team = ({ openModal }: TeamProps) => {
+const Team = () => {
   return (
     <section className="py-8 md:py-16 px-4 md:px-0">
       <div className="container mx-auto max-w-[1280px]">

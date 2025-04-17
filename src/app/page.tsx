@@ -38,12 +38,12 @@ export default function Home() {
 
   return (
     <main className="relative w-full overflow-x-hidden">
-      <Navbar openModal={openModal} />
-      <Hero openModal={openModal} />
-      <Analyze openModal={openModal} />
+      <Navbar />
+      <Hero />
+      <Analyze />
       <Rules openModal={openModal} />
-      <Team openModal={openModal} />
-      <Reviews openModal={openModal} />
+      <Team />
+      <Reviews />
       <FAQ questions={questions} answers={answers}/>
       <PriceSection openModal={openModal} /> 
       <ConsultationForm isHome='true'/>

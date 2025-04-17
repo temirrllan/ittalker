@@ -2,7 +2,6 @@
 
 import AnimatedSection from '@/components/AnimatedSection';
 import Image from 'next/image';
-import Link from 'next/link';
 
 
 interface FeatureItem {

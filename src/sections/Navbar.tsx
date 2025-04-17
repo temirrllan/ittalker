@@ -1,15 +1,14 @@
 'use client'
-
+import Link from 'next/link';
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 
 interface NavbarProps {
   bgColor?: string;
-  openModal: () => void;
 }
 
-function Navbar({ bgColor,openModal }: NavbarProps) {
+function Navbar({ bgColor }: NavbarProps) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState<string>('');
   const router = useRouter();
@@ -90,10 +89,10 @@ function Navbar({ bgColor,openModal }: NavbarProps) {
       <div className="container py-6">
         {/* Desktop Navigation */}
         <div className="hidden md:flex items-center justify-between">
-          <a href='/'>
+          <Link href='/'>
             <Image src="/assets/header-logo.png" alt="header-logo" width={226} height={56} />
             <div className="text-4xl text-[var(--text-secondary)] font-bold mt-2">Полный курс SA</div>
-          </a>
+          </Link>
 
           <ul className="flex space-x-6 z-50">
             {navLinks.map((link) => (
