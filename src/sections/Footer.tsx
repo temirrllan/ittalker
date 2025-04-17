@@ -7,25 +7,17 @@ import Link from 'next/link';
 export default function Footer() {
   const menuLinks = [
     {
-      name: 'Курсы',
-      link: 'courses'
+      name: 'Главная',
+      link: '/'
     },
     {
-      name: 'О нас',
-      link: 'about'
-    },
-    {
-      name: 'Преимущества',
-      link: 'advantages'
+      name: 'О программе курса',
+      link: '/about'
     },
     {
       name: 'Отзывы',
-      link: 'reviews'
+      link: '/reviews'
     },
-    {
-      name: 'Контакты',
-      link: 'contacts'
-    }
   ];
 
   return (
@@ -77,7 +69,7 @@ export default function Footer() {
               {menuLinks.map((link) => (
                 <li key={link.link}>
                   <a 
-                    href={`#${link.link}`} 
+                    href={`${link.link}`} 
                     className="text-base lg:text-lg opacity-80 hover:opacity-100"
                   >
                     {link.name}

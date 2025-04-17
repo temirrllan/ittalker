@@ -19,7 +19,7 @@ const teamMembers: TeamMemberProps[] = [
     role: 'Старший и ведущий SA в T-bank, Tele2, Uzum, Сбер, Альфа-банк',
     image: '/assets/arsen.png',
     socialType: 'linkedin',
-    socialLink: '#',
+    socialLink: 'https://www.linkedin.com/in/arsen-kurmashev-5a0bb8193?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app',
     badge: 'it.talker'
   },
   {
@@ -28,16 +28,16 @@ const teamMembers: TeamMemberProps[] = [
     role: 'Co-founder &CEO it.t.Academy',
     image: '/assets/adil.png',
     socialType: 'telegram',
-    socialLink: '#',
+    socialLink: 'https://t.me/AdilFrank',
     badge: 'CEO'
   },
   {
     name: 'Михаил',
     surname: 'Черкашин',
-    role: 'Главный SA Ренессанс Кредит',
+    role: 'Ведущий и главный SA в Альфа-Банк, Реннесанс Кредит',
     image: '/assets/mikhail.png',
     socialType: 'linkedin',
-    socialLink: '#'
+    socialLink: 'https://www.linkedin.com/in/mikhailsystemanalyst/'
   }
 ];
 
@@ -80,7 +80,7 @@ const TeamMemberCard = ({ name, surname, role, image, socialType, socialLink, ba
             </div>
           )}
         </div>
-        <div className="flex flex-col justify-between flex-grow py-1 w-full md:w-auto">
+        <div className="flex flex-col justify-between flex-grow py-1 w-full p-10 md:p-0 md:w-auto"        >
           <div className="space-y-2">
             <h3 className="text-[20px] md:text-[24px] font-medium leading-[129%] tracking-[-0.01em] text-black">
               {name} {surname}
@@ -98,7 +98,11 @@ const TeamMemberCard = ({ name, surname, role, image, socialType, socialLink, ba
   );
 };
 
-const Team = () => {
+interface TeamProps {
+  openModal: () => void;
+}
+
+const Team = ({ openModal }: TeamProps) => {
   return (
     <section className="py-8 md:py-16 px-4 md:px-0">
       <div className="container mx-auto max-w-[1280px]">

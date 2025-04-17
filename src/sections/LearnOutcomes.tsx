@@ -82,25 +82,10 @@ function LearnOutcomes() {
   };
 
   return (
-    <section id="advantages" className="py-12 md:py-16 bg-[#FCFCFE] rounded-t-3xl relative">
-      <div className="absolute left-[-700px] top-[-200px] w-[2000px] h-[800px] z-0">
-        <Image 
-          src="/assets/learn-ellipse.png" 
-          alt=""
-          fill
-          className="object-contain"
-          priority
-        />
-      </div>
-      <div className="absolute right-[-300px] bottom-[-300px] w-[1014px] h-[800px] z-0">
-        <Image 
-          src="/assets/learn-ellipse2.png" 
-          alt=""
-          fill
-          className="object-contain"
-          priority
-        />
-      </div>
+    <section
+      id="advantages"
+      className="py-12 md:py-16 bg-[#FCFCFE] rounded-t-3xl relative overflow-hidden bg-[url('/assets/advantages-bg.png')] bg-cover bg-center"
+    >
       <div className="container relative z-10">
         <AnimatedSection>
           <h2 className="text-2xl md:text-4xl font-[700] mb-8 md:mb-16 text-white">
@@ -119,7 +104,7 @@ function LearnOutcomes() {
                 {getCurrentCards().map((outcome, index) => (
                   <div 
                     key={currentPage * cardsPerPage + index}
-                    className="flex items-start gap-4 bg-white shadow-sm rounded-xl p-4 "
+                    className="flex items-start gap-4 bg-white shadow-sm rounded-2xl p-4"
                   >
                     <div className="w-10 h-10 bg-white rounded-full p-2 flex items-center justify-center flex-shrink-0">
                       <Image 
@@ -172,7 +157,7 @@ function LearnOutcomes() {
                 index % 3 === 1 ? 'up' : 'right'
               }
             >
-              <div className="bg-white flex items-start gap-4 group shadow-sm rounded-xl p-4 pt-6 h-[7rem] z-50">
+              <div className="bg-white flex items-start gap-4 group shadow-sm rounded-2xl p-4 pt-6 h-[7rem] z-50">
                 <div className="w-6 h-6 bg-white rounded-full flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
                   <Image 
                     src={outcome.icon} 

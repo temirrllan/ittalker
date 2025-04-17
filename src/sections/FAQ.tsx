@@ -14,14 +14,14 @@ interface FAQItemProps {
   onClick: () => void;
 }
 
-const FAQItem = ({ question, answer, isOpen = false, onClick }: FAQItemProps) => {
+const FAQItem = ({ question, answer, isOpen = false, onClick}: FAQItemProps) => {
   return (
     <div className="border-b border-gray-200 last:border-none">
       <div 
         className="flex justify-between items-center w-full cursor-pointer py-6"
         onClick={onClick}
       >
-        <h3 className="text-[1.125rem] md:text-[1.375rem] font-medium leading-[109%] tracking-[-0.01em] text-black max-w-[48.875rem]">
+        <h3 className="text-[1.075rem] md:text-[1.375rem] font-medium pr-3 leading-[109%] tracking-[-0.01em] text-black max-w-[48.875rem]">
           {question}
         </h3>
         <div className="w-[2.25rem] h-[2.25rem] bg-[#18529D] rounded-[2rem] flex items-center justify-center flex-shrink-0">
@@ -46,14 +46,14 @@ const FAQ = ({ questions, answers }: FAQProps) => {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   return (
-    <section id='faq' className="py-20 md:px-0">
+    <section id='faq' className="py-20 px-3 md:px-0">
       <div className="container mx-auto max-w-[80rem]">
         <AnimatedSection direction="up">
           <h2 className="text-[2rem] md:text-[3rem] font-semibold leading-[129%] tracking-[-0.01em] text-[#010024] mb-8">
             Вопрос - ответ
           </h2>
 
-          <div className="flex flex-col">
+          <div className="flex flex-col ">
             {questions.map((question, index) => (
               <FAQItem
                 key={index}

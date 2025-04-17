@@ -13,6 +13,8 @@ interface FeatureItem {
 interface PriceCardProps {
   title: string;
   price: string;
+  color: string;
+  openModal: () => void;
   features: (string | FeatureItem)[];
   monthlyPayment?: {
     months: string;
@@ -20,16 +22,16 @@ interface PriceCardProps {
   };
 }
 
-const PriceCard = ({ title, price, features, monthlyPayment }: PriceCardProps) => {
+const PriceCard = ({ title, price, color,features, monthlyPayment,openModal }: PriceCardProps) => {
   return (
-    <div className="bg-[#F5F9FF]  rounded-[22px] flex flex-col h-full">
+    <div className="rounded-[22px] flex flex-col h-full" style={{ backgroundColor: color }}>
       <div className="relative">
         <div className="bg-[#18529D] text-white text-2xl font-semibold py-3 md:py-4 px-4 md:px-8 rounded-b-[22px] text-center mx-12 md:mx-20">
           {price}
         </div>
       </div>
 
-      <div className="p-4 px-6 md:p-8 md:px-10 flex flex-col h-full ">
+      <div className="p-4 pb-10 px-6 md:p-8 md:px-10 flex flex-col h-full ">
         <h3 className="text-2xl md:text-[32px] text-center font-semibold text-[#18529D] mb-2 md:mb-4">
           {title}
         </h3>
@@ -65,10 +67,10 @@ const PriceCard = ({ title, price, features, monthlyPayment }: PriceCardProps) =
 
         {monthlyPayment && (
           <div className="mt-3 md:mt-6">
-            <Link 
-              href="#" 
-              className="flex items-center gap-1.5 md:gap-3 bg-[#EBF3FF] border-[#006DFC] border rounded-[18px] md:rounded-[22px] p-2.5 md:p-4 hover:bg-[#E3EFFF] transition-colors group"
-            >
+              <button 
+                onClick={openModal} // Добавляем обработчик открытия модалки
+                className="flex items-center gap-1.5 md:gap-3 bg-[#EBF3FF] border-[#006DFC] border rounded-[18px] md:rounded-[22px] p-2.5 md:p-4 hover:bg-[#E3EFFF] transition-colors group w-full text-left"
+              >
               <div className="w-6 h-6 md:w-10 md:h-10 relative flex-shrink-0">
                 <Image
                   src="/assets/kaspi.png"
@@ -86,7 +88,7 @@ const PriceCard = ({ title, price, features, monthlyPayment }: PriceCardProps) =
                 </div>
               </div>
               <img src='/assets/arrow.svg' alt='arrow-right' className='w-6 h-6 md:w-8 md:h-8 ml-auto' />
-            </Link>
+            </button>
           </div>
         )}
       </div>
@@ -94,11 +96,16 @@ const PriceCard = ({ title, price, features, monthlyPayment }: PriceCardProps) =
   );
 };
 
-const PriceSection = () => {
+interface PriceSectionProps {
+  openModal: () => void;
+}
+
+const PriceSection = ({ openModal }: PriceSectionProps) => {
   const priceCards = [
     {
       title: 'Базовый',
       price: '250 000 тг',
+      color:'#F2F6FF',
       features: [
         'Все уроки курса',
         'Записанные воркшопы',
@@ -113,6 +120,7 @@ const PriceSection = () => {
     {
       title: 'С обратной связью',
       price: '500 000 тг',
+      color:'#fff',
       features: [
         'Все уроки курса',
         'Живые воркшопы с лектором и\nпрактика + их записи',
@@ -131,10 +139,13 @@ const PriceSection = () => {
     {
       title: 'Премиум',
       price: '990 000 тг',
+      color:'#F2F6FF',
       features: [
-        'Все перечисленное в тарифе "С\nобратной связью", и дополнительно:',
-        { indent: true, text: 'Индивидуальные созвоны с лектором один раз в неделю длительностью до часа, на которых вы: закрываете вопросы по образовательной программе; разбираете кейс на вашей текущей работе; улучшаете CV и так далее' },
-        { indent: true, text: 'Индивидуальная обратная связь\nпо домашним заданиям' }
+        `Все перечисленное в тарифе "С\nобратной связью", и дополнительно:
+         
+        Индивидуальные созвоны с лектором один раз в неделю длительностью до часа, на которых вы: закрываете вопросы по образовательной программе; разбираете кейс на вашей текущей работе; улучшаете CV и так далее
+        
+        Индивидуальная обратная связь по домашним заданиям`,
       ],
       monthlyPayment: {
         months: '0-0-12',
@@ -183,7 +194,7 @@ const PriceSection = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 md:gap-6">
             {priceCards.map((card, index) => (
-              <PriceCard key={index} {...card} />
+              <PriceCard key={index} {...card} openModal={openModal}/>
             ))}
           </div>
         </AnimatedSection>

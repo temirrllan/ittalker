@@ -1,3 +1,5 @@
+'use client'
+
 import Hero from "@/sections/Hero";
 import Navbar from "@/sections/Navbar";
 import Footer from "@/sections/Footer";
@@ -5,8 +7,10 @@ import Rules from "@/sections/Rules";
 import Analyze from "@/sections/Analyze";
 import Reviews from "@/sections/Reviews";
 import Team from "@/sections/Team";
+import { useState } from "react";
 import PriceSection from "@/sections/PriceSection";
 import ConsultationForm from "@/sections/ConsultationForm";
+import ConsultationModal from "@/components/ConsultationModal";
 import FAQ from '@/sections/FAQ';
 
 const questions = [
@@ -25,19 +29,27 @@ const answers = [
   'Конечно! Мы работаем с любой казахстанской компанией. Ограничений на число обучаемых нет, длительность обучения и цена для корпоративного сектора не меняется*. Ученики, как и все остальные, получат сертификат в конце обучения. Мы поможем с оформлением бумаг и возьмем на себя расходы по документообороту. Пишите на почту info@ittalker.kz, чтобы наш менеджер проконсультировал вас!\n\n*акции, скидки и промокоды не применяются.'
 ];
 
+
 export default function Home() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const openModal = () => setIsModalOpen(true);
+  const closeModal = () => setIsModalOpen(false);
+
   return (
     <main className="relative w-full overflow-x-hidden">
-      <Navbar />
-      <Hero />
-      <Analyze />
-      <Rules />
-      <Team />
-      <Reviews />
+      <Navbar openModal={openModal} />
+      <Hero openModal={openModal} />
+      <Analyze openModal={openModal} />
+      <Rules openModal={openModal} />
+      <Team openModal={openModal} />
+      <Reviews openModal={openModal} />
       <FAQ questions={questions} answers={answers}/>
-      <PriceSection/> 
-      <ConsultationForm />
+      <PriceSection openModal={openModal} /> 
+      <ConsultationForm isHome='true'/>
       <Footer />
+      
+      <ConsultationModal isOpen={isModalOpen} onClose={closeModal} />
     </main>
   );
 }

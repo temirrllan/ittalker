@@ -14,29 +14,29 @@ interface ReviewCardProps {
 
 const reviewsData: ReviewCardProps[] = [
   {
-    name: 'Жасулан',
+    name: 'Жасcулан',
     images: ['/assets/review/jasulan1.jpeg', '/assets/review/jasulan2.jpeg', '/assets/review/jasulan3.jpeg'],
-    description: 'Системный аналитик\nстудент 1-го потока',
-    story: 'Узнайте историю Акжола, как он с нуля поднялся до Junior специалиста'
+    description: 'Бизнес-аналитик\nстудент 2-го потока',
+    story: 'Узнайте историю Жассулана'
   },
   {
     name: 'Даяна',
     images: ['/assets/review/dayana.png', '/assets/review/dayana2.png', '/assets/review/dayana3.png', '/assets/review/dayana4.png'],
-    description: 'Системный аналитик\nстудент 1-го потока',
-    story: 'Узнайте историю Даяны, как она с нуля поднялась до Junior специалиста'
+    description: 'С нуля\nстудентка 1-го потока',
+    story: 'Узнайте историю Даяны'
   },
   {
     name: 'Анатолий',
     images: ['/assets/review/anatoly1.jpeg', '/assets/review/anatoly2.jpeg', '/assets/review/anatoly3.jpeg', '/assets/review/anatoly4.jpeg'],
     description: 'Системный аналитик\nстудент 1-го потока',
-    story: 'Узнайте историю Анатолий, как она с нуля поднялась до Junior специалиста'
+    story: 'Узнайте историю Анатолия'
   },
   
   {
     name: 'Софья',
     images: ['/assets/review/sofya1.png', '/assets/review/sofya2.png', '/assets/review/sofya3.png', '/assets/review/sofya4.png'],
-    description: 'Системный аналитик\nстудент 1-го потока',
-    story: 'Узнайте историю Софью, как она с нуля поднялась до Junior специалиста'
+    description: 'Проджект-менеджер\nстудентка 1-го потока',
+    story: 'Узнайте историю Софьи'
   }
 ];
 
@@ -93,7 +93,7 @@ const ReviewCard = ({ name, images, description, story }: ReviewCardProps) => {
               />
             </div>
           </div>
-          <div className='mt-4 space-y-2'>
+          <div className='mt-0 space-y-2 p-5'>
             <h3 className="text-xl text-[var(--text-primary)] font-medium">
               {name}
             </h3>
@@ -109,7 +109,7 @@ const ReviewCard = ({ name, images, description, story }: ReviewCardProps) => {
             </p>
             <Link 
               href="/reviews"   
-              className="text-[var(--button-primary)] text-sm font-medium hover:opacity-80 bg-[#F2F2F2] px-3 py-1.5 rounded-2xl transition-opacity inline-flex items-center mt-2"
+              className="text-[var(--button-primary)] text-sm font-medium mt-5 hover:opacity-80 bg-[#F2F2F2] px-10 py-1.5 rounded-2xl transition-opacity inline-flex items-center mt-2"
             >
               Узнать подробнее
               <svg className="ml-1 w-3 h-3" viewBox="0 0 20 20" fill="currentColor">
@@ -184,7 +184,11 @@ const ReviewCard = ({ name, images, description, story }: ReviewCardProps) => {
   );
 };
 
-const Reviews = () => {
+interface ReviewsProps {
+  openModal: () => void;
+}
+
+const Reviews = ({ openModal }: ReviewsProps) => {
   return (
     <section id='reviews' className="bg-[var(--bg-section)] py-16 px-4 md:px-0 rounded-3xl">
       <div className="container mx-auto">
@@ -208,9 +212,9 @@ const Reviews = () => {
           </div>
 
           <div className="flex justify-center mt-8">
-            <button className="bg-[var(--button-primary)] text-white px-8 py-3 rounded-lg hover:opacity-90 transition-opacity font-medium text-[15px]">
+            <Link href='/reviews' className="bg-[var(--button-primary)] text-white px-8 py-3 rounded-lg hover:opacity-90 transition-opacity font-medium text-[15px]">
               Смотреть все
-            </button>
+            </Link>
           </div>
         </AnimatedSection>
       </div>

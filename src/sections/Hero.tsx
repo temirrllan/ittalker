@@ -8,7 +8,11 @@ import AnimatedSection from '@/components/AnimatedSection';
 import styles from '@/styles/Hero.module.css';
 import Image from 'next/image';
 
-function Hero() {
+interface HeroProps {
+  openModal: () => void;
+}
+
+function Hero({ openModal }: HeroProps) {
   const [showSuccess, setShowSuccess] = useState(false);
   const [promoCode, setPromoCode] = useState('');
 
@@ -32,7 +36,7 @@ function Hero() {
   };
 
   return (
-    <section className="pt-6 bg-[var(--bg-primary)] overflow-hidden rounded-b-3xl">
+    <section style={{ backgroundImage: "url('/assets/main-bg.png')" }} className="pt-6 min-h-[690px] bg-[var(--bg-primary)] overflow-hidden rounded-b-3xl">
       <div className="md:container">
         {/* Mobile Hero */}
         <div className="md:hidden relative">
@@ -40,7 +44,7 @@ function Hero() {
           <div className="px-4">
             <AnimatedSection direction="right">
               <h1 className="text-[30px] leading-[129%] tracking-[-0.01em] text-[#010024] mb-6 font-bold">
-                Получи практические знания SA и увеличь свой доход!
+                Освой профессию системного аналитика!
               </h1>
             </AnimatedSection>
 
@@ -102,7 +106,7 @@ function Hero() {
                 <div className='flex flex-col w-full'>
                   <div className='flex justify-between items-start mb-8'>
                     <h3 className="text-[25px] font-semibold text-white">
-                      Запишись на бесплатный вебинар!
+                      Запишись на бесплатную консультацию!
                     </h3>
                   </div>
 
@@ -118,31 +122,13 @@ function Hero() {
 
         {/* Desktop Hero */}
         <div className="h-full hidden md:block relative min-h-[calc(90vh-50px)]">
-          {/* Background images */}
-          <img 
-            src="/assets/center-ellipse.png" 
-            alt="" 
-            className={`${styles.ellipseBg} ${styles.centerEllipse}`}
-          />
-          <img 
-            src="/assets/right-bottom-ellipse.png" 
-            alt="" 
-            className={`${styles.sideEllipse} ${styles.rightEllipse}`}
-          />
-          <img 
-            src="/assets/left-bottom-ellipse.png" 
-            alt="" 
-            className={`${styles.sideEllipse} ${styles.leftEllipse}`}
-          />
-          
           {/* Content */}
-
-          <div className="grid md:grid-cols-2 gap-12 items-center">
+          <div className="relative grid md:grid-cols-2 gap-12 items-center">
             <div className='mt-16'>
               <AnimatedSection direction="right">
                 <h1 className="text-3xl lg:text-4xl font-bold mb-8">
-                  Получи практические знания <br />
-                  SA и увеличь свой доход!
+                  Освой профессию  <br />
+                  системного аналитика!
                 </h1>
               </AnimatedSection>
               <AnimatedSection direction="left" delay={0.2}>
@@ -205,16 +191,16 @@ function Hero() {
                 absolute z-20 
                 bg-[rgba(12,54,127,0.5)] backdrop-blur-[25px] rounded-[25px]
                 w-[90%] p-4 mx-4
-                md:w-[90%] md:px-6 md:left-1/2 md:-translate-x-1/2 md:bottom-[calc(5%)]
-                lg:w-[80%] lg:px-8 lg:bottom-[calc(7%)]
-                xl:w-[1000px] xl:px-10 xl:left-[39%] xl:-translate-x-1/2 xl:bottom-[calc(7%)]
-                2xl:w-[1200px] 2xl:px-12 2xl:left-[47%] 2xl:-translate-x-1/2 2xl:bottom-[calc(6%)]
+                md:w-[90%] md:px-6 md:-bottom-[20px]
+                lg:w-[80%] lg:px-8 lg:-bottom-[0px]
+                xl:w-[1000px] xl:px-10 xl:left-[0] xl:-bottom-[20px]
+                2xl:w-[1200px] 2xl:px-12 2xl:left-[0%] 2xl:bottom-0
                 transform transition-all duration-300
               `}
             >
               <div className='flex items-center justify-between'>
                 <p className='text-start text-white text-xl lg:text-3xl font-bold'>
-                  Запишись на тестовое консультацию!
+                  Запишись на бесплатную консультацию!
                 </p>
                 
                 <form onSubmit={handlePromoSubmit} className="mb-4">

@@ -35,9 +35,13 @@ const rules = [
   }
 ];
 
-const Rules = () => {
+interface RulesProps {
+  openModal: () => void;
+}
+
+const Rules = ({ openModal }: RulesProps) => {
   return (
-    <section className="relative overflow-hidden bg-[#6587C1] text-white pt-16 px-4 md:px-0 rounded-xl">
+    <section className="relative overflow-hidden bg-[#6587C1] text-white pt-16 px-2 md:px-0 rounded-xl">
       {/* Decorative blobs */}
       <div className="absolute w-[667px] h-[505px] bg-[#04326F] opacity-45 rounded-full blur-[120px] z-0" style={{ top: '323px', left: '-230px' }} />
       <div className="absolute w-[299px] h-[467px] bg-[#004DFF] opacity-45 rounded-full blur-[120px] z-0" style={{ top: '204px', left: '1587px' }} />
@@ -50,30 +54,30 @@ const Rules = () => {
             <h2 className="text-3xl md:text-4xl font-semibold mb-4">
               5 правил it.t Academy
             </h2>
-            <p className="text-lg md:text-xl mb-12 text-white">
+            <p className="text-lg md:text-xl mb-3 text-white">
               Чтобы ваше обучение действительно принесло вам пользу:
             </p>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {rules.map((rule) => (
                 <div key={rule.id} className={rule.colSpan}>
-                  <div className="bg-white rounded-[25px] p-6 md:p-8 h-full">
-                    <h3 className="text-[var(--text-primary)] text-2xl font-semibold mb-4">
+                  <div className="bg-white rounded-[25px] p-6 md:p-8 h-full mt-6">
+                    <h3 className="text-[var(--text-primary)] text-xl md:text-2xl font-semibold mb-6">
                       {rule.title}
                     </h3>
-                    <p className="text-[var(--text-primary)] opacity-80 mb-6">
+                    <p className="text-[#565656] mb-6 font-medium text-sm">
                       {rule.description}
                     </p>
                     {rule.hasLink && (
-                      <Link 
-                        href="#" 
+                      <button
+                        onClick={openModal}
                         className="text-[var(--button-primary)] font-medium hover:opacity-80 transition-opacity inline-flex items-center"
                       >
                         Узнать свой уровень
                         <svg className="ml-2 w-5 h-5" viewBox="0 0 20 20" fill="currentColor">
                           <path fillRule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clipRule="evenodd" />
                         </svg>
-                      </Link>
+                      </button>
                     )}
                   </div>
                 </div>
@@ -82,7 +86,7 @@ const Rules = () => {
 
             <div className="mt-12 flex justify-center w-full">
               <div className="bg-[#18529D] md:bg-[#285EA4] md:bg-opacity-50 backdrop-blur-sm rounded-t-2xl px-6 md:py-3 py-1 mx-auto">
-                <p className="text-md text-white text-center">
+                <p className="text-m text-white text-center">
                   *актуально для тарифов &ldquo;С обратной связью&rdquo; и &ldquo;Премиум&rdquo;
                 </p>
               </div>

@@ -34,33 +34,21 @@ const featureSectionsData: FeatureSectionProps[] = [
 
 const FeatureSection = ({ title, description, image, reverse = false, buttonText, location }: FeatureSectionProps) => {
   return (
-    <div className={`${reverse ? 'bg-white' : 'bg-[#5A7EBC]'} py-8 md:py-12 px-4 md:px-0 rounded-3xl mb-6 relative overflow-hidden`}>
-      {/* Ellipses for first and third features */}
-      {!reverse && (
-        <>
-          <div className="hidden lg:block absolute w-[1190px] h-[552px] -top-[107.5px] -left-[414px] bg-[#00277C] opacity-70 rounded-full blur-[100px] transform -rotate-45" />
-          {/* Top Left Ellipse */}
-          <div className="hidden lg:block absolute w-[535px] h-[272px] -top-[91.5px] -left-[0px] bg-white opacity-60 rounded-full blur-[100px] transform -rotate-45 " />
-          {/* Bottom Left Ellipse */}
-          <div className="hidden lg:block absolute w-[372px] h-[272px] top-[418.5px] -left-[94px] bg-white opacity-60 rounded-full blur-[100px] transform -rotate-45" />
-          {/* Top Right Ellipse */}
-          <div className="hidden lg:block absolute w-[372px] h-[272px] -top-[91.5px] right-[0px] bg-white opacity-60 rounded-full blur-[100px] transform rotate-45" />
-          {/* Bottom Right Ellipse */}
-          <div className="hidden lg:block absolute w-[372px] h-[272px] top-[418.5px] right-[0px] bg-white opacity-60 rounded-full blur-[100px] transform rotate-45" />
-        </>
-      )}
-      
-      {/* Large blue ellipse for third feature */}
-      {title === 'After Party!' && (
-        <>
-          <div className="hidden lg:block absolute w-[1190px] h-[552px] -top-[107.5px] -left-[414px] bg-[#00277C] opacity-70 rounded-full blur-[100px] transform -rotate-45" />
-          {/* Top Right Ellipse */}
-          <div className="hidden lg:block absolute w-[372px] h-[272px] -top-[91.5px] right-[72px] bg-white opacity-70 rounded-full blur-[100px] transform rotate-45" />
-          {/* Bottom Right Ellipse */}
-          <div className="hidden lg:block absolute w-[372px] h-[272px] top-[418.5px] right-[94px] bg-white opacity-70 rounded-full blur-[100px] transform rotate-45" />
-        </>
-      )}
-
+    <div
+      className={`${
+        reverse ? 'bg-white' : 'bg-[#5A7EBC]'
+      } py-8 md:py-12 px-4 md:px-0 rounded-3xl mb-6 relative overflow-hidden`}
+      style={{
+        backgroundImage: !reverse
+          ? title === "After Party!"
+            ? `url('/assets/afterparty-bg.png')`
+            : `url('/assets/feature-bg.png')`
+          : 'none',
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat',
+      }}
+    >
       <div className="container mx-auto relative z-10">
         <AnimatedSection direction="up">
           <div className={`flex flex-col ${reverse ? 'md:flex-row' : 'md:flex-row-reverse'} items-center gap-6 md:gap-10`}>
@@ -96,7 +84,7 @@ const FeatureSection = ({ title, description, image, reverse = false, buttonText
 
 const FeatureSections = () => {
   return (
-    <section className="py-8 md:py-16">
+    <section className="pt-8 md:pt-16">
       <div className="container mx-auto">
         {featureSectionsData.map((feature, index) => (
           <FeatureSection 

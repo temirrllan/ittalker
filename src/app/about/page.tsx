@@ -27,7 +27,7 @@ export default function Reviews() {
             <Learn />
             <FAQ questions={questions} answers={answers}/>
             <ConsultationForm title="Хочешь изучить системный анализ?" description="it.t Academy поможет тебе!"  textColor="text-white" isEllipses={true} 
-            ellipseColor="#5C84B9" bgColor="bg-[#18529D66]" />
+            ellipseColor="#5C84B9" bgColor="bg-[#18529D66]" backgroundImage="./assets/contact-bg.png"/>
             <Footer />
         </main>
     );

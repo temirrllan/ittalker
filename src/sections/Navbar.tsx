@@ -5,10 +5,11 @@ import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 
 interface NavbarProps {
-  bgColor?: string
+  bgColor?: string;
+  openModal: () => void;
 }
 
-function Navbar({ bgColor }: NavbarProps) {
+function Navbar({ bgColor,openModal }: NavbarProps) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState<string>('');
   const router = useRouter();
@@ -89,10 +90,10 @@ function Navbar({ bgColor }: NavbarProps) {
       <div className="container py-6">
         {/* Desktop Navigation */}
         <div className="hidden md:flex items-center justify-between">
-          <div>
+          <a href='/'>
             <Image src="/assets/header-logo.png" alt="header-logo" width={226} height={56} />
             <div className="text-4xl text-[var(--text-secondary)] font-bold mt-2">Полный курс SA</div>
-          </div>
+          </a>
 
           <ul className="flex space-x-6 z-50">
             {navLinks.map((link) => (

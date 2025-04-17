@@ -15,6 +15,7 @@ interface ConsultationFormProps {
   isEllipses?: boolean;
   ellipseColor?: string;
   backgroundImage?: string;
+  isHome?: string;
   bgColor?: string;
 }
 
@@ -35,9 +36,7 @@ const ConsultationForm = ({
   description, 
   image, 
   backgroundImage,
-  ellipseColor,
-  bgColor,
-  isEllipses = false,
+  isHome
   
 }: ConsultationFormProps) => {
   const [formData, setFormData] = useState<FormData>({
@@ -119,55 +118,15 @@ const ConsultationForm = ({
   return (
     <section
       id='contact' 
-      className={`${bgColor} relative w-full py-8 sm:py-12 md:py-16 lg:py-48 overflow-hidden bg-cover bg-center bg-no-repeat`}
+      className={`relative w-full py-8 sm:py-12 md:py-16 lg:py-28 overflow-hidden bg-cover bg-center bg-no-repeat`}
       style={{
         backgroundImage: `url(${backgroundImage})`
       }}
     >
-      {isEllipses && (
-        <>
-          {/* Top Left Ellipse */}
-          <div 
-            className="hidden lg:block absolute rounded-full blur-xl"
-            style={{
-              width: '604px',
-              height: '258px',
-              top: '-41px',
-              left: '-229px',
-              opacity: 0.25,
-              background: ellipseColor
-            }}
-          />
-          {/* Top Right Ellipse */}
-          <div 
-            className="hidden lg:block absolute rounded-full blur-xl"
-            style={{
-              width: '672px',
-              height: '257.5px',
-              top: '-36px',
-              right: '-120px',
-              opacity: 0.25,
-              background: ellipseColor
-            }}
-          />
-          {/* Bottom Left Ellipse */}
-          <div 
-            className="hidden lg:block absolute rounded-full blur-xl"
-            style={{
-              width: '604px',
-              height: '358px',
-              bottom: '-161px',
-              left: '-189px',
-              opacity: 0.25,
-              background: ellipseColor
-            }}
-          />
-        </>
-      )}
       <div className="container mx-auto px-4">
         <div className="grid lg:grid-cols-2 gap-6 lg:gap-16">
           <AnimatedSection direction="left">
-            <div className="max-w-[80rem]">
+            <div className="max-w-[70rem]">
               <h2 className={`text-[1.5rem] sm:text-[2rem] md:text-[2.2rem] lg:text-[2.5rem] font-semibold leading-[120%] sm:leading-[129%] tracking-[-0.01em] mb-2 xl:whitespace-nowrap ${textColor || 'text-[#010024]'}`}>
                 {title || 'Узнай больше о системном анализе'}
               </h2>
@@ -175,7 +134,7 @@ const ConsultationForm = ({
                 {description || 'Оставь заявку и мы вас проконсультируем'}
               </p>
 
-              <form onSubmit={handleSubmit} className="max-w-[60rem]">
+              <form onSubmit={handleSubmit} className="max-w-[50rem]">
                 <div className="grid sm:grid-cols-2 gap-3 lg:gap-4 mb-4 lg:mb-6">
                   <div>
                     <input
@@ -253,7 +212,7 @@ const ConsultationForm = ({
             <div className="absolute right-0 w-full max-w-[30rem] h-auto aspect-square">
               <div className="relative w-full max-w-[32rem] h-auto aspect-square opacity-70 rounded-[2rem]" />
               <Image
-                src={image || "/assets/graduation-hats.png"}
+                src={isHome ? "/assets/graduation-hats-home.png" : (image || "/assets/graduation-hats.png")}
                 alt="Graduation Hats"
                 width={734}
                 height={734}

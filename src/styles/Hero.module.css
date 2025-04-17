@@ -1,6 +1,6 @@
 /* Mobile styles first */
 .heroImage {
-  @apply w-full mx-auto object-contain;
+  @apply mx-auto object-contain;
   max-width: 334px; /* Mobile width */
 }
 
@@ -13,8 +13,7 @@
   .heroImage {
     @apply absolute right-[-10px];
     max-width: none;
-    height: calc(100vh - 80px);
-    bottom: calc(20vh - 400px);
+    height: 760px !important;
   }
 
   .mobileHeroImage {
@@ -36,13 +35,13 @@
 
 @media (min-width: 1440px) {
   .heroImage {
-    bottom: calc(15vh - 300px);
+    bottom: -130px;
   }
 }
 
 @media (min-width: 1536px) {
   .heroImage {
-    bottom: calc(8vh - 180px);
+    bottom: -130px;
   }
 }
 
