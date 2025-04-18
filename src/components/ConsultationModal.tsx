@@ -30,6 +30,7 @@ const ConsultationModal = ({ isOpen, onClose }: ModalFormProps) => {
   });
   const [errors, setErrors] = useState<FormErrors>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [successMessage, setSuccessMessage] = useState('');
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -57,7 +58,13 @@ const ConsultationModal = ({ isOpen, onClose }: ModalFormProps) => {
       });
       const result = await response.json() as ApiResponse;
 
-      if (result.success) setFormData({ name: '', phone: '', email: '', promocode: '' });
+      if (result.success) {
+        setFormData({ name: '', phone: '', email: '', promocode: '' });
+        setSuccessMessage('Заявка успешно отправлена!');
+        setTimeout(() => setSuccessMessage(''), 3000);
+      }
+
+      
       else throw new Error(result.error || 'Failed to submit form');
     } catch (err) {
       const error = err as ValidationError;
@@ -78,6 +85,7 @@ const ConsultationModal = ({ isOpen, onClose }: ModalFormProps) => {
       <div className="bg-white w-full max-w-md rounded-2xl p-6 relative">
         <button onClick={onClose} className="absolute top-3 right-4 text-gray-500 hover:text-black text-2xl">×</button>
         <h2 className="text-3xl font-bold text-center mb-3">Узнай больше о системном анализе</h2>
+        {successMessage && <div className="text-green-600 text-center text-sm">{successMessage}</div>}
         <p className="text-sm text-center text-gray-600 mb-6">Оставь заявку и мы вас проконсультируем</p>
         <form onSubmit={handleSubmit} className="grid gap-3">
           <input

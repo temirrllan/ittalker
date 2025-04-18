@@ -12,7 +12,7 @@ const SocialLinks = () => {
           className="cursor-pointer hover:opacity-80 transition-opacity"
         />
       </a>
-      <a href="https://t.me" target="_blank" rel="noopener noreferrer">
+      <a href="https://t.me/" target="_blank" rel="noopener noreferrer">
         <Image 
           src="/assets/colorful/tg.svg" 
           alt="Telegram" 

@@ -180,14 +180,14 @@
 
 @media (min-width: 1280px) {
   .companyCard {
-    top: calc(10%);
+    top: calc(0%);
     right: -50px;
   }
 }
 
 @media (min-width: 1440px) {
   .companyCard {
-    top: calc(12%);
+    top: calc(0%);
     right: -60px;
   }
 }
@@ -367,7 +367,7 @@
 /* Standard laptop (1280px-1535px) */
 @media (min-width: 1280px) and (max-width: 1535px) {
   .chartCard {
-    bottom: 14%;
+    bottom: 30%;
     right: -54px;
     width: 250px;
     padding: 1rem;
@@ -396,10 +396,10 @@
 /* Extra large desktop (1920px and above) */
 @media (min-width: 1920px) {
   .chartCard {
-    bottom: 30%;
+    bottom: 23%;
     right: -80px;
-    width: 320px;
-    padding: 2rem;
+    width: 300px;
+    padding: .5rem;
     border-radius: 35px;
   }
   .chartCard img {

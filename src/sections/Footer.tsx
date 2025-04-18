@@ -112,8 +112,8 @@ export default function Footer() {
                   </span>
                 </a>
 
-                <a 
-                  href="https://gmail/info@ittalker.kz" 
+                <Link 
+                  href="mailto:info@ittalker.kz" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="flex items-center gap-3"
@@ -124,7 +124,7 @@ export default function Footer() {
                   <span className="text-base lg:text-lg opacity-80 hover:opacity-100">
                     info@ittalker.kz
                   </span>
-                </a>
+                </Link>
 
 
                 <a 

@@ -14,7 +14,7 @@ const manrope = Manrope({
 export const metadata: Metadata  = {
   title: 'it.t Academy SA| Системный Анализ',
   description: 'it.t Academy SA| Системный Анализ',
-  keywords: 'IT курсы, программирование, обучение, Казахстан, веб-разработка, JavaScript, React',
+  keywords: 'SA, Системный анализ, курсы по системному анализу, Казахстан, Анализ, SQL, Курсы SA',
 };
 
 export default function RootLayout({

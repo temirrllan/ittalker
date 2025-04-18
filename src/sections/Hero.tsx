@@ -190,7 +190,7 @@ function Hero() {
                 md:w-[90%] md:px-6 md:-bottom-[20px]
                 lg:w-[80%] lg:px-8 lg:-bottom-[0px]
                 xl:w-[1000px] xl:px-10 xl:left-[0] xl:-bottom-[20px]
-                2xl:w-[1200px] 2xl:px-12 2xl:left-[0%] 2xl:bottom-0
+                2xl:w-[1200px] 2xl:px-12 2xl:left-[0%] 2xl:-bottom-[70px]
                 transform transition-all duration-300
               `}
             >

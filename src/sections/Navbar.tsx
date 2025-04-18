@@ -114,10 +114,10 @@ function Navbar({ bgColor }: NavbarProps) {
 
         {/* Mobile Navigation */}
         <div className="md:hidden flex items-start justify-between relative">
-          <div className="space-y-4">
+          <Link href="/" className="space-y-4">
             <Image src="/assets/header-logo.png" alt="header-logo" width={226} height={56} />
             <div className="text-lg text-[var(--text-secondary)] font-extrabold">Полный курс SA</div>
-          </div>
+          </Link>
           
           <button 
             onClick={toggleMenu}
