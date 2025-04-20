@@ -33,7 +33,9 @@ export const formSchema = yup.object().shape({
         .string()
         .required('Введите email')
         .email('Введите корректный email')
-        .transform((value) => value?.toLowerCase().trim())
+        .transform((value) => value?.toLowerCase().trim()),
+ 
+        promocode: yup.string().optional()
 });
 
 // Helper function to format phone input in real-time
