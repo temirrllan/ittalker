@@ -93,7 +93,7 @@ const testimonialGroups: TestimonialGroup[] = [
         name: 'Александра',
         position: 'Системный аналитик',
         batchNumber: '2-го',
-        images: ['/assets/alexa-1.PNG', '/assets/alexa-2.PNG', '/assets/alexa-3.PNG', '/assets/alexa-4.PNG']
+        images: ['/assets/alexa-1.png', '/assets/alexa-2.png', '/assets/alexa-3.png', '/assets/alexa-4.png']
       },
       {
         name: 'Жасулан',
@@ -105,7 +105,7 @@ const testimonialGroups: TestimonialGroup[] = [
         name: 'Альбина',
         position: 'Системный аналитик',
         batchNumber: '2-го',
-        images: ['/assets/review/albina.PNG', '/assets/review/albina2.PNG', '/assets/review/albina3.PNG', '/assets/review/albina4.PNG']
+        images: ['/assets/review/albina.png', '/assets/review/albina2.png', '/assets/review/albina3.png', '/assets/review/albina4.png']
       },
       {
         name: 'Адема',
@@ -123,7 +123,7 @@ const testimonialGroups: TestimonialGroup[] = [
         name: 'Алишер',
         position: 'Системный аналитик',
         batchNumber: '2-го',
-        images: ['/assets/review/jazira.PNG', '/assets/review/jazira3.PNG', '/assets/review/jazira2.PNG', '/assets/review/jazira4.PNG']
+        images: ['/assets/review/jazira.png', '/assets/review/jazira3.png', '/assets/review/jazira2.png', '/assets/review/jazira4.png']
       },
     ]
   }
