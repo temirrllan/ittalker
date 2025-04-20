@@ -1,0 +1,28 @@
+version: '3.8'
+
+services:
+  nextjs:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: always
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
+      - GOOGLE_SHEET_ID=${GOOGLE_SHEET_ID}
+      - GOOGLE_SHEET_EMAIL=${GOOGLE_SHEET_EMAIL}
+      - GOOGLE_SHEET_PRIVATE_KEY=${GOOGLE_SHEET_PRIVATE_KEY}
+    healthcheck:
+      test: ["CMD", "wget", "--spider", "http://localhost:3000"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+      start_period: 15s
+    volumes:
+      - nextjs_data:/app/.next/cache
+      # Optional: Uncomment to persist logs
+      # - ./logs:/app/logs
+
+volumes:
+  nextjs_data:
