@@ -32,7 +32,7 @@ function Hero() {
   };
 
   return (
-    <section style={{ backgroundImage: "url('/assets/main-bg.png')" }} className="pt-6 min-h-[690px] bg-[var(--bg-primary)] overflow-hidden rounded-b-3xl">
+    <section style={{ backgroundImage: "url('/assets/main-bg.png')" }} className="pt-6 min-h-[690px] max-h-[1980px] md:max-h-[780px] lg:max-h-[780px] bg-[var(--bg-primary)] overflow-hidden rounded-b-3xl">
       <div className="md:container">
         {/* Mobile Hero */}
         <div className="md:hidden relative">
@@ -188,7 +188,7 @@ function Hero() {
                 bg-[rgba(12,54,127,0.5)] backdrop-blur-[25px] rounded-[25px]
                 w-[90%] p-4 mx-4
                 md:w-[90%] md:px-6 md:-bottom-[20px]
-                lg:w-[80%] lg:px-8 lg:-bottom-[0px]
+                lg:w-[80%] lg:px-8 lg:-bottom-[10px]
                 xl:w-[1000px] xl:px-10 xl:left-[0] xl:-bottom-[20px]
                 2xl:w-[1200px] 2xl:px-12 2xl:left-[0%] 2xl:-bottom-[70px]
                 transform transition-all duration-300

@@ -21,17 +21,6 @@
   }
 }
 
-@media (min-width: 1024px) {
-  .heroImage {
-    bottom: calc(20vh - 340px);
-  }
-}
-
-@media (min-width: 1280px) {
-  .heroImage {
-    bottom: calc(20vh - 320px);
-  }
-}
 
 @media (min-width: 1440px) {
   .heroImage {
@@ -240,7 +229,7 @@
 
 @media (max-width: 360px) {
   .chartCard {
-    top: calc(43%);
+    top: calc(39%);
     right: 10px;
     width: 150px;
     padding: 0.5rem;
@@ -264,7 +253,7 @@
 
 @media (min-width: 360px) and (max-width: 480px) {
   .chartCard {
-    top: calc(40%);
+    top: calc(39%);
     right: 10px;
     width: 150px;
     padding: 0.5rem;
@@ -382,10 +371,10 @@
 @media (min-width: 1536px) {
   .chartCard {
     bottom: 25%;
-    right: -70px;
+    right: -80px;
     width: 300px;
-    padding: 1.75rem;
-    border-radius: 30px;
+    padding: .5rem;
+    border-radius: 35px;
   }
   .chartCard img {
     max-width: 250px;
