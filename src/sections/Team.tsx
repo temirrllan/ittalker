@@ -17,7 +17,7 @@ const teamMembers: TeamMemberProps[] = [
     name: 'Арсен',
     surname: 'Курмашев',
     role: 'Старший и ведущий SA в T-bank, Tele2, Uzum, Сбер, Альфа-банк',
-    image: '/assets/arsen.png',
+    image: '/assets/arsen1.png',
     socialType: 'linkedin',
     socialLink: 'https://www.linkedin.com/in/arsen-kurmashev-5a0bb8193?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app',
     badge: 'it.talker'
