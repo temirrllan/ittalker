@@ -64,7 +64,7 @@ function Hero() {
             {/* Mobile Chart Card */}
             <div className={styles.chartCard}>
               <Image 
-                src="/assets/chart.png" 
+                src="/assets/chart1.png" 
                 alt="Salary Chart" 
                 width={190}
                 height={120}
@@ -171,7 +171,7 @@ function Hero() {
               {/* Desktop Chart Card */}
                 <div className={styles.chartCard}>
                 <Image 
-                  src="/assets/chart.png" 
+                  src="/assets/chart1.png" 
                   alt="Chart" 
                   width={300}
                   height={200}
