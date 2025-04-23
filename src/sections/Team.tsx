@@ -17,7 +17,7 @@ const teamMembers: TeamMemberProps[] = [
     name: 'Арсен',
     surname: 'Курмашев',
     role: 'Старший и ведущий SA в T-bank, Tele2, Uzum, Сбер, Альфа-банк',
-    image: '/assets/arsen1.png',
+    image: '/assets/arsen.jpg',
     socialType: 'linkedin',
     socialLink: 'https://www.linkedin.com/in/arsen-kurmashev-5a0bb8193?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app',
     badge: 'it.talker'
@@ -26,7 +26,7 @@ const teamMembers: TeamMemberProps[] = [
     name: 'Адиль',
     surname: 'Франк',
     role: 'Co-founder &CEO it.t.Academy',
-    image: '/assets/adil.png',
+    image: '/assets/adil.jpg',
     socialType: 'telegram',
     socialLink: 'https://t.me/AdilFrank',
     badge: 'CEO'
@@ -35,7 +35,7 @@ const teamMembers: TeamMemberProps[] = [
     name: 'Михаил',
     surname: 'Черкашин',
     role: 'Ведущий и главный SA в Альфа-Банк, Реннесанс Кредит',
-    image: '/assets/mikhail.png',
+    image: '/assets/mikhail.jpg',
     socialType: 'linkedin',
     socialLink: 'https://www.linkedin.com/in/mikhailsystemanalyst/'
   }

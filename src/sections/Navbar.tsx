@@ -90,7 +90,7 @@ function Navbar({ bgColor }: NavbarProps) {
         {/* Desktop Navigation */}
         <div className="hidden md:flex items-center justify-between">
           <Link href='/'>
-            <Image src="/assets/header-logo.png" alt="header-logo" width={226} height={56} />
+            <Image src="/assets/logo.png" alt="logo" width={226} height={56} />
             <div className="text-4xl text-[var(--text-secondary)] font-bold mt-2">Полный курс SA</div>
           </Link>
 
@@ -115,7 +115,7 @@ function Navbar({ bgColor }: NavbarProps) {
         {/* Mobile Navigation */}
         <div className="md:hidden flex items-start justify-between relative">
           <Link href="/" className="space-y-4">
-            <Image src="/assets/header-logo.png" alt="header-logo" width={226} height={56} />
+            <Image src="/assets/logo.png" alt="logo" width={226} height={56} />
             <div className="text-lg text-[var(--text-secondary)] font-extrabold">Полный курс SA</div>
           </Link>
           

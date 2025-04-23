@@ -28,7 +28,7 @@ export default function Footer() {
           {/* Logo and Legal Links */}
           <AnimatedSection direction="left" className="space-y-4 w-full lg:w-auto">
             <img 
-              src="/assets/header-logo.png" 
+              src="/assets/logo.png" 
               alt="it.talker" 
               className="h-8"
             />
