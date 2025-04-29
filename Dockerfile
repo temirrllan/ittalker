@@ -1,53 +1,43 @@
-# Use Node.js 20 as the base image
-FROM node:20-alpine AS base
-
-# Install dependencies only when needed
-FROM base AS deps
+# 1) Базовый образ на Debian-slim
+FROM node:20-slim AS base
 WORKDIR /app
 
-# Copy package files
+# 2) Устанавливаем зависимости
+FROM base AS deps
 COPY package.json package-lock.json* ./
-
-# Install dependencies
 RUN npm ci
 
-# Build the application
+# 3) Собираем билд
 FROM base AS builder
 WORKDIR /app
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
 
-# Set environment variables for build
-ENV NODE_ENV production
-ENV NEXT_TELEMETRY_DISABLED 1
-ENV NODE_OPTIONS=--max-old-space-size=3072
-# Build Next.js application
+ENV NODE_ENV=production
+ENV NEXT_TELEMETRY_DISABLED=1
+ENV NODE_OPTIONS="--max_old_space_size=3072"
+
+# Здесь уже не должно OOM
 RUN npm run build
 
-# Production image, copy built files and run
+# 4) Финальный раннер
 FROM base AS runner
 WORKDIR /app
 
-ENV NODE_ENV production
-ENV NEXT_TELEMETRY_DISABLED 1
+ENV NODE_ENV=production
+ENV NEXT_TELEMETRY_DISABLED=1
 
-# Create a non-root user to run the application
-RUN addgroup --system --gid 1001 nodejs && \
-    adduser --system --uid 1001 nextjs
+RUN addgroup --system --gid 1001 nodejs \
+ && adduser  --system --uid 1001 nextjs
 
-# Copy built application
 COPY --from=builder --chown=nextjs:nodejs /app/.next ./.next
 COPY --from=builder /app/node_modules ./node_modules
 COPY --from=builder /app/package.json ./package.json
 COPY --from=builder /app/public ./public
 COPY --from=builder /app/next.config.ts ./
 
-# Switch to non-root user
 USER nextjs
-
 EXPOSE 3000
+ENV PORT=3000
 
-ENV PORT 3000
-
-# Start the Next.js application
 CMD ["npm", "start"]
