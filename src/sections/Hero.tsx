@@ -102,7 +102,7 @@ function Hero() {
                 <div className='flex flex-col w-full'>
                   <div className='flex justify-between items-start mb-8'>
                     <h3 className="text-[25px] font-semibold text-white">
-                      Запишись на бесплатную консультацию!
+                      Запишись на бесплатную консультацию!!
                     </h3>
                   </div>
 
