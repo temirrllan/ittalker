@@ -137,7 +137,7 @@ function HeroForm({ className = '', onSubmitSuccess, promoCode = '' }: HeroFormP
           <IMaskInput
             mask="+{0}(000) 000 00 00"
             definitions={{
-              '0': /[1-9]/
+              '0': /[0-9]/
             }}
             value={formData.phone}
             onAccept={handlePhoneChange}
