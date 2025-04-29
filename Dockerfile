@@ -20,7 +20,7 @@ COPY . .
 # Set environment variables for build
 ENV NODE_ENV production
 ENV NEXT_TELEMETRY_DISABLED 1
-
+ENV NODE_OPTIONS=--max-old-space-size=3072
 # Build Next.js application
 RUN npm run build
 
