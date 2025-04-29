@@ -5,15 +5,17 @@ const formatPhoneNumber = (value: string) => {
     if (!value) return value;
     // Remove all non-digits
     const phoneNumber = value.replace(/[^\d]/g, '');
-    // Format as +7(XXX) XXX XX XX
+
+    // Check if there's already a country code - keep user's input
     if (phoneNumber.length >= 11) {
-        return `+7(${phoneNumber.slice(1, 4)}) ${phoneNumber.slice(4, 7)} ${phoneNumber.slice(7, 9)} ${phoneNumber.slice(9, 11)}`;
+        const countryCode = phoneNumber[0] === '7' ? '+7' : `+${phoneNumber[0]}`;
+        return `${countryCode}(${phoneNumber.slice(1, 4)}) ${phoneNumber.slice(4, 7)} ${phoneNumber.slice(7, 9)} ${phoneNumber.slice(9, 11)}`;
     }
     return value;
 };
 
-// Custom phone validation
-const phoneRegExp = /^\+7\(\d{3}\)\s\d{3}\s\d{2}\s\d{2}$/;
+// Custom phone validation - updated to accept different country codes
+const phoneRegExp = /^\+\d\(\d{3}\)\s\d{3}\s\d{2}\s\d{2}$/;
 
 export const formSchema = yup.object().shape({
     name: yup
@@ -26,7 +28,7 @@ export const formSchema = yup.object().shape({
     phone: yup
         .string()
         .required('Введите номер телефона')
-        .matches(phoneRegExp, 'Введите корректный номер телефона в формате +7(XXX) XXX XX XX')
+        .matches(phoneRegExp, 'Введите корректный номер телефона в формате +X(XXX) XXX XX XX')
         .transform(formatPhoneNumber),
 
     email: yup
@@ -34,8 +36,8 @@ export const formSchema = yup.object().shape({
         .required('Введите email')
         .email('Введите корректный email')
         .transform((value) => value?.toLowerCase().trim()),
- 
-        promocode: yup.string().optional()
+
+    promocode: yup.string().optional()
 });
 
 // Helper function to format phone input in real-time
@@ -47,8 +49,12 @@ export const formatPhoneInput = (value: string) => {
 
     // Build the formatted string
     let formatted = '';
+
+    // If there are digits, format according to the first digit (country code)
     if (phoneNumber.length > 0) {
-        formatted += '+7';
+        // Use first digit as country code
+        formatted = `+${phoneNumber[0]}`;
+
         if (phoneNumber.length > 1) {
             formatted += `(${phoneNumber.slice(1, 4)}`;
         }
@@ -68,4 +74,6 @@ export const formatPhoneInput = (value: string) => {
 
 // Example usage of phone mask:
 // Input: "77771234567"
-// Output: "+7(777) 123 45 67" 
+// Output: "+7(777) 123 45 67"
+// Input: "17771234567"
+// Output: "+1(777) 123 45 67"

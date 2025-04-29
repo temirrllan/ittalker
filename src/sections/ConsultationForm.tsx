@@ -168,7 +168,10 @@ const ConsultationForm = ({
                   </div>
                   <div>
                     <IMaskInput
-                      mask="+7(000) 000 00 00"
+                      mask="+{0}(000) 000 00 00"
+                      definitions={{
+                        '0': /[1-9]/
+                      }}
                       value={formData.phone}
                       onAccept={handlePhoneChange}
                       placeholder="Телефон"
