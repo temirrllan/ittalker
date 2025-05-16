@@ -103,7 +103,7 @@ const PriceSection = ({ openModal }: PriceSectionProps) => {
   const priceCards = [
     {
       title: 'Базовый',
-      price: '250 000 тг',
+      price: '300 000 тг',
       color:'#F2F6FF',
       features: [
         'Все уроки курса',
@@ -118,7 +118,7 @@ const PriceSection = ({ openModal }: PriceSectionProps) => {
     },
     {
       title: 'С обратной связью',
-      price: '500 000 тг',
+      price: '600 000 тг',
       color:'#fff',
       features: [
         'Все уроки курса',
@@ -137,7 +137,7 @@ const PriceSection = ({ openModal }: PriceSectionProps) => {
     },
     {
       title: 'Премиум',
-      price: '990 000 тг',
+      price: '1 190 000 тг',
       color:'#F2F6FF',
       features: [
         `Все перечисленное в тарифе "С\nобратной связью", и дополнительно:
