@@ -4,8 +4,8 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    args:
-        NODE_OPTIONS: "--max_old_space_size=2048"
+      args:
+          NODE_OPTIONS: "--max_old_space_size=2048"
     restart: always
     ports:
       - "3000:3000"
