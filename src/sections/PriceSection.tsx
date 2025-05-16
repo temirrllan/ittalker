@@ -103,7 +103,7 @@ const PriceSection = ({ openModal }: PriceSectionProps) => {
   const priceCards = [
     {
       title: 'Базовый',
-      price: '300 000 тг',
+      price: '300 000  тг',
       color:'#F2F6FF',
       features: [
         'Все уроки курса',
