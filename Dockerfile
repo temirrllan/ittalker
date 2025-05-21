@@ -20,6 +20,8 @@ COPY . .
 # Set environment variables for build
 ENV NODE_ENV production
 ENV NEXT_TELEMETRY_DISABLED 1
+# Increase Node.js heap size to avoid out-of-memory during build
+ENV NODE_OPTIONS="--max_old_space_size=2048"
 
 # Build Next.js application
 RUN npm run build
