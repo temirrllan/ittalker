@@ -113,7 +113,7 @@ const PriceSection = ({ openModal }: PriceSectionProps) => {
       ],
       monthlyPayment: {
         months: '0-0-12',
-        amount: '20 830 тг/мес'
+        amount: '25 000 тг/мес'
       }
     },
     {
@@ -132,7 +132,7 @@ const PriceSection = ({ openModal }: PriceSectionProps) => {
       ],
       monthlyPayment: {
         months: '0-0-12',
-        amount: '41 660 тг/мес'
+        amount: '50 000 тг/мес'
       }
     },
     {
@@ -148,7 +148,7 @@ const PriceSection = ({ openModal }: PriceSectionProps) => {
       ],
       monthlyPayment: {
         months: '0-0-12',
-        amount: '82 500 тг/мес'
+        amount: '99 165 тг/мес'
       }
     }
   ];
