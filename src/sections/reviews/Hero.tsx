@@ -8,11 +8,12 @@ const HeroSection = () => {
       <div className="relative rounded-3xl h-[500px] md:h-[600px] lg:h-[700px] overflow-hidden">
         <div className="absolute inset-0">  
           <video
-            src="/assets/hero2.MOV"
+            src="/assets/hero2.mp4"
             autoPlay
             loop
             muted
             playsInline
+            preload="auto"
             className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-black bg-opacity-20"></div>
